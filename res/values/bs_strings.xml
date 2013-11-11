@@ -464,4 +464,8 @@
     <!-- Disable quick settings on lock screen switch -->
     <string name="lockscreen_qs_disabled_title">Quick settings disabled on lock screen</string>
     <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings and keyguard shortcuts on secure lock screens</string>
+
+    <!-- setting: show CPU info-->
+    <string name="show_cpu_info">Show CPU info</string>
+    <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
 </resources>
