@@ -50,7 +50,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
     private static final String PREF_TILE_PICKER =
             "tile_picker";
 
-    private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
+    private static final String KEY_POWER_WIDGET = "power_widget";
     private static final String KEY_NOTIFICATION_DRAWER_TABLET = "notification_drawer_tablet";
 
     private PreferenceScreen mPhoneDrawer;
@@ -98,7 +98,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
         mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
         mNotificationAlpha.setOnPreferenceChangeListener(this);
 
-	mPhoneDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER);
+	mPhoneDrawer = (PreferenceScreen) findPreference(KEY_POWER_WIDGET);
         mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
 
         /*if (Utils.isTablet(getActivity())) {
