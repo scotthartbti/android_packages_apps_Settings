@@ -49,7 +49,6 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.TwoStatePreference;
-import android.support.v14.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -86,7 +85,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private static final String KEY_VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
     private static final String KEY_INCREASING_RING_VOLUME = "increasing_ring_volume";
     private static final String KEY_ZEN_MODE = "zen_mode";
-    private static final String KEY_VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
     private static final String SELECTED_PREFERENCE_KEY = "selected_preference";
     private static final int REQUEST_CODE = 200;
@@ -121,8 +119,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private boolean mVoiceCapable;
     private Vibrator mVibrator;
     private AudioManager mAudioManager;
-    private VolumeSeekBarPreference mRingPreference;
-    private VolumeSeekBarPreference mNotificationPreference;
+    private VolumeSeekBarPreference mRingOrNotificationPreference;
 
     private TwoStatePreference mIncreasingRing;
     private IncreasingRingVolumePreference mIncreasingRingVolume;
@@ -161,12 +158,15 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         initVolumePreference(KEY_ALARM_VOLUME, AudioManager.STREAM_ALARM,
                 com.android.internal.R.drawable.ic_audio_alarm_mute);
         if (mVoiceCapable) {
-            mRingPreference =
+            mRingOrNotificationPreference =
                     initVolumePreference(KEY_RING_VOLUME, AudioManager.STREAM_RING,
                             com.android.internal.R.drawable.ic_audio_ring_notif_mute);
+            removePreference(KEY_NOTIFICATION_VOLUME);
         } else {
+            mRingOrNotificationPreference =
+                    initVolumePreference(KEY_NOTIFICATION_VOLUME, AudioManager.STREAM_NOTIFICATION,
+                            com.android.internal.R.drawable.ic_audio_ring_notif_mute);
             removePreference(KEY_RING_VOLUME);
-            removePreference(KEY_VOLUME_LINK_NOTIFICATION);
         }
 
         initRingtones();
@@ -187,7 +187,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     public void onResume() {
         super.onResume();
         lookupRingtoneNames();
-        updateNotificationPreferenceState();
         mSettingsObserver.register(true);
         mReceiver.register(true);
         updateRingOrNotificationPreference();
@@ -275,24 +274,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         return volumePref;
     }
 
-    private void updateNotificationPreferenceState() {
-        mNotificationPreference = initVolumePreference(KEY_NOTIFICATION_VOLUME,
-                AudioManager.STREAM_NOTIFICATION,
-                com.android.internal.R.drawable.ic_audio_ring_notif_mute);
-
-        if (mVoiceCapable) {
-            final boolean enabled = Settings.System.getInt(getContentResolver(),
-                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
-
-            if (mNotificationPreference != null) {
-                boolean show = !enabled;
-                mNotificationPreference.setEnabled(show);
-            }
-        }
-    }
-
     private void updateRingOrNotificationPreference() {
-        mRingPreference.showIcon(mSuppressor != null
+        mRingOrNotificationPreference.showIcon(mSuppressor != null
                 ? com.android.internal.R.drawable.ic_audio_ring_notif_mute
                 : mRingerMode == AudioManager.RINGER_MODE_VIBRATE || wasRingerModeVibrate()
                 ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
@@ -315,11 +298,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         final ComponentName suppressor = NotificationManager.from(mContext).getEffectsSuppressor();
         if (Objects.equals(suppressor, mSuppressor)) return;
         mSuppressor = suppressor;
-        if (mRingPreference != null) {
+        if (mRingOrNotificationPreference != null) {
             final String text = suppressor != null ?
                     mContext.getString(com.android.internal.R.string.muted_by,
                             getSuppressorCaption(suppressor)) : null;
-            mRingPreference.setSuppressionText(text);
+            mRingOrNotificationPreference.setSuppressionText(text);
         }
         updateRingOrNotificationPreference();
     }
@@ -518,8 +501,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     private final class SettingsObserver extends ContentObserver {
         private final Uri VIBRATE_WHEN_RINGING_URI =
                 Settings.System.getUriFor(Settings.System.VIBRATE_WHEN_RINGING);
-        private final Uri VOLUME_LINK_NOTIFICATION_URI =
-                Settings.Secure.getUriFor(Settings.Secure.VOLUME_LINK_NOTIFICATION);
 
         public SettingsObserver() {
             super(mHandler);
@@ -529,7 +510,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             final ContentResolver cr = getContentResolver();
             if (register) {
                 cr.registerContentObserver(VIBRATE_WHEN_RINGING_URI, false, this);
-                cr.registerContentObserver(VOLUME_LINK_NOTIFICATION_URI, false, this);
             } else {
                 cr.unregisterContentObserver(this);
             }
@@ -540,9 +520,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             super.onChange(selfChange, uri);
             if (VIBRATE_WHEN_RINGING_URI.equals(uri)) {
                 updateVibrateWhenRinging();
-            }
-            if (VOLUME_LINK_NOTIFICATION_URI.equals(uri)) {
-                updateNotificationPreferenceState();
             }
         }
     }

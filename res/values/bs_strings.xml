@@ -447,8 +447,6 @@
     <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
     <string name="screenshot_crop_and_share_summary">Show an editor window after taking a screenshot in order to do some operations like cropping, saving or sharing it</string>
 
-    <string name="link_volume_option_title">Link ringtone &amp; notification volumes</string>
-
     <!-- Manage applications: show substratum overlays -->
     <string name="filter_substratum_apps">Substratum overlays</string>
     <string name="menu_show_substratum">Show overlays</string>
