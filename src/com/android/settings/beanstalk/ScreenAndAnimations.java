@@ -48,8 +48,8 @@ public class ScreenAndAnimations extends SettingsPreferenceFragment implements
             mCrtMode.setValue(String.valueOf(crtMode));
             mCrtMode.setSummary(mCrtMode.getEntry());
             mCrtMode.setOnPreferenceChangeListener(this);
-        } else if (animationOptions != null) {
-            prefSet.removePreference(animationOptions);
+        } else if (mCrtMode != null) {
+            animationOptions.removePreference(mCrtMode);
         }
 
 	mListViewAnimation = (ListPreference) prefSet.findPreference(KEY_LISTVIEW_ANIMATION);
