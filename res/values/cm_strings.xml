@@ -698,12 +698,6 @@
     <!-- GPS download data over wi-fi only -->
     <string name="gps_download_data_wifi_only">Download GPS assisted data only over Wi-Fi networks</string>
 
-    <!-- Status bar brightness slider -->
-    <string name="brightness_slider_title">Statusbar brightness slider</string>
-    <string name="brightness_slider_summary">When enabled, this option will allow you to change the brightness by
-        sliding your finger across the Statusbar. Note: Will not be active when auto-brightness is on
-    </string>
-
     <!-- USB Mass Storage -->
     <string name="usb_mass_storage_title">Mass storage (UMS)</string>
     <string name="usb_mass_storage_summary">Lets you transfer any files between your computer and your SD card by mounting it as a flash device</string>
