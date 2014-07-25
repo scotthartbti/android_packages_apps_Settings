@@ -1443,7 +1443,6 @@
     <string name="notification_color">Notification background color</string>
 
     <string name="notifications_on_lockscreen">Notifications on lockscreen</string>
-    <string name="notifications_on_lockscreen_summary">Choose between manners to show pending notifications on lockscreen</string>
     <string name="notifications_on_lockscreen_warning_summary">Each one of notifications on lockscreen services under (PEEK and LOCKSCREEN NOTIFICATIONS) will auto disable the other. the sensors status below should be green, PEEK or LOCKSCREEN NOTIFICATIONS uses two sensors in particular, the gyroscope or the proximity sensor.</string>
 
     <!--Notification peek-->
