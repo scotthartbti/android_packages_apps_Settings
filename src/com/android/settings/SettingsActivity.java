@@ -229,6 +229,8 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final int REQUEST_SUGGESTION = 42;
 
+    private static final String KERNELADIUTOR_FRAGMENT = "com.android.settings.KernelAdiutor";
+
     private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
     private static final String LTE_4G_FRAGMENT = "com.android.settings.Lte4GEnableSetting";
@@ -1048,6 +1050,13 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
+	if (KERNELADIUTOR_FRAGMENT.equals(fragmentName)) {
+            Intent kerneladiutorIntent = new Intent();
+            kerneladiutorIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
+            startActivity(kerneladiutorIntent);
+            finish();
+            return null;
+        }
         if (LTE_4G_FRAGMENT.equals(fragmentName)) {
             Intent newIntent = new Intent("android.settings.SETTINGS");
             newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
