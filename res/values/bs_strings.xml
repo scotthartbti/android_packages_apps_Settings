@@ -310,12 +310,10 @@
     <string name="wallpaper_intra_close_title">Wallpaper intra close animation</string>
     <string name="task_open_behind_title">Task open behind animation</string>
     <string name="animation_duration_title">Animation duration</string>
-    <string name="title_animation_no_override">Prevent app overrides</string>
-    <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>
-    <string name="animation_duration_default">Default</string>
     <string name="title_animation_no_override">Prevent App Overrides</string>
     <string name="summary_animation_no_override">Prevent apps from overriding transitions.</string>
-    <string name="animation_exit_only_title">Enter only animation</string>
+    <string name="animation_duration_default">Default</string>
+    <string name="animation_exit_only_title">Exit only animation</string>
     <string name="animation_reverse_exit_title">Reverse exit animation</string>
 
     <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
