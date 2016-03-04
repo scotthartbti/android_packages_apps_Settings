@@ -23,6 +23,11 @@
         <item>Unter der Navigationsleiste</item>
     </string-array>
 
+    <string-array name="battery_bar_no_navbar_entries">
+        <item>Ausgeblendet</item>
+        <item>Statusleiste</item>
+    </string-array>
+
     <string-array name="battery_bar_style_entries">
         <item>Normal</item>
         <item>Mittig-gespiegelt</item>
