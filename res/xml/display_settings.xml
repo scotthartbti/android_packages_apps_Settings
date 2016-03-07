@@ -82,10 +82,10 @@
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title" />
 
-        <SwitchPreference
-                android:key="doze"
+        <PreferenceScreen
+                android:key="doze_fragment"
                 android:title="@string/doze_title"
-                android:summary="@string/doze_summary" />
+                android:fragment="com.android.settings.beanstalk.AmbientSettings" />
 
         <SwitchPreference
                 android:key="tap_to_wake"
