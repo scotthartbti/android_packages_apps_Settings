@@ -464,4 +464,8 @@
     <string name="filter_substratum_icons">Substratum icon overlays</string>
     <string name="menu_show_substratum_icons">Show icon overlays</string>
     <string name="menu_hide_substratum_icons">Hide icon overlays</string>
+
+    <!-- Disable quick settings on lock screen switch -->
+    <string name="lockscreen_qs_disabled_title">Quick settings disabled on lock screen</string>
+    <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings and keyguard shortcuts on secure lock screens</string>
 </resources>

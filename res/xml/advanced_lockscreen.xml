@@ -24,6 +24,12 @@
         android:summary="@string/double_tap_sleep_anywhere_summary"
         android:defaultValue="false" />
 
+    <com.android.settings.beanstalk.SecureSettingSwitchPreference
+        android:key="lockscreen_qs_disabled"
+        android:title="@string/lockscreen_qs_disabled_title"
+        android:summary="@string/lockscreen_qs_disabled_summary"
+        android:defaultValue="false" />
+
     <com.android.settings.beanstalk.SystemSettingSwitchPreference
         android:key="keyguard_toggle_torch"
         android:title="@string/keyguard_torch_title"
