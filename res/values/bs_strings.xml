@@ -81,4 +81,7 @@
 
     <!--Kernel Adiutor-->
     <string name="kernel_adiutor_settings_title">Kernel Adiutor</string>
+
+    <!-- Phone info shortcut -->
+    <string name="device_info_title">Phone info</string>
 </resources>
