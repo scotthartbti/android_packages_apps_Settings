@@ -109,6 +109,13 @@
                 android:summary="@string/proximity_wake_summary"
                 cm:requiresConfig="@*cyanogenmod.platform:bool/config_proximityCheckOnWake" />
 
+	<!-- Three finger screenshot -->
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+        	android:key="three_finger_gesture"
+        	android:title="@string/three_finger_gesture"
+        	android:summary="@string/three_finger_gesture_summary"
+        	android:defaultValue="false" />
+
         <cyanogenmod.preference.CMSystemSettingSwitchPreference
                 android:key="high_touch_sensitivity_enable"
                 android:title="@string/high_touch_sensitivity_title"
@@ -145,6 +152,11 @@
 	    android:title="@string/category_interface">
 
 	<PreferenceScreen
+                android:key="nav_blur_ui"
+                android:fragment="com.android.settings.beanstalk.BlurUI"
+		android:title="@string/nav_blur_ui_title"/>
+
+	<PreferenceScreen
                 android:key="recent_settings"
                 android:title="@string/recent_title"
 		android:fragment="com.android.settings.beanstalk.RecentSettings" />
@@ -158,13 +170,6 @@
                 android:key="animation_settings"
                 android:fragment="com.android.settings.beanstalk.AnimationSettings"
 		android:title="@string/screen_and_animations_title"/>
-
-	<!-- Three finger screenshot -->
-    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
-        	android:key="three_finger_gesture"
-        	android:title="@string/three_finger_gesture"
-        	android:summary="@string/three_finger_gesture_summary"
-        	android:defaultValue="false" />
 
     </PreferenceCategory>
 
