@@ -43,4 +43,8 @@
         <attr name="useDefaultController" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="ListWithEntrySummaryPreference">
+        <!-- Summaries of entry -->
+        <attr name="entrySummaries" format="reference" />
+    </declare-styleable>
 </resources>
