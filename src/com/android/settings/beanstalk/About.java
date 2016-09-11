@@ -20,12 +20,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceGroup;
+import android.support.v7.preference.PreferenceScreen;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 
 import java.util.ArrayList;
@@ -57,12 +57,11 @@ public class About extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        // todo add a constant in MetricsLogger.java
-        return MetricsLogger.MAIN_SETTINGS;
+        return MetricsEvent.BEANSTALK;
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mSourceUrl) {
             launchUrl("https://github.com/scotthartbti");
         } else if (preference == mFacebookUrl) {
@@ -88,7 +87,7 @@ public class About extends SettingsPreferenceFragment {
                 getActivity().getString(R.string.join_slack), Build.MODEL));
         startActivity(Intent.createChooser(email, getActivity().getString(R.string.join_slack_title)));
         }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        return super.onPreferenceTreeClick(preference);
     }
 
     private void launchUrl(String url) {
