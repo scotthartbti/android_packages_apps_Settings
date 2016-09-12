@@ -116,6 +116,18 @@
 
     </PreferenceCategory>
 
+     <PreferenceCategory
+            android:key="dashboard_category"
+            android:title="@string/dashboard_category">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="disable_suggestions"
+            android:title="@string/disable_suggestions_title"
+            android:summary="@string/disable_suggestions_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
             android:key="lights"
             android:title="@*cyanogenmod.platform:string/lights_label">
