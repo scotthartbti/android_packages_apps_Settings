@@ -1666,7 +1666,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private void writeAnimationScaleOption(int which, ListPreference pref, Object newValue) {
         try {
-            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 0.75f;
+            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : .75;
             mWindowManager.setAnimationScale(which, scale);
             updateAnimationScaleValue(which, pref);
         } catch (RemoteException e) {
