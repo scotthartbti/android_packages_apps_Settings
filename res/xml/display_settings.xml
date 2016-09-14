@@ -140,7 +140,7 @@
 
         <!-- Battery light -->
         <PreferenceScreen
-                android:key="battery_lights"
+                android:key="battery_light"
                 android:title="@*cyanogenmod.platform:string/battery_light_title">
             <intent android:action="org.cyanogenmod.cmparts.PART">
                 <extra android:name="part" android:value="cmparts:battery_lights" />
@@ -149,7 +149,7 @@
 
         <!-- Notification lights -->
         <PreferenceScreen
-                android:key="notification_lights"
+                android:key="notification_light"
                 android:title="@*cyanogenmod.platform:string/notification_light_title">
                 <intent android:action="org.cyanogenmod.cmparts.PART">
                     <extra android:name="part" android:value="cmparts:notification_lights" />
