@@ -120,13 +120,13 @@
             android:key="dashboard_category"
             android:title="@string/dashboard_category">
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.beanstalk.SystemSettingSwitchPreference
                 android:key="disable_suggestions"
                 android:title="@string/disable_suggestions_title"
                 android:summary="@string/disable_suggestions_summary"
                 android:defaultValue="false" />
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.beanstalk.SystemSettingSwitchPreference
                 android:key="remove_tile_summary"
                 android:title="@string/remove_tile_summaries_title"
                 android:summary="@string/remove_tile_summaries_summary"
