@@ -1037,7 +1037,7 @@
 
 	<activity android:name="Settings$KernelAdiutorActivity"
                 android:label="@string/kernel_adiutor_settings_title"
-                android:icon="@drawable/ic_settings_performance"
+                android:icon="@drawable/ic_settings_performance_teal"
                 android:taskAffinity="" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
