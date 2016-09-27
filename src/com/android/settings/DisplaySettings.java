@@ -269,20 +269,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
 
             mProximityCheckOnWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
-            boolean proximityCheckOnWake = getResources().getBoolean(
-                    org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
-            if (!proximityCheckOnWake) {
-                if (displayPrefs != null && mProximityCheckOnWakePreference != null) {
-                    displayPrefs.removePreference(mProximityCheckOnWakePreference);
-                }
-                CMSettings.System.putInt(getContentResolver(), CMSettings.System.PROXIMITY_ON_WAKE, 0);
-            } else {
-                boolean proximityCheckOnWakeDefault = getResources().getBoolean(
-                        org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
-                mProximityCheckOnWakePreference.setChecked(CMSettings.System.getInt(getContentResolver(),
-                        CMSettings.System.PROXIMITY_ON_WAKE,
-                        (proximityCheckOnWakeDefault ? 1 : 0)) == 1);
-            }
         }
 
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
@@ -393,6 +379,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         updateTimeoutPreferenceDescription(currentTimeout);
 
+        boolean proximityCheckOnWake = getResources().getBoolean(
+                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
+        if (mProximityCheckOnWakePreference != null) {
+            mProximityCheckOnWakePreference.setChecked(CMSettings.System.getInt(getContentResolver(),
+                    CMSettings.System.PROXIMITY_ON_WAKE,
+                    (proximityCheckOnWake ? 1 : 0)) == 1);
+        }
+
         disablePreferenceIfManaged(KEY_WALLPAPER, UserManager.DISALLOW_SET_WALLPAPER);
     }
 
@@ -450,6 +444,18 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final int index = ToggleFontSizePreferenceFragment.fontSizeValueToIndex(currentScale,
                 strEntryValues);
         mFontSizePref.setSummary(entries[index]);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mProximityCheckOnWakePreference) {
+            CMSettings.System.putInt(getContentResolver(),
+                    CMSettings.System.PROXIMITY_ON_WAKE,
+                    mProximityCheckOnWakePreference.isChecked() ? 1 : 0);
+            return true;
+        }
+
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
