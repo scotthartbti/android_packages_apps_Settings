@@ -36,12 +36,19 @@
         android:summary="@string/qs_advanced_data_summary"
         android:defaultValue="false" />
 
+    <com.android.settings.beanstalk.SecureSettingSwitchPreference
+        android:key="qs_show_brightness"
+        android:title="@string/qs_brightness_slider_title"
+        android:summaryOn="@string/qs_brightness_slider_enabled"
+        android:summaryOff="@string/qs_brightness_slider_disabled"
+        android:defaultValue="true" />
+
     <com.android.settings.beanstalk.SystemSettingSwitchPreference
         android:key="brightness_icon"
         android:title="@string/brightness_icon_title"
         android:summary="@string/brightness_icon_summary"
-        android:dependency="qs_show_brightness_slider"
-        android:defaultValue="true"/>
+        android:dependency="qs_show_brightness"
+	android:defaultValue="true"/>
 
     <PreferenceCategory
         android:key="quicksettings_tiles_category"
