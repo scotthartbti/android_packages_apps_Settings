@@ -218,4 +218,33 @@
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the arrows in the traffic indicators</string>
+
+    <!-- transparency -->
+    <string name="transparency_title">Transparency</string>
+    <string name="qs_transparent_shade">QS shade transparency</string>
+    <string name="qs_transparent_header">QS header transparency</string>
+    <string name="volume_dialog_transparency">Volume dialog transparency</string>
+    <string name="power_menu_transparency">Power/reboot menu transparency</string>
+    <string name="power_menu_dialog_dim">Power/reboot dialog dim background amount</string>
+    <string name="notifications_transparency">Notifications transparency</string>
+
+    <!-- QS stroke settings -->
+    <string name="qs_panel_logo_category">QS panel logo</string>
+    <string name="qs_panel_logo_title">QS panel AICP logo</string>
+    <string name="qs_panel_logo_disabled">Disabled</string>
+    <string name="qs_panel_logo_accent">Accent color</string>
+    <string name="qs_panel_logo_custom">Custom color</string>
+    <string name="qs_panel_logo_color_title">QS panel logo color</string>
+    <string name="qs_panel_logo_alpha_title">QS panel logo transparency</string>
+
+    <!-- Volume dialog stroke settings -->
+    <string name="volume_dialog_stroke_title">Volume dialog stroke</string>
+    <string name="volume_dialog_stroke_disabled">Disabled</string>
+    <string name="volume_dialog_stroke_accent">Accent color</string>
+    <string name="volume_dialog_stroke_custom">Custom color</string>
+    <string name="volume_dialog_stroke_color_title">Volume dialog stroke color</string>
+    <string name="volume_dialog_stroke_thickness_title">Volume dialog stroke thickness</string>
+    <string name="volume_dialog_corner_radius_title">Volume dialog corner radius</string>
+    <string name="volume_dialog_dash_width_title">Volume dialog stroke dash width</string>
+    <string name="volume_dialog_dash_gap_title">Volume dialog stroke dash gap</string>
 </resources>
