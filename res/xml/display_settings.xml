@@ -114,6 +114,11 @@
                 android:title="@string/transparency_title"
 		android:fragment="com.android.settings.beanstalk.Transparency" />
 
+	<PreferenceScreen
+        	android:key="traffic"
+        	android:fragment="com.android.settings.beanstalk.Traffic"
+        	android:title="@string/traffic_category" />
+
         <PreferenceScreen
                 android:key="font_size"
                 android:title="@string/title_font_size"
