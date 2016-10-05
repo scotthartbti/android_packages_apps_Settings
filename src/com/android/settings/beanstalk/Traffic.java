@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.beanstalk.fragments;
+package com.android.settings.beanstalk;
 
 import android.app.Activity;
 import android.content.ContentResolver;
