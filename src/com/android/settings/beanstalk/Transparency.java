@@ -44,24 +44,24 @@ public class Transparency extends SettingsPreferenceFragment
         private static final String PREF_QS_STROKE_DASH_GAP = "qs_dash_gap";
         //private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
 
-        private SeekBarPreferenceCham mQSShadeAlpha;
-        //private SeekBarPreferenceCham mQSHeaderAlpha;
-        private SeekBarPreferenceCham mVolumeDialogAlpha;
-        private SeekBarPreferenceCham mPowerMenuAlpha;
-        private SeekBarPreferenceCham mPowerDialogDim;
+        private CustomSeekBarPreference mQSShadeAlpha;
+        //private CustomSeekBarPreference mQSHeaderAlpha;
+        private CustomSeekBarPreference mVolumeDialogAlpha;
+        private CustomSeekBarPreference mPowerMenuAlpha;
+        private CustomSeekBarPreference mPowerDialogDim;
         private ListPreference mVolumeDialogStroke;
         private ColorPickerPreference mVolumeDialogStrokeColor;
-        private SeekBarPreferenceCham mVolumeDialogStrokeThickness;
-        private SeekBarPreferenceCham mVolumeDialogCornerRadius;
-        private SeekBarPreferenceCham mVolumeDialogDashWidth;
-        private SeekBarPreferenceCham mVolumeDialogDashGap;
+        private CustomSeekBarPreference mVolumeDialogStrokeThickness;
+        private CustomSeekBarPreference mVolumeDialogCornerRadius;
+        private CustomSeekBarPreference mVolumeDialogDashWidth;
+        private CustomSeekBarPreference mVolumeDialogDashGap;
         private ListPreference mQSStroke;
         private ColorPickerPreference mQSStrokeColor;
-        private SeekBarPreferenceCham mQSStrokeThickness;
-        private SeekBarPreferenceCham mQSCornerRadius;
-        private SeekBarPreferenceCham mQSDashWidth;
-        private SeekBarPreferenceCham mQSDashGap;
-        //private SeekBarPreferenceCham mNotificationsAlpha;
+        private CustomSeekBarPreference mQSStrokeThickness;
+        private CustomSeekBarPreference mQSCornerRadius;
+        private CustomSeekBarPreference mQSDashWidth;
+        private CustomSeekBarPreference mQSDashGap;
+        //private CustomSeekBarPreference mNotificationsAlpha;
 
         static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
         static final int DEFAULT_QS_STROKE_COLOR = 0xFF80CBC4;
@@ -78,7 +78,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // QS shade alpha
             mQSShadeAlpha =
-                    (SeekBarPreferenceCham) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
+                    (CustomSeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
             int qSShadeAlpha = Settings.System.getInt(resolver,
                     Settings.System.QS_TRANSPARENT_SHADE, 255);
             mQSShadeAlpha.setValue(qSShadeAlpha / 1);
@@ -86,7 +86,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // QS header alpha
             /*mQSHeaderAlpha =
-                    (SeekBarPreferenceCham) prefSet.findPreference(PREF_QS_TRANSPARENT_HEADER);
+                    (CustomSeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_HEADER);
             int qSHeaderAlpha = Settings.System.getInt(resolver,
                     Settings.System.QS_TRANSPARENT_HEADER, 255);
             mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
@@ -94,7 +94,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Volume dialog alpha
             mVolumeDialogAlpha =
-                    (SeekBarPreferenceCham) prefSet.findPreference(PREF_TRANSPARENT_VOLUME_DIALOG);
+                    (CustomSeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_VOLUME_DIALOG);
             int volumeDialogAlpha = Settings.System.getInt(resolver,
                     Settings.System.TRANSPARENT_VOLUME_DIALOG, 255);
             mVolumeDialogAlpha.setValue(volumeDialogAlpha / 1);
@@ -102,7 +102,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Power menu alpha
             mPowerMenuAlpha =
-                    (SeekBarPreferenceCham) prefSet.findPreference(PREF_TRANSPARENT_POWER_MENU);
+                    (CustomSeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_POWER_MENU);
             int powerMenuAlpha = Settings.System.getInt(resolver,
                     Settings.System.TRANSPARENT_POWER_MENU, 100);
             mPowerMenuAlpha.setValue(powerMenuAlpha / 1);
@@ -110,7 +110,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Power/reboot dialog dim
             mPowerDialogDim =
-                    (SeekBarPreferenceCham) prefSet.findPreference(PREF_TRANSPARENT_POWER_DIALOG_DIM);
+                    (CustomSeekBarPreference) prefSet.findPreference(PREF_TRANSPARENT_POWER_DIALOG_DIM);
             int powerDialogDim = Settings.System.getInt(resolver,
                     Settings.System.TRANSPARENT_POWER_DIALOG_DIM, 50);
             mPowerDialogDim.setValue(powerDialogDim / 1);
@@ -138,7 +138,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Volume dialog stroke thickness
             mVolumeDialogStrokeThickness =
-                    (SeekBarPreferenceCham) findPreference(PREF_VOLUME_DIALOG_STROKE_THICKNESS);
+                    (CustomSeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_THICKNESS);
             int volumeDialogStrokeThickness = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_THICKNESS, 4);
             mVolumeDialogStrokeThickness.setValue(volumeDialogStrokeThickness / 1);
@@ -146,7 +146,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Volume dialog corner radius
             mVolumeDialogCornerRadius =
-                    (SeekBarPreferenceCham) findPreference(PREF_VOLUME_DIALOG_CORNER_RADIUS);
+                    (CustomSeekBarPreference) findPreference(PREF_VOLUME_DIALOG_CORNER_RADIUS);
             int volumeDialogCornerRadius = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_CORNER_RADIUS, 10);
             mVolumeDialogCornerRadius.setValue(volumeDialogCornerRadius / 1);
@@ -154,7 +154,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Volume dialog dash width
             mVolumeDialogDashWidth =
-                    (SeekBarPreferenceCham) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH);
+                    (CustomSeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH);
             int volumeDialogDashWidth = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_DASH_WIDTH, 0);
             if (volumeDialogDashWidth != 0) {
@@ -166,7 +166,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Volume dialog dash gap
             mVolumeDialogDashGap =
-                    (SeekBarPreferenceCham) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_GAP);
+                    (CustomSeekBarPreference) findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_GAP);
             int volumeDialogDashGap = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_DASH_GAP, 10);
             mVolumeDialogDashGap.setValue(volumeDialogDashGap / 1);
@@ -194,7 +194,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // QS stroke thickness
             mQSStrokeThickness =
-                    (SeekBarPreferenceCham) findPreference(PREF_QS_STROKE_THICKNESS);
+                    (CustomSeekBarPreference) findPreference(PREF_QS_STROKE_THICKNESS);
             int qSStrokeThickness = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_THICKNESS, 4);
             mQSStrokeThickness.setValue(qSStrokeThickness / 1);
@@ -202,7 +202,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // QS corner radius
             mQSCornerRadius =
-                    (SeekBarPreferenceCham) findPreference(PREF_QS_CORNER_RADIUS);
+                    (CustomSeekBarPreference) findPreference(PREF_QS_CORNER_RADIUS);
             int qSCornerRadius = Settings.System.getInt(resolver,
                     Settings.System.QS_CORNER_RADIUS, 5);
             mQSCornerRadius.setValue(qSCornerRadius / 1);
@@ -210,7 +210,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // QS dash width
             mQSDashWidth =
-                    (SeekBarPreferenceCham) findPreference(PREF_QS_STROKE_DASH_WIDTH);
+                    (CustomSeekBarPreference) findPreference(PREF_QS_STROKE_DASH_WIDTH);
             int qSDialogDashWidth = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_DASH_WIDTH, 0);
             if (qSDialogDashWidth != 0) {
@@ -222,7 +222,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // QS dash gap
             mQSDashGap =
-                    (SeekBarPreferenceCham) findPreference(PREF_QS_STROKE_DASH_GAP);
+                    (CustomSeekBarPreference) findPreference(PREF_QS_STROKE_DASH_GAP);
             int qSDialogDashGap = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_DASH_GAP, 10);
             mQSDashGap.setValue(qSDialogDashGap / 1);
@@ -230,7 +230,7 @@ public class Transparency extends SettingsPreferenceFragment
 
             // Notifications alpha
             /*mNotificationsAlpha =
-                    (SeekBarPreferenceCham) prefSet.findPreference(PREF_NOTIFICATION_ALPHA);
+                    (CustomSeekBarPreference) prefSet.findPreference(PREF_NOTIFICATION_ALPHA);
             int notificationsAlpha = Settings.System.getInt(resolver,
                     Settings.System.NOTIFICATION_ALPHA, 255);
             mNotificationsAlpha.setValue(notificationsAlpha / 1);
