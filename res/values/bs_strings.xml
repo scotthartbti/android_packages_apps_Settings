@@ -157,6 +157,7 @@
 
     <!-- Notification drawer -->
     <string name="notification_drawer_title">Notification drawer</string>
+    <string name="notification_drawer_qs_title">Notification &amp; QS drawer</string>
 
     <!-- Force expanded notifications -->
     <string name="force_expanded_notifications_title">Force Expanded Notifications</string>

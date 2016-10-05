@@ -1959,7 +1959,7 @@
         </activity>
 
         <activity android:name="Settings$NotificationSettingsActivity"
-                android:label="@string/notification_drawer_title"
+                android:label="@string/notification_drawer_qs_title"
                 android:icon="@drawable/ic_settings_notification_drawer_teal"
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
@@ -1979,9 +1979,9 @@
             <meta-data android:name="com.android.settings.category"
                 android:value="com.android.settings.category.device" />
             <meta-data android:name="com.android.settings.title"
-                android:resource="@string/notification_drawer_title" />
+                android:resource="@string/notification_drawer_qs_title" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.beanstalk.NotificationDrawerSettings" />
+                android:value="com.android.settings.beanstalk.NotificationDrawerQsSettings" />
         </activity>
 
         <activity android:name="Settings$PrivateVolumeSettingsActivity"
