@@ -1960,7 +1960,7 @@
 
         <activity android:name="Settings$NotificationSettingsActivity"
                 android:label="@string/notification_drawer_title"
-                android:icon="@drawable/ic_settings_notification_drawer"
+                android:icon="@drawable/ic_settings_notification_drawer_teal"
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
             <intent-filter android:priority="1">
