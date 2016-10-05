@@ -219,6 +219,9 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the arrows in the traffic indicators</string>
 
+    <!-- Display catagories -->
+    <string name="category_interface">Interface</string>
+
     <!-- transparency -->
     <string name="transparency_title">Transparency</string>
     <string name="qs_transparent_shade">QS shade transparency</string>
