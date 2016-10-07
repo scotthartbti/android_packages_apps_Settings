@@ -16,6 +16,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.util.beanstalk.Helpers
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.beanstalk.CustomSeekBarPreference;
@@ -317,6 +318,9 @@ public class Transparency extends SettingsPreferenceFragment
                         QS_STROKE, qSStroke, UserHandle.USER_CURRENT);
                 mQSStroke.setSummary(mQSStroke.getEntries()[index]);
                 QSSettingsDisabler(qSStroke);
+                if (index == 0) {
+                    Helpers.showSystemUIrestartDialog(getActivity());
+                }
                 return true;
             } else if (preference == mQSStrokeColor) {
                 String hex = ColorPickerPreference.convertToARGB(
