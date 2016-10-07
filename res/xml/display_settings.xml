@@ -140,6 +140,11 @@
 		android:fragment="com.android.settings.beanstalk.Transparency" />
 
 	<PreferenceScreen
+                android:key="animation_settings"
+                android:fragment="com.android.settings.beanstalk.AnimationSettings"
+		android:title="@string/screen_and_animations_title"/>
+
+	<PreferenceScreen
         	android:key="traffic"
         	android:fragment="com.android.settings.beanstalk.Traffic"
         	android:title="@string/traffic_category" />
