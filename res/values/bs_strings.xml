@@ -266,6 +266,9 @@
     <string name="set">Set</string>
     <string name="color_default">Default</string>
 
+    <!-- OmniSwitch -->
+    <string name="omniswitch_category">OmniSwitch</string>
+
     <!-- Display Animation -->
     <string name="screen_and_animations_title">Animation control</string>
     <string name="animation_title">Animations</string> 
