@@ -320,4 +320,7 @@
     <string name="systemui_restart_title">WARNING</string>
     <string name="systemui_restart_message">SystemUI will be restarted so that selected setting can be applied correctly.</string>
     <string name="restarting_ui">Restarting UI\u2026</string>
+
+    <!-- Density category -->
+    <string name="density_category">Density options</string>
 </resources>
