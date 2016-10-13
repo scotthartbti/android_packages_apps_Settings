@@ -26,6 +26,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
@@ -44,6 +45,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.beanstalk.Utils;
 
 public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener{
 
@@ -54,6 +56,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
     private static final String PREF_COLUMNS = "qs_columns";
     private static final String KEY_SYSUI_QQS_COUNT = "sysui_qqs_count_key";
+    private static final String PREF_QS_DATA_ADVANCED = "qs_data_advanced";
 
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
@@ -62,6 +65,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private ListPreference mRowsLandscape;
     private ListPreference mQsColumns;
     private ListPreference mSysuiQqsCount;
+    private SwitchPreference mQsDataAdvanced;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -126,6 +130,15 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
         mSysuiQqsCount.setValue(Integer.toString(SysuiQqsCount));
         mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntry());
         mSysuiQqsCount.setOnPreferenceChangeListener(this);
+
+        mQsDataAdvanced = (SwitchPreference) findPreference(PREF_QS_DATA_ADVANCED);
+        mQsDataAdvanced.setOnPreferenceChangeListener(this);
+        if (Utils.isWifiOnly(getActivity())) {
+            prefSet.removePreference(mQsDataAdvanced);
+        } else {
+        mQsDataAdvanced.setChecked((Settings.Secure.getInt(resolver,
+                Settings.Secure.QS_DATA_ADVANCED, 0) == 1));
+        }
     }
 
     @Override
@@ -190,6 +203,11 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
             Settings.Secure.putInt(getContentResolver(), Settings.Secure.QQS_COUNT, SysuiQqsCountValue);
             int SysuiQqsCountIndex = mSysuiQqsCount.findIndexOfValue(SysuiQqsCount);
             mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntries()[SysuiQqsCountIndex]);
+            return true;
+        } else if  (preference == mQsDataAdvanced) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.QS_DATA_ADVANCED, checked ? 1:0);
             return true;
         }
         return false;

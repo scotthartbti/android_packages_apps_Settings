@@ -30,7 +30,7 @@
         android:summary="@string/force_expanded_notifications_summary"
         android:defaultValue="false"/>
 
-    <com.android.settings.beanstalk.SecureSettingSwitchPreference
+    <SwitchPreference
         android:key="qs_data_advanced"
         android:title="@string/qs_advanced_data_title"
         android:summary="@string/qs_advanced_data_summary"

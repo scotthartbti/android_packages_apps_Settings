@@ -33,6 +33,7 @@ import android.os.SystemProperties;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Surface;
+import android.net.ConnectivityManager;
 
 public class Utils {
 
@@ -56,5 +57,11 @@ public class Utils {
             // Ignore
         }
         return false;
+    }
+
+    public static boolean isWifiOnly(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
     }
 }
