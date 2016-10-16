@@ -42,7 +42,7 @@ import com.android.settings.R;
 public class ColorPickerPreference extends Preference implements
         Preference.OnPreferenceClickListener, ColorPickerDialog.OnColorChangedListener {
 
-    View mView;
+    PreferenceViewHolder mView;
     ColorPickerDialog mDialog;
     LinearLayout widgetFrameView;
     private int mValue = Color.BLACK;
@@ -86,6 +86,7 @@ public class ColorPickerPreference extends Preference implements
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder view) {
+	mView = view;
         super.onBindViewHolder(view);
 
         widgetFrameView = ((LinearLayout) view
