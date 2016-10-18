@@ -1261,6 +1261,17 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.DevelopmentSettingsActivity.class.getName()),
                 showDev, isAdmin, pm);
 
+
+	// KernelAdiutor
+        boolean kaSupported = false;
+        try {
+            kaSupported = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode >= 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.KernelAdiutorActivity.class.getName()),
+kaSupported, isAdmin, pm);
+
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
 
