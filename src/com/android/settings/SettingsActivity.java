@@ -375,7 +375,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
-            PulseSettings.class.getName()
+            PulseSettings.class.getName(),
             MasterClear.class.getName(),
             NightDisplaySettings.class.getName(),
     };
