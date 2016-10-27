@@ -95,7 +95,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
-
     private static final String KEY_OMNISWITCH = "omniswitch";
     public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
 
@@ -111,7 +110,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
-    private SwitchPreference mCameraDoubleTapPowerGesturePreference;
 
     @Override
     protected int getMetricsCategory() {
@@ -152,6 +150,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     displayPrefs.removePreference(mAutoBrightnessPreference);
                 }
             }
+        }
 
         if (!NightDisplayController.isAvailable(activity)) {
             removePreference(KEY_NIGHT_DISPLAY);
@@ -194,7 +193,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             }
 
-        if (RotationPolicy.isRotationLockToggleVisible(activity)) {
             DropDownPreference rotatePreference =
                     (DropDownPreference) findPreference(KEY_AUTO_ROTATE);
             if (rotatePreference != null) {
@@ -278,7 +276,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 prefSet.findPreference(KEY_OMNISWITCH);
         if (!Helpers.isPackageInstalled(OMNISWITCH_PACKAGE_NAME, pm)) {
             prefSet.removePreference(mOmniSwitch);
-        }
+	}
 
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
         if (mNightModePreference != null) {
