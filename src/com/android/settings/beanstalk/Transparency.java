@@ -64,8 +64,8 @@ public class Transparency extends SettingsPreferenceFragment
         private CustomSeekBarPreference mQSDashGap;
         //private CustomSeekBarPreference mNotificationsAlpha;
 
-        static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
-        static final int DEFAULT_QS_STROKE_COLOR = 0xFF80CBC4;
+        static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF4285F4;
+        static final int DEFAULT_QS_STROKE_COLOR = 0xFF4285F4;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -133,7 +133,7 @@ public class Transparency extends SettingsPreferenceFragment
             mVolumeDialogStrokeColor.setOnPreferenceChangeListener(this);
             int intColor = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_DIALOG_STROKE_COLOR, DEFAULT_VOLUME_DIALOG_STROKE_COLOR);
-            String hexColor = String.format("#%08x", (0xFF80CBC4 & intColor));
+            String hexColor = String.format("#%08x", (0xFF4285F4 & intColor));
             mVolumeDialogStrokeColor.setSummary(hexColor);
             mVolumeDialogStrokeColor.setNewPreviewColor(intColor);
 
@@ -189,7 +189,7 @@ public class Transparency extends SettingsPreferenceFragment
             mQSStrokeColor.setOnPreferenceChangeListener(this);
             int qSIntColor = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_COLOR, DEFAULT_QS_STROKE_COLOR);
-            String qSHexColor = String.format("#%08x", (0xFF80CBC4 & qSIntColor));
+            String qSHexColor = String.format("#%08x", (0xFF4285F4 & qSIntColor));
             mQSStrokeColor.setSummary(qSHexColor);
             mQSStrokeColor.setNewPreviewColor(qSIntColor);
 
