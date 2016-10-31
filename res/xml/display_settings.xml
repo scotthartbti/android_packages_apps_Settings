@@ -156,11 +156,6 @@
 		android:title="@string/screen_and_animations_title"/>
 
 	<PreferenceScreen
-        	android:key="traffic"
-        	android:fragment="com.android.settings.beanstalk.Traffic"
-        	android:title="@string/traffic_category" />
-
-	<PreferenceScreen
 	        android:id="@+id/omniswitch"
 		android:title="@string/omniswitch_settings_title"
 	        android:fragment="com.android.settings.beanstalk.OmniSwitch" />
