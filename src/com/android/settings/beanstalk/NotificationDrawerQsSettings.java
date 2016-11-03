@@ -46,6 +46,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.beanstalk.Utils;
+import com.android.settings.beanstalk.CustomSeekBarPreference;
 
 public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener{
 
@@ -61,10 +62,10 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private ListPreference mTileAnimationStyle;
     private ListPreference mTileAnimationDuration;
     private ListPreference mTileAnimationInterpolator;
-    private ListPreference mRowsPortrait;
-    private ListPreference mRowsLandscape;
-    private ListPreference mQsColumns;
-    private ListPreference mSysuiQqsCount;
+    private CustomSeekBarPreference mRowsPortrait;
+    private CustomSeekBarPreference mRowsLandscape;
+    private CustomSeekBarPreference mQsColumns;
+    private CustomSeekBarPreference mSysuiQqsCount;
     private SwitchPreference mQsDataAdvanced;
 
     @Override
@@ -102,33 +103,29 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
         updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
         mTileAnimationInterpolator.setOnPreferenceChangeListener(this);
 
-        mRowsPortrait = (ListPreference) findPreference(PREF_ROWS_PORTRAIT);
-        int rowsPortrait = Settings.Secure.getInt(getContentResolver(),
+        mRowsPortrait = (CustomSeekBarPreference) findPreference(PREF_ROWS_PORTRAIT);
+        int rowsPortrait = Settings.Secure.getInt(resolver,
                 Settings.Secure.QS_ROWS_PORTRAIT, 3);
-        mRowsPortrait.setValue(String.valueOf(rowsPortrait));
-        mRowsPortrait.setSummary(mRowsPortrait.getEntry());
+        mRowsPortrait.setValue(rowsPortrait / 1);
         mRowsPortrait.setOnPreferenceChangeListener(this);
 
         defaultValue = getResources().getInteger(com.android.internal.R.integer.config_qs_num_rows_landscape_default);
-        mRowsLandscape = (ListPreference) findPreference(PREF_ROWS_LANDSCAPE);
-        int rowsLandscape = Settings.Secure.getInt(getContentResolver(),
+        mRowsLandscape = (CustomSeekBarPreference) findPreference(PREF_ROWS_LANDSCAPE);
+        int rowsLandscape = Settings.Secure.getInt(resolver,
                 Settings.Secure.QS_ROWS_LANDSCAPE, defaultValue);
-        mRowsLandscape.setValue(String.valueOf(rowsLandscape));
-        mRowsLandscape.setSummary(mRowsLandscape.getEntry());
+        mRowsLandscape.setValue(rowsLandscape / 1);
         mRowsLandscape.setOnPreferenceChangeListener(this);
 
-        mQsColumns = (ListPreference) findPreference(PREF_COLUMNS);
-        int columnsQs = Settings.Secure.getInt(getContentResolver(),
+        mQsColumns = (CustomSeekBarPreference) findPreference(PREF_COLUMNS);
+        int columnsQs = Settings.Secure.getInt(resolver,
                 Settings.Secure.QS_COLUMNS, 3);
-        mQsColumns.setValue(String.valueOf(columnsQs));
-        mQsColumns.setSummary(mQsColumns.getEntry());
+        mQsColumns.setValue(columnsQs / 1);
         mQsColumns.setOnPreferenceChangeListener(this);
 
-        mSysuiQqsCount = (ListPreference) findPreference(KEY_SYSUI_QQS_COUNT);
-        int SysuiQqsCount = Settings.Secure.getInt(getContentResolver(),
+        mSysuiQqsCount = (CustomSeekBarPreference) findPreference(KEY_SYSUI_QQS_COUNT);
+        int SysuiQqsCount = Settings.Secure.getInt(resolver,
                 Settings.Secure.QQS_COUNT, 5);
-        mSysuiQqsCount.setValue(Integer.toString(SysuiQqsCount));
-        mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntry());
+        mSysuiQqsCount.setValue(SysuiQqsCount / 1);
         mSysuiQqsCount.setOnPreferenceChangeListener(this);
 
         mQsDataAdvanced = (SwitchPreference) findPreference(PREF_QS_DATA_ADVANCED);
@@ -177,32 +174,24 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
             return true;
         } else if (preference == mRowsPortrait) {
-            intValue = Integer.valueOf((String) objValue);
-            index = mRowsPortrait.findIndexOfValue((String) objValue);
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.QS_ROWS_PORTRAIT, intValue);
-            preference.setSummary(mRowsPortrait.getEntries()[index]);
+            int rowsPortrait = (Integer) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.QS_ROWS_PORTRAIT, rowsPortrait * 1);
             return true;
         } else if (preference == mRowsLandscape) {
-            intValue = Integer.valueOf((String) objValue);
-            index = mRowsLandscape.findIndexOfValue((String) objValue);
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.QS_ROWS_LANDSCAPE, intValue);
-            preference.setSummary(mRowsLandscape.getEntries()[index]);
+            int rowsLandscape = (Integer) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.QS_ROWS_LANDSCAPE, rowsLandscape * 1);
             return true;
         } else if (preference == mQsColumns) {
-            intValue = Integer.valueOf((String) objValue);
-            index = mQsColumns.findIndexOfValue((String) objValue);
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.QS_COLUMNS, intValue);
-            preference.setSummary(mQsColumns.getEntries()[index]);
+            int qsColumns = (Integer) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.QS_COLUMNS, qsColumns * 1);
             return true;
         } else if (preference == mSysuiQqsCount) {
-            String SysuiQqsCount = (String) objValue;
-            int SysuiQqsCountValue = Integer.parseInt(SysuiQqsCount);
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.QQS_COUNT, SysuiQqsCountValue);
-            int SysuiQqsCountIndex = mSysuiQqsCount.findIndexOfValue(SysuiQqsCount);
-            mSysuiQqsCount.setSummary(mSysuiQqsCount.getEntries()[SysuiQqsCountIndex]);
+            int SysuiQqsCount = (Integer) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.QQS_COUNT, SysuiQqsCount * 1);
             return true;
         } else if  (preference == mQsDataAdvanced) {
             boolean checked = ((SwitchPreference)preference).isChecked();
