@@ -97,6 +97,8 @@ import com.android.settingslib.RestrictedSwitchPreference;
 
 import cyanogenmod.providers.CMSettings;
 
+import com.android.settings.beanstalk.CustomSeekBarPreference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -219,7 +221,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String BACKGROUND_CHECK_KEY = "background_check";
 
     private static final String SHOW_ALL_ANRS_KEY = "show_all_anrs";
+
     private static final String SCREENSHOT_TYPE = "screenshot_type";
+    private static final String SCREENSHOT_DELAY = "screenshot_delay";
 
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
@@ -253,6 +257,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private TelephonyManager mTelephonyManager;
 
     private ListPreference mScreenshotType;
+    private CustomSeekBarPreference mScreenshotDelay;
+
     private SwitchBar mSwitchBar;
     private boolean mLastEnabledState;
     private boolean mHaveDebugSettings;
@@ -531,6 +537,12 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
         mScreenshotType.setSummary(mScreenshotType.getEntry());
         mScreenshotType.setOnPreferenceChangeListener(this);
+
+	mScreenshotDelay = (CustomSeekBarPreference) findPreference(SCREENSHOT_DELAY);
+        int screenshotDelay = Settings.System.getInt(resolver,
+                Settings.System.SCREENSHOT_DELAY, 1000);
+        mScreenshotDelay.setValue(screenshotDelay / 1);
+        mScreenshotDelay.setOnPreferenceChangeListener(this);
 
         mColorModePreference = (ColorModePreference) findPreference(KEY_COLOR_MODE);
         mColorModePreference.updateCurrentAndSupported();
@@ -2291,6 +2303,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SCREENSHOT_TYPE, mScreenshotTypeValue);
             mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
+            return true;
+	} else if (preference == mScreenshotDelay) {
+            int screenshotDelay = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SCREENSHOT_DELAY, screenshotDelay * 1);
             return true;
         } else if (preference == mUsbConfiguration) {
             writeUsbConfigurationOption(newValue);
