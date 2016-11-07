@@ -79,9 +79,6 @@
     <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
     <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
 
-    <!--Kernel Adiutor-->
-    <string name="kernel_adiutor_settings_title">Kernel Adiutor</string>
-
     <!-- Phone info shortcut -->
     <string name="device_info_title">Phone info</string>
 

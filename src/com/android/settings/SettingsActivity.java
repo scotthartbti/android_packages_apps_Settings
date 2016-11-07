@@ -235,8 +235,6 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final int REQUEST_SUGGESTION = 42;
 
-    private static final String KERNELADIUTOR_FRAGMENT = "com.android.settings.KernelAdiutor";
-
     private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
     private String mFragmentClass;
@@ -1046,13 +1044,6 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
-	if (KERNELADIUTOR_FRAGMENT.equals(fragmentName)) {
-            Intent kerneladiutorIntent = new Intent();
-            kerneladiutorIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
-            startActivity(kerneladiutorIntent);
-            finish();
-            return null;
-        }
 
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
@@ -1147,17 +1138,6 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.DevelopmentSettingsActivity.class.getName()),
                 showDev, isAdmin, pm);
-
-
-	// KernelAdiutor
-        boolean kaSupported = false;
-        try {
-            kaSupported = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode >= 0);
-        } catch (PackageManager.NameNotFoundException e) {
-        }
-        setTileEnabled(new ComponentName(packageName,
-                        Settings.KernelAdiutorActivity.class.getName()),
-kaSupported, isAdmin, pm);
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
