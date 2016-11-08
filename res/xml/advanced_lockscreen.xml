@@ -31,6 +31,12 @@
         android:defaultValue="false" />
 
     <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="lockscreen_charging_current"
+        android:title="@string/lockscreen_charging_current_title"
+        android:summary="@string/lockscreen_charging_current_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
         android:key="lockscreen_enable_power_menu"
         android:title="@string/lockscreen_enable_power_menu_title"
         android:defaultValue="true" />
