@@ -16,51 +16,51 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- BeanStalk version -->
-    <string name="mod_version">BeanStalk version</string>
-    <string name="mod_version_default">Unknown</string>
+    <!--  Versão BeanStalk -->
+    <string name="mod_version"> Versão BeanStalk</string>
+    <string name="mod_version_default">Desconhecida</string>
 
-    <!-- Changelog -->
-    <string name="changelog_beanstalk_title">BeanStalk changelog</string>
-    <string name="changelog_beanstalk_error">Unable to load BeanStalk changelog</string>
+    <!-- Mudanças -->
+    <string name="changelog_beanstalk_title"> Registro de alterações BeanStalk</string>
+    <string name="changelog_beanstalk_error">Não é possível carregar o registro de alterações do BeanStalk</string>
 
-    <!-- About BeanStalk -->
-    <string name="about_beanstalk">About BeanStalk</string>
+    <!-- Sobre BeanStalk -->
+    <string name="about_beanstalk">Sobre BeanStalk</string>
 
-    <!-- Share BeanStalk -->
-    <string name="share_beanstalk_title">Share BeanStalk</string>
+    <!-- Compartilhar BeanStalk -->
+    <string name="share_beanstalk_title">Compartilhar BeanStalk</string>
     <string name="share_beanstalk_summary">Let others know about BeanStalk</string>
-    <string name="share_message">Check out the official BeanStalk download page to see if your device is supported https://www.androidfilehost.com/?w=devices&amp;uid=23159073880933293</string>
-    <string name="share_chooser_title">Share BeanStalk</string>
+    <string name="share_message">Confira a página de download oficial do BeanStalk para ver se seu dispositivo é suportado https://www.androidfilehost.com/?w=devices&amp;uid=23159073880933293</string>
+    <string name="share_chooser_title">Compartilhar BeanStalk</string>
 
     <!-- BeanStalk Slack -->
     <string name="join_slack_title">BeanStalk Slack</string>
-    <string name="join_slack_summary">Send request to join the BeanStalk team slack room for discussion and development</string>
-    <string name="join_slack">Attention BeanStalk devs, please add me to the team Slack room!</string>
+    <string name="join_slack_summary">Enviar solicitação para participar da sala de folga da equipe BeanStalk para discussão e desenvolvimento</string>
+    <string name="join_slack">Attention Devs do BeanStalk, por favor adicione-me à sala Slack da equipe!</string>
     <string name="slack_chooser_title">BeanStalk Slack</string>
-    <string name="slack_subject">request to join beanstalk slack</string>
+    <string name="slack_subject">Solicitação para se juntar à folga do BeanStalk</string>
 
     <!-- Sites BeanStalk -->
-    <string name="beanstalk_on_web">BeanStalk on web</string>
+    <string name="beanstalk_on_web">BeanStalk na web</string>
     <string name="beanstalk_downloads_title">Downloads</string>
     <string name="beanstalk_downloads_summary">BeanStalk downloads</string>
     <string name="beanstalk_facebook_title">Facebook</string>
-    <string name="beanstalk_facebook_summary">BeanStalk Facebook page</string>
+    <string name="beanstalk_facebook_summary">Página do facebook BeanStalk</string>
     <string name="beanstalk_source_title">Github</string>
-    <string name="beanstalk_source_summary">Visit BeanStalk Github to view source and activity</string>
-    <string name="beanstalk_donation_title">Donate</string>
-    <string name="beanstalk_donation_summary">Donate any amount to BeanStalk development.  You may need to be logged into paypal first before continuing.</string>
+    <string name="beanstalk_source_summary">Visite BeanStalk no Github para ver a fonte e as atividades</string>
+    <string name="beanstalk_donation_title">Doação</string>
+    <string name="beanstalk_donation_summary">Doe qualquer quantia para o desenvolvimento do BeanStalk. Poderá ter de iniciar sessão no paypal antes de continuar.</string>
 
-    <!-- Volume Steps -->
-    <string name="volume_steps_title">Volume steps</string>
-    <string name="volume_steps_alarm_title">Volume steps: Alarm</string>
-    <string name="volume_steps_dtmf_title">Volume steps: DTMF</string>
-    <string name="volume_steps_music_title">Volume steps: Music</string>
-    <string name="volume_steps_notification_title">Volume steps: Notification</string>
-    <string name="volume_steps_ring_title">Volume steps: Ringer</string>
-    <string name="volume_steps_system_title">Volume steps: System</string>
-    <string name="volume_steps_voice_call_title">Volume steps: Voice Call</string>
-    <string name="volume_steps_reset">Reset</string>
+    <!--  Grau do volume -->
+    <string name="volume_steps_title">Grau do volume</string>
+    <string name="volume_steps_alarm_title">Grau do volume: Alarme</string>
+    <string name="volume_steps_dtmf_title">Grau do volume: DTMF</string>
+    <string name="volume_steps_music_title">Grau do volume: Musica</string>
+    <string name="volume_steps_notification_title">Grau do volume: Notificações</string>
+    <string name="volume_steps_ring_title">Grau do volume: Toque</string>
+    <string name="volume_steps_system_title">Grau do volume: Sistema</string>
+    <string name="volume_steps_voice_call_title">Grau do volume: Chamada de voz</string>
+    <string name="volume_steps_reset">Redefinir</string>
     <string name="volume_steps_60" translatable="false">60</string>
     <string name="volume_steps_45" translatable="false">45</string>
     <string name="volume_steps_30" translatable="false">30</string>
@@ -68,235 +68,234 @@
     <string name="volume_steps_7" translatable="false">7</string>
     <string name="volume_steps_5" translatable="false">5</string>
 
-    <!-- Dashboard options -->
-    <string name="dashboard_category">Dashboard options</string>
-    <string name="dashboard_suggestions_title">Dashboard suggestions</string>
-    <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string>
-    <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
-    <string name="remove_tile_summaries_title">Remove tile summaries</string>
-    <string name="remove_tile_summaries_summary">Remove tiles summaries that display underneath tile titles</string>
-    <string name="dashboard_conditions_title">Dashboard conditions</string>
-    <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
-    <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
+    <!-- Opções do painel de controle -->
+    <string name="dashboard_category">Opções do painel de controle</string>
+    <string name="dashboard_suggestions_title">Sugestões do painel de instrumentos</string>
+    <string name="summary_dashboard_suggestions_enabled">As sugestões do Painel de controlo estão ativadas</string>
+    <string name="summary_dashboard_suggestions_disabled">As sugestões do Painel de controle estão desativadas</string>
+    <string name="remove_tile_summaries_title">Remover resumos de telha</string>
+    <string name="remove_tile_summaries_summary">Remova resumos de telhas que aparecem embaixo dos títulos das telhas</string>
+    <string name="dashboard_conditions_title">Condições do painel de controle</string>
+    <string name="summary_dashboard_conditions_enabled">As condições do painel de controle estão ativadas</string>
+    <string name="summary_dashboard_conditions_disabled">As condições do painel de controle estão desativadas</string>
 
-    <!-- Phone info shortcut -->
-    <string name="device_info_title">Phone info</string>
+    <!-- Atalho de informações do telefone -->
+    <string name="device_info_title">Informações do telefone</string>
 
-    <!-- Power menu on secure lockscreen -->
-    <string name="lockscreen_enable_power_menu_title">Show power menu on secure lock screen</string>
+    <!-- Menu de energia e segurança da tela de bloqueio -->
+    <string name="lockscreen_enable_power_menu_title">Mostrar menu de energia na tela de bloqueio</string>
 
-    <!-- Lockscreen torch -->
-    <string name="keyguard_torch_title">Lockscreen torch</string>
-    <string name="keyguard_torch_summary">Longpress power button with screen off turns on torch</string>
+    <!-- Lanterna na tela de bloqueio -->
+    <string name="keyguard_torch_title">Lanterna na tela de bloqueio</string>
+    <string name="keyguard_torch_summary">Pressione longamente o botão liga / desliga com a tela desligada</string>
 
-    <!-- Lockscreen tap-to sleep -->
-    <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
-    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
+    <!-- Dois toques na tela de bloqueio  -->
+    <string name="double_tap_sleep_anywhere_title">Toque duas vezes em qualquer lugar para desligar a tela</string>
+    <string name="double_tap_sleep_anywhere_summary">Toque duas vezes em qualquer lugar da tela de bloqueio para colocar o dispositivo para dormir</string>
 
-    <!-- Advanced lockscreen -->
-    <string name="advanced_lockscreen">Advanced lockscreen</string>
+    <!-- Tela de bloqueio avançada -->
+    <string name="advanced_lockscreen">Tela de bloqueio avançada</string>
 
-    <!-- QuickSettings haptic feedback -->
-    <string name="quick_settings_vibrate_title">Vibrate on touch</string>
-    <string name="quick_settings_vibrate_summary">Vibrate when touching tiles</string>
+    <!-- Configurações rápidas -->
+    <string name="quick_settings_vibrate_title">Vibrar ao tocar</string>
+    <string name="quick_settings_vibrate_summary">Vibrar ao tocar nas telhas</string>
 
-    <!-- Less Notification sounds -->
-    <string name="notifications_category_title">Notifications</string>
-    <string name="less_notification_sounds_title">Less frequent notification sounds</string>
-    <string name="less_notification_sounds_summary">Limit the notification sounds of each app to only play once per set time period</string>
-    <string name="less_notification_sounds_default">Default Behaviour</string>
-    <string name="less_notification_sounds_3s">3 seconds</string>
-    <string name="less_notification_sounds_5s">5 seconds</string>
-    <string name="less_notification_sounds_10s">10 seconds</string>
-    <string name="less_notification_sounds_15s">15 seconds</string>
-    <string name="less_notification_sounds_30s">30 seconds</string>
-    <string name="less_notification_sounds_45s">45 seconds</string>
-    <string name="less_notification_sounds_1m">1 minute</string>
-    <string name="less_notification_sounds_2m">2 minutes</string>
-    <string name="less_notification_sounds_5m">5 minutes</string>
+    <!-- Menos sons de notificação -->
+    <string name="notifications_category_title">Notificações</string>
+    <string name="less_notification_sounds_title">Sons de notificação menos frequentes</string>
+    <string name="less_notification_sounds_summary">Limitar os sons de notificação de cada aplicativo para reproduzir apenas uma vez por período de tempo definido</string>
+    <string name="less_notification_sounds_default">Comportamento padrão</string>
+    <string name="less_notification_sounds_3s">3 segundos</string>
+    <string name="less_notification_sounds_5s">5 segundos</string>
+    <string name="less_notification_sounds_10s">10 segundos</string>
+    <string name="less_notification_sounds_15s">15 segundos</string>
+    <string name="less_notification_sounds_30s">30 segundos</string>
+    <string name="less_notification_sounds_45s">45 segundos</string>
+    <string name="less_notification_sounds_1m">1 minutos</string>
+    <string name="less_notification_sounds_2m">2 minutos</string>
+    <string name="less_notification_sounds_5m">5 minutos</string>
 
-    <!-- Notification drawer -->
-    <string name="notification_drawer_title">Notification drawer</string>
-    <string name="notification_drawer_qs_title">Notification &amp; QS drawer</string>
+    <!-- Caixa de notificação -->
+    <string name="notification_drawer_title">Caixa de notificação</string>
+    <string name="notification_drawer_qs_title">Notificação &amp; confgigurações rápidas da gaveta</string>
 
-    <!-- Force expanded notifications -->
-    <string name="force_expanded_notifications_title">Force Expanded Notifications</string>
-    <string name="force_expanded_notifications_summary">Available only for apps that support expanded notifications</string>
+    <!-- Forçar notificações expandidas -->
+    <string name="force_expanded_notifications_title">Forçar notificações expandidas</string>
+    <string name="force_expanded_notifications_summary">Disponível somente para aplicativos que suportam notificações expandidas</string>
 
-    <!-- Tiles animation style  -->
-    <string name="quicksettings_tiles_category">Tile animation options</string>
-    <string name="qs_tile_animation_style_title">Tiles animation style</string>
-    <string name="qs_tile_animation_duration_title">Tiles animation duration</string>
-    <string name="qs_tile_animation_interpolator_title">Tiles animation interpolator</string>
-    <string name="qs_tile_animation_style_off">No animation</string>
-    <string name="qs_tile_animation_style_flip">Flip</string>
-    <string name="qs_tile_animation_style_rotate">Rotate</string>
-    <string name="qs_tile_animation_duration_low">Low</string>
-    <string name="qs_tile_animation_duration_default">Default</string>
-    <string name="qs_tile_animation_duration_fast">Fast</string>
+    <!-- Estilo de animação das telhas  -->
+    <string name="qs_tile_animation_style_title">Estilo de animação</string>
+    <string name="qs_tile_animation_duration_title">Duração de animação</string>
+    <string name="qs_tile_animation_interpolator_title">Animação do interpolador de telhas</string>
+    <string name="qs_tile_animation_style_off">Sem animação</string>
+    <string name="qs_tile_animation_style_flip">Girar</string>
+    <string name="qs_tile_animation_style_rotate">Rodar</string>
+    <string name="qs_tile_animation_duration_low">Baixo</string>
+    <string name="qs_tile_animation_duration_default">Padrão</string>
+    <string name="qs_tile_animation_duration_fast">Rápido</string>
     <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
-    <string name="qs_tile_animation_interpolator_accelerateInterpolator">Accelerate</string>
-    <string name="qs_tile_animation_interpolator_decelerateInterpolator">Decelerate</string>
-    <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Accelerate decelerate</string>
-    <string name="qs_tile_animation_interpolator_bounceInterpolator">Bounce</string>
-    <string name="qs_tile_animation_interpolator_overshootInterpolator">Overshoot</string>
-    <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipate</string>
-    <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipate overshoot</string>
+    <string name="qs_tile_animation_interpolator_accelerateInterpolator">Acelerar</string>
+    <string name="qs_tile_animation_interpolator_decelerateInterpolator">Desacelerar</string>
+    <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Acelerar e desacelerar</string>
+    <string name="qs_tile_animation_interpolator_bounceInterpolator">Pular</string>
+    <string name="qs_tile_animation_interpolator_overshootInterpolator">Ultrapassar</string>
+    <string name="qs_tile_animation_interpolator_anticipateInterpolator">Antecipar</string>
+    <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Antecipar ultrapassagem</string>
     <string name="qs_set_animation_style">%1$s</string>
     <string name="qs_set_animation_duration">%1$s</string>
     <string name="qs_set_animation_interpolator">%1$s</string>
 
-    <!-- Quick settings tiles columns and rows config -->
-    <string name="qs_layout_category">QS tiles layout</string>
-    <string name="qs_rows_portrait_title">Rows (portrait)</string>
-    <string name="qs_rows_landscape_title">Rows (landscape)</string>
-    <string name="qs_columns_title">Columns</string>
-    <string name="sysui_qqs_count_title">Small QS tiles</string>
+    <!-- Configurações rápidas  das colunas e linhas configurações -->
+    <string name="qs_layout_category">Configurações rápidas do layout de telhas</string>
+    <string name="qs_rows_portrait_title">Linhas (retrato)</string>
+    <string name="qs_rows_landscape_title">Linhas (paisagem)</string>
+    <string name="qs_columns_title">Colunas</string>
+    <string name="sysui_qqs_count_title">Configurações rápidas de telha pequena</string>
 
-    <!-- Advanced data tile -->
-    <string name="qs_advanced_data_title">Advanced data tile</string>
-    <string name="qs_advanced_data_summary">Enable one tap action to enable or disable data</string>
+    <!-- Dados de telha avançada -->
+    <string name="qs_advanced_data_title"> Dados de telha avançada</string>
+    <string name="qs_advanced_data_summary">Ativar uma ação de toque para ativar ou desativar dados</string>
 
-    <!-- Brightness slider -->
-    <string name="qs_brightness_slider_title">Brightness slider</string>
-    <string name="qs_brightness_slider_enabled">Enabled</string>
-    <string name="qs_brightness_slider_disabled">Disabled</string>
-    <string name="brightness_icon_title">Brightness icon </string>
-    <string name="brightness_icon_summary">Show a brightness icon to the left of the brighness slider to adjust auto-brightness</string>
+    <!-- Controle deslizante de brilho -->
+    <string name="qs_brightness_slider_title">Controle deslizante de brilho</string>
+    <string name="qs_brightness_slider_enabled">Ativado</string>
+    <string name="qs_brightness_slider_disabled">Desativado</string>
+    <string name="brightness_icon_title">Ícone de brilho</string>
+    <string name="brightness_icon_summary">Mostre um ícone de brilho à esquerda do controle deslizante de brilho para ajustar o brilho automático</string>
 
-    <!-- Display catagories -->
+    <!-- Mostrar categorias-->
     <string name="category_interface">Interface</string>
 
-    <!-- transparency -->
-    <string name="transparency_title">Transparency</string>
-    <string name="qs_transparent_shade">QS shade transparency</string>
-    <string name="qs_transparent_header">QS header transparency</string>
-    <string name="volume_dialog_transparency">Volume dialog transparency</string>
-    <string name="power_menu_transparency">Power/reboot menu transparency</string>
+    <!-- Transparência -->
+    <string name="transparency_title">transparência/string>
+    <string name="qs_transparent_shade">Configurações rápidas da sombra de transparência</string>
+    <string name="qs_transparent_header">Configurações rápidas da transparência do cabeçalho</string>
+    <string name="volume_dialog_transparency">Transparência do volume de diálogo</string>
+    <string name="power_menu_transparency">Power/Transparência do menu reiniciar</string>
     <string name="power_menu_dialog_dim">Power/reboot dialog dim background amount</string>
-    <string name="notifications_transparency">Notifications transparency</string>
-    <string name="qs">Quick Settings Tweaks</string>
-    <string name="vol_diag">Volume Dialog Tweaks</string>
-    <string name="power">Power Menu Tweaks</string>
+    <string name="notifications_transparency">Transparência das notificações</string>
+    <string name="qs">Configurações rápidas dos ajustes</string>
+    <string name="vol_diag">Ajustes do diálogo de volume</string>
+    <string name="power">Ajustes do menu de energia</string>
 
-    <!-- QS stroke settings -->
-    <string name="qs_stroke_title">QS shade stroke</string>
-    <string name="qs_stroke_disabled">Disabled</string>
-    <string name="qs_stroke_accent">Accent color</string>
-    <string name="qs_stroke_custom">Custom color</string>
-    <string name="qs_stroke_color_title">QS shade stroke color</string>
-    <string name="qs_stroke_thickness_title">QS shade stroke thickness</string>
-    <string name="qs_corner_radius_title">QS shade corner radius</string>
-    <string name="qs_dash_width_title">QS stroke dash width</string>
-    <string name="qs_dash_gap_title">QS stroke dash gap</string>
+    <!-- Configurações rápidas do curso -->
+    <string name="qs_stroke_title">Configurações rápidas do traço de sombra</string>
+    <string name="qs_stroke_disabled">Desativado</string>
+    <string name="qs_stroke_accent">Cor do acento</string>
+    <string name="qs_stroke_custom">Cor personalizada</string>
+    <string name="qs_stroke_color_title">Configurações rápidas da cor do traço de sombra</string>
+    <string name="qs_stroke_thickness_title">Configurações rápidas da espessura do traço de sombra </string>
+    <string name="qs_corner_radius_title"> Configurações rápidas do raio do canto da máscara</string>
+    <string name="qs_dash_width_title">Configurações rápidas da largura do traço do cursor </string>
+    <string name="qs_dash_gap_title">Configurações rápidas do intervalo do traço do cursor</string>
 
-    <!-- Volume dialog stroke settings -->
-    <string name="volume_dialog_stroke_title">Volume dialog stroke</string>
-    <string name="volume_dialog_stroke_disabled">Disabled</string>
-    <string name="volume_dialog_stroke_accent">Accent color</string>
-    <string name="volume_dialog_stroke_custom">Custom color</string>
-    <string name="volume_dialog_stroke_color_title">Volume dialog stroke color</string>
-    <string name="volume_dialog_stroke_thickness_title">Volume dialog stroke thickness</string>
-    <string name="volume_dialog_corner_radius_title">Volume dialog corner radius</string>
-    <string name="volume_dialog_dash_width_title">Volume dialog stroke dash width</string>
-    <string name="volume_dialog_dash_gap_title">Volume dialog stroke dash gap</string>
+    <!-- Configurações de cursor de diálogo do volume -->
+    <string name="volume_dialog_stroke_title">Tomada de diálogo do volume</string>
+    <string name="volume_dialog_stroke_disabled">Desativado</string>
+    <string name="volume_dialog_stroke_accent">Cor do acento</string>
+    <string name="volume_dialog_stroke_custom">Cor personalizada</string>
+    <string name="volume_dialog_stroke_color_title">Cor do traço de diálogo do volume</string>
+    <string name="volume_dialog_stroke_thickness_title">Espessura do cursor do diálogo</string>
+    <string name="volume_dialog_corner_radius_title">Raio do canto do diálogo de volume</string>
+    <string name="volume_dialog_dash_width_title">Largura do traço de cursor do diálogo de volume</string>
+    <string name="volume_dialog_dash_gap_title">Traço do intervalo do diálogo do volume</string>
 
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Color Picker</string>
-    <string name="press_color_to_apply">Press on color below to apply</string>
-    <string name="arrow_right" translatable="false">→</string>
-    <string name="arrow_down" translatable="false">↓</string>
+    <!-- Cor do apanhador -->
+    <string name="dialog_color_picker">Cor do apanhador</string>
+    <string name="press_color_to_apply">Pressione na cor abaixo para aplicar</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
-    <string name="set">Set</string>
-    <string name="color_default">Default</string>
+    <string name="set">Definido</string>
+    <string name="color_default">Padrão</string>
 
     <!-- OmniSwitch -->
     <string name="omniswitch_category">OmniSwitch</string>
     <string name="omniswitch_settings_title">OmniSwitch</string>
     <string name="omniswitch_category">OmniSwitch</string>
-    <string name="recents_use_omniswitch_title">Use for recents</string>
-    <string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
-    <string name="omniswitch_start_settings_title">Settings</string>
-    <string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
-    <string name="omniswitch_first_time_title">Information</string>
-    <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
+    <string name="recents_use_omniswitch_title">Usar como recentes</string>
+    <string name="recents_use_omniswitch_summary">Usar o OmniSwitch em vez da visualização do recentes padrão</string>
+    <string name="omniswitch_start_settings_title">Configurações</string>
+    <string name="omniswitch_start_settings_summary">Abrir configurações do OmniSwitch</string>
+    <string name="omniswitch_first_time_title">Informação</string>
+    <string name="omniswitch_first_time_message">Verifique se você ativou o OmniSwitch. Você pode fazer isso usando \"confgigurações\" abaixo</string>
 
-    <!-- Display Animation -->
-    <string name="screen_and_animations_title">Animation control</string>
-    <string name="animation_title">Animations</string> 
+    <!-- Animação de exibição -->
+    <string name="screen_and_animations_title">Controle de animação</string>
+    <string name="animation_title">Animações</string> 
 
-    <!-- Power menu Animations  -->
-    <string name="power_menu_animation_title">Power menu animation</string>
-    <string name="power_menu_animation_summary">Change the enter/exit animation of the power menu</string>
-    <string name="power_menu_animation_dialog_title">Select power menu animation</string>
-    <string name="power_menu_animation_aosp">AOSP (default)</string>
-    <string name="power_menu_animation_bottom">Bottom</string>
-    <string name="power_menu_animation_top">Top</string>
-    <string name="power_menu_animation_rotate">Rotation</string>
+    <!-- Animação do menu de energia  -->
+    <string name="power_menu_animation_title">Animação do menu de energia</string>
+    <string name="power_menu_animation_summary">Alterar a animação de entrada / saída do menu de energia</string>
+    <string name="power_menu_animation_dialog_title">Selecione a animação do menu de energia</string>
+    <string name="power_menu_animation_aosp">AOSP (padrão)</string>
+    <string name="power_menu_animation_bottom">Inferior</string>
+    <string name="power_menu_animation_top">Superior</string>
+    <string name="power_menu_animation_rotate">Rotação</string>
     <string name="power_menu_animation_xylon">Fly</string>
-    <string name="power_menu_animation_slide">Slide</string>
-    <string name="power_menu_animation_turn">Turn</string>
-    <string name="power_menu_animation_fly">Glow</string>
+    <string name="power_menu_animation_slide">Deslizar</string>
+    <string name="power_menu_animation_turn">Vire</string>
+    <string name="power_menu_animation_fly">Brilho</string>
     <string name="power_menu_animation_card">3D</string>
-    <string name="power_menu_animation_translucent_top">Translucent (top)</string>
-    <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
+    <string name="power_menu_animation_translucent_top">Translúcido (parte superior)</string>
+    <string name="power_menu_animation_translucent_bottom">Translúcido (fundo)</string>
 
-    <!-- Toast Animation -->
-    <string name="toast_animation_title">Toast animation</string>
-    <string name="toast_none_animation">None</string>
-    <string name="toast_default_animation">Default</string>
-    <string name="toast_fade_animation">Fade</string>
-    <string name="toast_SlideRight_animation">Slide right</string>
-    <string name="toast_SlideLeft_animation">Slide left</string>
+    <!--Animação de brinde -->
+    <string name="toast_animation_title">-Animação de brinde</string>
+    <string name="toast_none_animation">Nenhum</string>
+    <string name="toast_default_animation">Padrão</string>
+    <string name="toast_fade_animation">Desvanecer</string>
+    <string name="toast_SlideRight_animation">Deslize para a direita</string>
+    <string name="toast_SlideLeft_animation">Deslize para a esquerda</string>
     <string name="toast_Xylon_animation">Xylon</string>
     <string name="toast_Toko_animation">Toko</string>
     <string name="toast_Tn_animation">Tn</string>
     <string name="toast_Honami_animation">Honami</string>
-    <string name="toast_FastFade_animation">Fast fade</string>
-    <string name="toast_GrowFade_animation">Grow fade</string>
-    <string name="toast_GrowFadeCenter_animation">Grow fade center</string>
-    <string name="toast_GrowFadeBottom_animation">Grow fade bottom</string>
-    <string name="toast_Translucent_animation">Translucent</string>
-    <string name="toast_SlideLeftRight_animation">Slide left to right</string>
-    <string name="toast_SlideRightLeft_animation">Slide right to left</string>
+    <string name="toast_FastFade_animation">Desvanece-se rapidamente</string>
+    <string name="toast_GrowFade_animation">Crescer desbotamento</string>
+    <string name="toast_GrowFadeCenter_animation">Crescer desvanecimento no centro</string>
+    <string name="toast_GrowFadeBottom_animation">Crescer desvanecimento na parte inferior</string>
+    <string name="toast_Translucent_animation">Translúcidot</string>
+    <string name="toast_SlideLeftRight_animation">Deslizar para a esquerda e para a direita</string>
+    <string name="toast_SlideRightLeft_animation">Deslizar direita para a esquerda</string>
 
     <!-- SystemUI restart prompt -->
-    <string name="systemui_restart_title">WARNING</string>
-    <string name="systemui_restart_message">SystemUI will be restarted so that selected setting can be applied correctly.</string>
-    <string name="restarting_ui">Restarting UI\u2026</string>
+    <string name="systemui_restart_title">ATENÇÃO</string>
+    <string name="systemui_restart_message">SystemUI será reiniciado para que a configuração selecionada possa ser aplicada corretamente.</string>
+    <string name="restarting_ui">Reiniciando UI\u2026</string>
 
-    <!-- Density category -->
-    <string name="density_category">Density options</string>
+    <!-- Categoria de densidade -->
+    <string name="density_category">Opções de densidade</string>
 
-    <!-- Navigation Bar -->
-    <string name="navigation_category">Navigation</string>
+    <!-- Barra de navegação -->
+    <string name="navigation_category">Navegação</string>
     <string name="navbar_interface_title">Interface</string>
-    <string name="navbar_size">Bar size</string>
-    <string name="navbar_mode">Navigation mode</string>
-    <string name="navbar_visibility">Enable navigation bar</string>
-    <string name="navigationbar_settings_title">Navigation bar</string>
-    <string name="navigationbar_settings_summary">Customize navigation style and behavior</string>
-    <string name="navbar_general_title">Advanced</string>
-    <string name="navigation_bar_left_title">Left-handed mode</string>
-    <string name="navigation_bar_left_summary">Place the navigation bar on the left side of the screen in landscape mode</string>
-    <string name="info_pref_note_title">Note</string>
-    <string name="smartbar_interface">SmartBar</string>
-    <string name="icon_pack_picker_dialog_title">Icon packs</string>
-    <string name="invalid_icon_from_uri">Unable to load image from content provider</string>
-    <string name="picker_activities">Activities</string>
-    <string name="select_custom_app_title">Select custom app</string>
-    <string name="select_custom_activity_title">Select custom activity</string>
-    <string name="profile_applist_title">Applications</string>
-    <string name="default_string">Default</string>
-    <string name="reset">Reset</string>
-    <string name="summary_navbar">Smartbar/fling and pulse</string>
+    <string name="navbar_size">Tamanho da barra</string>
+    <string name="navbar_mode">Modo de navegação</string>
+    <string name="navbar_visibility">Ativar barra de navegação</string>
+    <string name="navigationbar_settings_title">Barra de navegação</string>
+    <string name="navigationbar_settings_summary">Personalizar o estilo de navegação e de comportamento</string>
+    <string name="navbar_general_title">Avançado</string>
+    <string name="navigation_bar_left_title">Modo canhoto</string>
+    <string name="navigation_bar_left_summary">Coloque a barra de navegação no lado esquerdo da tela no modo paisagem</string>
+    <string name="info_pref_note_title">Nota</string>
+    <string name="smartbar_interface">Barra de navegação inteligente</string>
+    <string name="icon_pack_picker_dialog_title">Pacote de ícones</string>
+    <string name="invalid_icon_from_uri">Não é possível carregar a imagem do provedor de conteúdo</string>
+    <string name="picker_activities">Atividades</string>
+    <string name="select_custom_app_title">Selecione aplicativo personalizado</string>
+    <string name="select_custom_activity_title">Selecione a atividade personalizada</string>
+    <string name="profile_applist_title">Aplicativos</string>
+    <string name="default_string">Padrão</string>
+    <string name="reset">Repor</string>
+    <string name="summary_navbar">Arremesso e pulso / barra inteligente</string>
 
-    <!-- Actions dialog and default task values set in ActionPreference xml-->
-    <string name="choose_action_title">Choose action</string>
-    <string name="action_entry_default_action">Default settings</string>
-    <string name="action_entry_select_app">Select application</string>
-    <string name="action_entry_custom_action">Select custom action</string>
+   <!-- Caixa de diálogo de ações e valores de tarefa padrão definidos em Preferência de ação xml-->
+    <string name="choose_action_title">Escolher ação</string>
+    <string name="action_entry_default_action">Configurações padrão</string>
+    <string name="action_entry_select_app">Selecionar aplicativo</string>
+    <string name="action_entry_custom_action">Selecionar ação personalizada</string>
 
     <string name="action_value_default_action" translatable="false">default</string>
     <string name="action_value_select_app" translatable="false">app</string>
@@ -309,133 +308,134 @@
     <string name="action_value_menu" translatable="false">task_menu</string>
 
     <!-- Fling -->
-    <string name="fling_settings">Fling settings</string>
+    <string name="fling_settings">Configurações Fling</string>
     <string name="fling_interface">Fling</string>
-    <string name="fling_enable_title">Enable Fling</string>
-    <string name="fling_back_home_policy">Back and Home are required to be set at all times. To change a Back or Home assignment, set the desired assignment first</string>
-    <string name="fling_split_bar_policy">When only a right or left action is assigned, the action applies to the full bar</string>
-    <string name="fling_def_summary">No action set</string>
-    <string name="fling_swipe_actions">Swipe gestures</string>
-    <string name="fling_tap_actions">Tap gestures</string>
-    <string name="fling_short_swipe_right">Right short swipe</string>
-    <string name="fling_short_swipe_left">Left short swipe</string>
-    <string name="fling_long_swipe_right">Right long swipe</string>
-    <string name="fling_long_swipe_left">Left long swipe</string>
-    <string name="fling_right_up_swipe">Right side swipe up</string>
-    <string name="fling_left_up_swipe">Left side swipe up</string>
-    <string name="fling_single_tap">Single tap right</string>
-    <string name="fling_double_tap">Double tap right</string>
-    <string name="fling_long_press">Long press right</string>
-    <string name="fling_single_left_tap">Single tap left</string>
-    <string name="fling_double_left_tap">Double tap left</string>
-    <string name="fling_long_left_press">Long press left</string>
-    <string name="long_swipe_portrait_title">Portrait</string>
-    <string name="long_swipe_landscape_title">Landscape</string>
-    <string name="portrait_right_swipe_title">Portrait right swipe</string>
-    <string name="portrait_left_swipe_title">Portrait left swipe</string>
-    <string name="landscape_right_swipe_title">Landscape right swipe</string>
-    <string name="landscape_left_swipe_title">Landscape left swipe</string>
-    <string name="vertical_up_swipe_title">Vertical up swipe</string>
-    <string name="vertical_down_swipe_title">Vertical down swipe</string>
-    <string name="up_swipe_title">Up swipe</string>
-    <string name="down_swipe_title">Down swipe</string>
-    <string name="long_swipe_reset">Reset</string>
-    <string name="fling_advanced">Advanced</string>
-    <string name="fling_long_swipe_title">Long swipe thresholds</string>
-    <string name="fling_long_swipe_summary">Fine tune long swipe thresholds based on a percentage of Fling interface width or height</string>
-    <string name="fling_trails_enable_title">Enable gesture trails</string>
-    <string name="fling_trails_enable_summary">Show a trail on swipe gestures</string>
-    <string name="fling_trails_color_title">Trail color</string>
-    <string name="fling_trails_width_title">Trail width</string>
-    <string name="fling_appearance">Appearance</string>
-    <string name="fling_show_logo_title">Show Fling logo</string>
-    <string name="fling_animate_logo_title">Animate logo</string>
-    <string name="fling_animate_logo_summary">Logo animates on touch events</string>
-    <string name="fling_logo_color">Logo color</string>
-    <string name="fling_logo_custom_logo_pick_title">Custom logo icon</string>
-    <string name="fling_logo_custom_logo_image_pick_title">Custom logo image</string>
-    <string name="fling_logo_custom_logo_reset_title">Reset logo icon</string>
-    <string name="fling_show_ripple_title">Show ripple</string>
-    <string name="fling_show_ripple_summary">Ripple effect on touch events</string>
-    <string name="fling_ripple_color">Ripple color</string>
-    <string name="fling_longpress_timeout_label_left">Less delay</string>
-    <string name="fling_longpress_timeout_label_right">More delay</string>
-    <string name="fling_longpress_title">Long press delay</string>
-    <string name="fling_longpress_summary">Increase or decrease the time it takes to execute a long press</string>
+    <string name="fling_enable_title">Ativar fling</string>
+    <string name="fling_back_home_policy">Voltar ao nício é obrigatório  para ser definido em todos os momentos. Para alterar uma atribuição Voltar ou Inico, defina primeiro a atribuição desejada</string>
+    <string name="fling_split_bar_policy">Quando apenas o direito ou uma ação esquerda é atribuído, a ação se aplica a barra completamente</string>
+    <string name="fling_def_summary">Nehuma ação definida</string>
+    <string name="fling_swipe_actions">Gestos Swipe</string>
+    <string name="fling_tap_actions">Toque em gestos</string>
+    <string name="fling_short_swipe_right">Deslize curto no lado direito</string>
+    <string name="fling_short_swipe_left">Deslize curto no lado esquerdo</string>
+    <string name="fling_long_swipe_right">Deslize longo no lado direito</string>
+    <string name="fling_long_swipe_left">Deslize longo na esquerda</string>
+    <string name="fling_right_up_swipe">Deslizar o lado direito para cima</string>
+    <string name="fling_left_up_swipe">Deslizar o lado esquerdo para cima</string>
+    <string name="fling_single_tap">Toque simples no lado direito</string>
+    <string name="fling_double_tap">Toque duas vezes à direita</string>
+    <string name="fling_long_press">Pressione longamente para a direita</string>
+    <string name="fling_single_left_tap">Toque simples para a esquerda</string>
+    <string name="fling_double_left_tap">Toque duas vezes à esquerda</string>
+    <string name="fling_long_left_press">Pressione longamente para a esquerda</string>
+    <string name="long_swipe_portrait_title">Retrato</string>
+    <string name="long_swipe_landscape_title">Paisagem</string>
+    <string name="portrait_right_swipe_title">Deslize para a direita em modo retrato</string>
+    <string name="portrait_left_swipe_title">Deslize para esquerda em modo retrato </string>
+    <string name="landscape_right_swipe_title">Deslizar  para a direita da paisagem</string>
+    <string name="landscape_left_swipe_title">Deslizar para a esquerda em modo paisagem</string>
+    <string name="vertical_up_swipe_title">Deslizamento vertical para cima</string>
+    <string name="vertical_down_swipe_title">Deslizamento vertical para baixo</string>
+    <string name="up_swipe_title">Deslizar para cima</string>
+    <string name="down_swipe_title">Deslizar para baixo</string>
+    <string name="long_swipe_reset">Resetar</string>
+    <string name="fling_advanced">Avançado</string>
+    <string name="fling_long_swipe_title">Limites de deslize longos</string>
+    <string name="fling_long_swipe_summary">Ajuste fino de limiares longos com base em uma porcentagem de largura ou altura da interface de Fling</string>
+    <string name="fling_trails_enable_title">Ativar trilhas gestuais</string>
+    <string name="fling_trails_enable_summary">Mostrar uma trilha em gestos de deslize</string>
+    <string name="fling_trails_color_title">Cor da trilha</string>
+    <string name="fling_trails_width_title">Largura da trilha</string>
+    <string name="fling_appearance">Aparência</string>
+    <string name="fling_show_logo_title">Mostrar logotipo Fling</string>
+    <string name="fling_animate_logo_title">Animar o logotipo</string>
+    <string name="fling_animate_logo_summary">Animação de logotipos em eventos de toque</string>
+    <string name="fling_logo_color">Cores do logotipo</string>
+    <string name="fling_logo_custom_logo_pick_title">Ícone do logotipo personalizado</string>
+    <string name="fling_logo_custom_logo_image_pick_title">Imagem do logotipo personalizado</string>
+    <string name="fling_logo_custom_logo_reset_title">Redefinir ícone de logotipo</string>
+    <string name="fling_show_ripple_title">Mostrar ondulação</string>
+    <string name="fling_show_ripple_summary">Efeito de ondulação em eventos de toque</string>
+    <string name="fling_ripple_color">Cor da ondulação</string>
+    <string name="fling_longpress_timeout_label_left">Menos atraso</string>
+    <string name="fling_longpress_timeout_label_right">Mais atraso</string>
+    <string name="fling_longpress_title">atraso ao pressionar longamente</string>
+    <string name="fling_longpress_summary">Aumentar ou diminuir o tempo que leva para executar</string>
 
-    <!-- Pulse navigation bar music visualizer -->
-    <string name="pulse_help_policy_notice_title">About Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio graphic equalizer on the navigation bar when music plays. Pulse does not work with some audio sources when listening on device speaker</string>
-    <string name="pulse_settings">Pulse</string>
-    <string name="pulse_settings_summary">Navigation bar audio graphic equalizer</string>
-    <string name="fling_show_pulse_title">Show Pulse</string>
-    <string name="fling_show_pulse_summary">Audio graphic equalizer on the navigation bar</string>
-    <string name="pulse_render_mode_title">Render mode</string>
-    <string name="pulse_render_mode_fading_bars">Fading blocks</string>
-    <string name="pulse_render_mode_solid_lines">Solid lines</string>
-    <string name="fling_pulse_color">Pulse color</string>
-    <string name="eos_fling_lavalamp_title">Turn on Lava Lamp</string>
-    <string name="eos_fling_lavalamp_summary">Pulse animates a smooth lava lamp style color blend</string>
-    <string name="pulse_advanced_category">Advanced</string>
-    <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
-    <string name="pulse_custom_fudge_factor">Sanity level</string>
-    <string name="lavamp_solid_speed_title">Lava Lamp speed</string>
-    <string name="pulse_solid_dimen_category">Solid lines mode settings</string>
+    <!-- Visualizador de música pulso -->
+    <string name="pulse_help_policy_notice_title">Sobre pulso</string>
+    <string name="pulse_help_policy_notice_summary">Pulso é um equalizador gráfico de áudio brilhante na barra de navegação quando a música toca. Pulso não funciona com algumas fontes de áudio quando estiver ouvindo no alto-falante do dispositivo</string>
+    <string name="pulse_settings">Pulso</string>
+    <string name="pulse_settings_summary">Equalizador gráfico na barra de navegação</string>
+    <string name="fling_show_pulse_title">Mostrar pulso</string>
+    <string name="fling_show_pulse_summary">Equalizador gráfico de áudio na barra de navegação</string>
+    <string name="pulse_render_mode_title">Modo de renderização</string>
+    <string name="pulse_render_mode_fading_bars">Desaparecendo blocos</string>
+    <string name="pulse_render_mode_solid_lines">Linhas sólidas</string>
+    <string name="fling_pulse_color">Cor do pulso</string>
+    <string name="eos_fling_lavalamp_title">Ligar a lâmpada de lava</string>
+    <string name="eos_fling_lavalamp_summary">Pulso anima uma lâmpada de lava com mistura de cores e um estilo suave</string>
+    <string name="pulse_advanced_category">Avançado</string>
+    <string name="pulse_legacy_mode_advanced_category">Modo de configurações de desaparecimento de blocos</string>
+    <string name="pulse_custom_fudge_factor">Nível de sanidade</string>
+    <string name="lavamp_solid_speed_title">Velocidade da lâmpada de lava</string>
+    <string name="pulse_solid_dimen_category">Modo de configurações de linhas sólidas</string>
 
-    <!-- Pulse config -->
-    <string name="pulse_custom_dimen">Bar width</string>
-    <string name="pulse_custom_div">Bar spacing</string>
-    <string name="pulse_filled_block_size">Block size</string>
-    <string name="pulse_empty_block_size">Block spacing</string>
+    <!--Configuração de pulso -->
+    <string name="pulse_custom_dimen">Largura da barra</string>
+    <string name="pulse_custom_div">Espaçamento barra</string>
+    <string name="pulse_filled_block_size">Tamanho do bloco</string>
+    <string name="pulse_empty_block_size">Espaço do bloco</string>
 
-    <!-- Navbar height -->
-    <string name="navigation_bar_size_title">Bar size</string>
-    <string name="portrait_title">Portrait height</string>
-    <string name="land_vert_title">Landscape width</string>
-    <string name="land_hor_title">Landscape height</string>
-    <string name="positive_done">Done</string>
+    <!-- Altura da barra de navegação -->
+    <string name="navigation_bar_size_title">Tamanho da barra</string>
+    <string name="portrait_title">Altura em modo retrato</string>
+    <string name="land_vert_title">Largura em modo paisagem</string>
+    <string name="land_hor_title">Altura em modo paisagem</string>
+    <string name="positive_done">Feito</string>
 
-    <!-- SmartBar -->
-    <string name="smartbar_category">Smartbar</string>
-    <string name="smartbar_settings_title">Smartbar settings</string>
-    <string name="smartbar_editor_title">Toggle button editor</string>
-    <string name="smartbar_editor_summary">Medium press and drag to change position. Long press to show edit menu. Button position may be changed while menu is showing.</string>
-    <string name="smartbar_context_menu_position_title">Context buttons layout position</string>
-    <string name="smartbar_context_menu_position_summary">Set the position of contextual buttons such as menu and ime selector</string>
-    <string name="smartbar_right">Right</string>
-    <string name="smartbar_left">Left</string>
-    <string name="smartbar_button_animation_title">Button touch animation</string>
-    <string name="smartbar_button_animation_summary">Set the animation style of the primary buttons when they are pressed</string>
-    <string name="smartbar_button_animation_ripple">Ripple</string>
-    <string name="smartbar_button_animation_spring">Spring</string>
-    <string name="smartbar_factory_reset_title">Reset to stock</string>
-    <string name="smartbar_factory_reset_confirm">Are you sure you want to reset Smartbar to stock settings?</string>
-    <string name="smartbar_ime_action_title">Input method actions</string>
-    <string name="smartbar_ime_action_summary">Set what buttons to show when a on-screen keyboard is showing</string>
-    <string name="smartbar_ime_action_none">None</string>
-    <string name="smartbar_ime_action_arrows">Input arrows</string>
-    <string name="smartbar_ime_action_switcher">Keyboard switcher</string>
-    <string name="smartbar_backup_current_config_title">Save profile</string>
-    <string name="smartbar_restore_config_title">Restore profile</string>
-    <string name="smartbar_config_name_edit_dialog_title">Smartbar profile name</string>
-    <string name="smartbar_config_name_edit_dialog_message">Enter name or leave blank</string>
-    <string name="smartbar_config_dialog_title">Smartbar profiles</string>
-    <string name="smartbar_config_backup_success_toast">Smartbar profile successfully saved</string>
-    <string name="smartbar_config_restore_success_toast">Smartbar profile successfully restored</string>
-    <string name="smartbar_config_backup_error_toast">Error saving Smartbar profile</string>
-    <string name="smartbar_config_restore_error_toast">Error restoring Smartbar profile</string>
-    <string name="navbar_buttons_alpha_title">Button transparency</string>
+    <!-- Barra inteligente -->
+    <string name="smartbar_category">Barra inteligente</string>
+    <string name="smartbar_settings_title">Configurações da barra inteligente</string>
+    <string name="smartbar_editor_title">Editor do botão de alternância</string>
+    <string name="smartbar_editor_summary">Pressione em um nível médio e arraste para mudar de posição. Pressione longamente para mostrar o menu de editar. A posição do botão pode ser alterado enquanto o menu é exibido.</string>
+    <string name="smartbar_context_menu_position_title">Posição dos botões no contexto do layout</string>
+    <string name="smartbar_context_menu_position_summary">Definir a posição dos botões contextuais, como seletor de menu e tempo</string>
+    <string name="smartbar_right">Direita</string>
+    <string name="smartbar_left">Esquerda</string>
+    <string name="smartbar_button_animation_title">Animação de toque do botão</string>
+    <string name="smartbar_button_animation_summary">Defina o estilo de animação dos botões principais quando forem pressionados</string>
+    <string name="smartbar_button_animation_ripple">Ondulação</string>
+    <string name="smartbar_button_animation_spring">Primavera</string>
+    <string name="smartbar_factory_reset_title">Repor para o padrão</string>
+    <string name="smartbar_factory_reset_confirm">Tem certeza de que deseja redefinir  a barra inteligente para as configuração padrão?</string>
+    <string name="smartbar_ime_action_title">Ações de método de entrada</string>
+    <string name="smartbar_ime_action_summary">Definir quais os botões que devem ser mostrados quando estiver mostrando um teclado na tela</string>
+    <string name="smartbar_ime_action_none">Nenhum</string>
+    <string name="smartbar_ime_action_arrows">Setas de inserção</string>
+    <string name="smartbar_ime_action_switcher">Interruptor do teclado</string>
+    <string name="smartbar_backup_current_config_title">Salvar perfis</string>
+    <string name="smartbar_restore_config_title">Restaurar perfis</string>
+    <string name="smartbar_config_name_edit_dialog_title">Nome de perfil da barra inteligente</string>
+    <string name="smartbar_config_name_edit_dialog_message">Digite o nome ou deixe em branco</string>
+    <string name="smartbar_config_dialog_title">Perfis da barra inteligente</string>
+    <string name="smartbar_config_backup_success_toast">Perfis da barra inteligente salvos com sucesso</string>
+    <string name="smartbar_config_restore_success_toast">Perfil da barra inteligente restaurado com sucesso</string>
+    <string name="smartbar_config_backup_error_toast">Erro ao salvar perfil da barra inteligente</string>
+    <string name="smartbar_config_restore_error_toast">Erro ao restaurar pefil da barra inteligente</string>
+    <string name="navbar_buttons_alpha_title">Transparência do botão</string>
 
-    <!-- Optional screenshot type -->
-    <string name="screenshot_type_title">Screenshot type</string>
-    <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
-    <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
 
-    <!-- Screenshot delay -->
-    <string name="screenshot_options_category">Screenshot options</string>
-    <string name="screenshot_delay_title">Screenshot delay</string>
-    <string name="screenshot_delay_summary">Adjust the time for when a screenshot is captured</string>
+    <!-- Tipo de captura de tela opcional -->
+    <string name="screenshot_type_title">Tipo de captura de tela</string>
+    <string name="screenshot_type_fullscreen">Tirar captura de tela em tela cheia</string>
+    <string name="screenshot_type_partial">Selecionar a parte da tela que deseja capturar</string>
 
-    <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
-    <string name="screenshot_crop_and_share_summary">Show an editor window after taking a screenshot in order to do some operations like cropping, saving or sharing it</string>
+    <!-- Atraso na captura de tela -->
+    <string name="screenshot_options_category">Opções de captura de tela</string>
+    <string name="screenshot_delay_title">Atraso na captura de tela</string>
+    <string name="screenshot_delay_summary">Ajustar o tempo para quando uma captura de tela for obtida</string>
+
+    <string name="screenshot_crop_and_share_title">Cortar captura de tela &amp; compartihar</string>
+    <string name="screenshot_crop_and_share_summary">Mostrar uma janela do editor depois de tirar uma captura de tela para fazer algumas operações como cortar, salvar ou compartilhá-la</string>
 </resources>
