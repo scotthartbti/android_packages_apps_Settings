@@ -90,8 +90,8 @@
     <string name="keyguard_torch_summary">Pressione longamente o botão liga / desliga com a tela desligada</string>
 
     <!-- Lockscreen tap-to sleep -->
-    <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
-    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
+    <string name="double_tap_sleep_anywhere_title">Toque duas vezes em qualquer lugar para desligar a tela</string>
+    <string name="double_tap_sleep_anywhere_summary">Toque duas vezes em qualquer lugar da tela de bloqueio para colocar o dispositivo para dormir</string>
 
     <!-- Tela de bloqueio avançada -->
     <string name="advanced_lockscreen">Tela de bloqueio avançada</string>
