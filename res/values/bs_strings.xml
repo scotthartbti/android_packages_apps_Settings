@@ -89,7 +89,7 @@
     <string name="keyguard_torch_title">Lanterna na tela de bloqueio</string>
     <string name="keyguard_torch_summary">Pressione longamente o botão liga / desliga com a tela desligada</string>
 
-    <!-- Lockscreen tap-to sleep -->
+    <!-- Dois toques na tela de bloqueio  -->
     <string name="double_tap_sleep_anywhere_title">Toque duas vezes em qualquer lugar para desligar a tela</string>
     <string name="double_tap_sleep_anywhere_summary">Toque duas vezes em qualquer lugar da tela de bloqueio para colocar o dispositivo para dormir</string>
 
@@ -214,8 +214,8 @@
     <string name="omniswitch_category">OmniSwitch</string>
     <string name="omniswitch_settings_title">OmniSwitch</string>
     <string name="omniswitch_category">OmniSwitch</string>
-    <string name="recents_use_omniswitch_title">Use como recentes</string>
-    <string name="recents_use_omniswitch_summary">Use o OmniSwitch em vez da visualização do recentes padrão</string>
+    <string name="recents_use_omniswitch_title">Usar como recentes</string>
+    <string name="recents_use_omniswitch_summary">Usar o OmniSwitch em vez da visualização do recentes padrão</string>
     <string name="omniswitch_start_settings_title">Configurações</string>
     <string name="omniswitch_start_settings_summary">Abrir configurações do OmniSwitch</string>
     <string name="omniswitch_first_time_title">Informação</string>
