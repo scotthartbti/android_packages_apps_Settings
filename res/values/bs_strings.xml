@@ -71,7 +71,7 @@
     <!-- Opções do painel de controle -->
     <string name="dashboard_category">Opções do painel de controle</string>
     <string name="dashboard_suggestions_title">Sugestões do painel de controle</string>
-    <string name="summary_dashboard_suggestions_enabled">As sugestões do Painel de controlo estão ativadas</string>
+    <string name="summary_dashboard_suggestions_enabled">As sugestões do Painel de controle estão ativadas</string>
     <string name="summary_dashboard_suggestions_disabled">As sugestões do Painel de controle estão desativadas</string>
     <string name="remove_tile_summaries_title">Remover resumos de telha</string>
     <string name="remove_tile_summaries_summary">Remova resumos de telhas que aparecem embaixo dos títulos das telhas</string>
