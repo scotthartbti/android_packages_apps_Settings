@@ -29,7 +29,7 @@
 
     <!-- Compartilhar BeanStalk -->
     <string name="share_beanstalk_title">Compartilhar BeanStalk</string>
-    <string name="share_beanstalk_summary">Let others know about BeanStalk</string>
+    <string name="share_beanstalk_summary">Informe os outros sobre o BeanStalk</string>
     <string name="share_message">Confira a página de download oficial do BeanStalk para ver se seu dispositivo é suportado https://www.androidfilehost.com/?w=devices&amp;uid=23159073880933293</string>
     <string name="share_chooser_title">Compartilhar BeanStalk</string>
 
@@ -70,7 +70,7 @@
 
     <!-- Opções do painel de controle -->
     <string name="dashboard_category">Opções do painel de controle</string>
-    <string name="dashboard_suggestions_title">Sugestões do painel de instrumentos</string>
+    <string name="dashboard_suggestions_title">Sugestões do painel de controle</string>
     <string name="summary_dashboard_suggestions_enabled">As sugestões do Painel de controlo estão ativadas</string>
     <string name="summary_dashboard_suggestions_disabled">As sugestões do Painel de controle estão desativadas</string>
     <string name="remove_tile_summaries_title">Remover resumos de telha</string>
