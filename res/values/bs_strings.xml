@@ -260,10 +260,10 @@
     <string name="toast_SlideLeftRight_animation">Deslizar para a esquerda e para a direita</string>
     <string name="toast_SlideRightLeft_animation">Deslizar direita para a esquerda</string>
 
-    <!-- SystemUI restart prompt -->
+    <!-- Reiniciar a interface do sistema -->
     <string name="systemui_restart_title">ATENÇÃO</string>
-    <string name="systemui_restart_message">SystemUI será reiniciado para que a configuração selecionada possa ser aplicada corretamente.</string>
-    <string name="restarting_ui">Reiniciando UI\u2026</string>
+    <string name="systemui_restart_message">A interface do sistema será reiniciada para que a configuração selecionada possam ser aplicada corretamente.</string>
+    <string name="restarting_ui">Reiniciando interface do sistema</string>
 
     <!-- Categoria de densidade -->
     <string name="density_category">Opções de densidade</string>
