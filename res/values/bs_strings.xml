@@ -428,6 +428,9 @@
     <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
 
+    <string name="volume_dialog_headers_title">Volume dialog headers</string>
+    <string name="volume_dialog_headers_summary">Show stream name headers in volume dialog</string>
+
     <!-- Screenshot delay -->
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_delay_title">Screenshot delay</string>

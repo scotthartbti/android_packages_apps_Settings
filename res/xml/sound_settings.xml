@@ -62,6 +62,12 @@
                 android:persistent = "false"
                 android:defaultValue = "true" />
 
+	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+                android:key="volume_dialog_headers"
+                android:title="@string/volume_dialog_headers_title"
+                android:summary="@string/volume_dialog_headers_summary"
+                android:defaultValue="true" />
+
         <!-- Also vibrate for calls -->
         <SwitchPreference
                 android:key="vibrate_when_ringing"
