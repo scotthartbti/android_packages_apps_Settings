@@ -542,7 +542,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
 	mScreenshotDelay = (CustomSeekBarPreference) findPreference(SCREENSHOT_DELAY);
         int screenshotDelay = Settings.System.getInt(resolver,
-                Settings.System.SCREENSHOT_DELAY, 100);
+                Settings.System.SCREENSHOT_DELAY, 1000);
         mScreenshotDelay.setValue(screenshotDelay / 1);
         mScreenshotDelay.setOnPreferenceChangeListener(this);
 
