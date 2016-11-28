@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2016 BeanStalk
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,7 +29,7 @@
 
     <!-- Compartilhar BeanStalk -->
     <string name="share_beanstalk_title">Compartilhar BeanStalk</string>
-    <string name="share_beanstalk_summary">Informe os outros sobre o BeanStalk</string>
+    <string name="share_beanstalk_summary">Let others know about BeanStalk</string>
     <string name="share_message">Confira a página de download oficial do BeanStalk para ver se seu dispositivo é suportado https://www.androidfilehost.com/?w=devices&amp;uid=23159073880933293</string>
     <string name="share_chooser_title">Compartilhar BeanStalk</string>
 
@@ -70,8 +70,8 @@
 
     <!-- Opções do painel de controle -->
     <string name="dashboard_category">Opções do painel de controle</string>
-    <string name="dashboard_suggestions_title">Sugestões do painel de controle</string>
-    <string name="summary_dashboard_suggestions_enabled">As sugestões do Painel de controle estão ativadas</string>
+    <string name="dashboard_suggestions_title">Sugestões do painel de instrumentos</string>
+    <string name="summary_dashboard_suggestions_enabled">As sugestões do Painel de controlo estão ativadas</string>
     <string name="summary_dashboard_suggestions_disabled">As sugestões do Painel de controle estão desativadas</string>
     <string name="remove_tile_summaries_title">Remover resumos de telha</string>
     <string name="remove_tile_summaries_summary">Remova resumos de telhas que aparecem embaixo dos títulos das telhas</string>
@@ -89,8 +89,8 @@
     <string name="keyguard_torch_title">Lanterna na tela de bloqueio</string>
     <string name="keyguard_torch_summary">Pressione longamente o botão liga / desliga com a tela desligada</string>
 
-    <!-- Dois toques na tela de bloqueio  -->
-    <string name="double_tap_sleep_anywhere_title">Toque duas vezes em qualquer lugar para desligar a tela</string>
+    <!-- Toque para dormir na tela de bloqueio -->
+    <string name="double_tap_sleep_anywhere_title">Toque duas vezes em qualquer lugar para dormir</string>
     <string name="double_tap_sleep_anywhere_summary">Toque duas vezes em qualquer lugar da tela de bloqueio para colocar o dispositivo para dormir</string>
 
     <!-- Tela de bloqueio avançada -->
@@ -124,6 +124,7 @@
     <string name="force_expanded_notifications_summary">Disponível somente para aplicativos que suportam notificações expandidas</string>
 
     <!-- Estilo de animação das telhas  -->
+    <string name="quicksettings_tiles_category">Opções de animação das telhas</string>
     <string name="qs_tile_animation_style_title">Estilo de animação</string>
     <string name="qs_tile_animation_duration_title">Duração de animação</string>
     <string name="qs_tile_animation_interpolator_title">Animação do interpolador de telhas</string>
@@ -150,7 +151,6 @@
     <string name="qs_rows_portrait_title">Linhas (retrato)</string>
     <string name="qs_rows_landscape_title">Linhas (paisagem)</string>
     <string name="qs_columns_title">Colunas</string>
-    <string name="sysui_qqs_count_title">Configurações rápidas de telha pequena</string>
 
     <!-- Dados de telha avançada -->
     <string name="qs_advanced_data_title"> Dados de telha avançada</string>
@@ -219,7 +219,7 @@
     <string name="omniswitch_start_settings_title">Configurações</string>
     <string name="omniswitch_start_settings_summary">Abrir configurações do OmniSwitch</string>
     <string name="omniswitch_first_time_title">Informação</string>
-    <string name="omniswitch_first_time_message">Verifique se você ativou o OmniSwitch. Você pode fazer isso usando \"confgigurações\" abaixo</string>
+    <string name="omniswitch_first_time_message">Verifique se você ativou o OmniSwitch. Você pode fazer isso usando \"configurações\" abaixo</string>
 
     <!-- Animação de exibição -->
     <string name="screen_and_animations_title">Controle de animação</string>
@@ -260,10 +260,10 @@
     <string name="toast_SlideLeftRight_animation">Deslizar para a esquerda e para a direita</string>
     <string name="toast_SlideRightLeft_animation">Deslizar direita para a esquerda</string>
 
-    <!-- Reiniciar a interface do sistema -->
+    <!-- SystemUI restart prompt -->
     <string name="systemui_restart_title">ATENÇÃO</string>
-    <string name="systemui_restart_message">A interface do sistema será reiniciada para que a configuração selecionada possam ser aplicada corretamente.</string>
-    <string name="restarting_ui">Reiniciando interface do sistema</string>
+    <string name="systemui_restart_message">SystemUI será reiniciado para que a configuração selecionada possa ser aplicada corretamente.</string>
+    <string name="restarting_ui">Reiniciando UI\u2026</string>
 
     <!-- Categoria de densidade -->
     <string name="density_category">Opções de densidade</string>
@@ -291,7 +291,7 @@
     <string name="reset">Repor</string>
     <string name="summary_navbar">Arremesso e pulso / barra inteligente</string>
 
-   <!-- Caixa de diálogo de ações e valores de tarefa padrão definidos em Preferência de ação xml-->
+    <!-- Caixa de diálogo de ações e valores de tarefa padrão definidos em Preferência de ação xml-->
     <string name="choose_action_title">Escolher ação</string>
     <string name="action_entry_default_action">Configurações padrão</string>
     <string name="action_entry_select_app">Selecionar aplicativo</string>
@@ -349,7 +349,7 @@
     <string name="fling_appearance">Aparência</string>
     <string name="fling_show_logo_title">Mostrar logotipo Fling</string>
     <string name="fling_animate_logo_title">Animar o logotipo</string>
-    <string name="fling_animate_logo_summary">Animação de logotipos em eventos de toque</string>
+    <string name="fling_animate_logo_summary">Animação do logotipo em eventos de toque</string>
     <string name="fling_logo_color">Cores do logotipo</string>
     <string name="fling_logo_custom_logo_pick_title">Ícone do logotipo personalizado</string>
     <string name="fling_logo_custom_logo_image_pick_title">Imagem do logotipo personalizado</string>
@@ -425,11 +425,13 @@
     <string name="smartbar_config_restore_error_toast">Erro ao restaurar pefil da barra inteligente</string>
     <string name="navbar_buttons_alpha_title">Transparência do botão</string>
 
-
-    <!-- Tipo de captura de tela opcional -->
+   <!-- Tipo de captura de tela opcional -->
     <string name="screenshot_type_title">Tipo de captura de tela</string>
     <string name="screenshot_type_fullscreen">Tirar captura de tela em tela cheia</string>
     <string name="screenshot_type_partial">Selecionar a parte da tela que deseja capturar</string>
+    
+    <string name="volume_dialog_headers_title">Diálogos do volume do cabeçalho</string>
+    <string name="volume_dialog_headers_summary">Mostrar o fluxo de nomes na caixa de diálogo do volume </string>
 
     <!-- Atraso na captura de tela -->
     <string name="screenshot_options_category">Opções de captura de tela</string>
@@ -438,4 +440,7 @@
 
     <string name="screenshot_crop_and_share_title">Cortar captura de tela &amp; compartihar</string>
     <string name="screenshot_crop_and_share_summary">Mostrar uma janela do editor depois de tirar uma captura de tela para fazer algumas operações como cortar, salvar ou compartilhá-la</string>
+    
+    <string name="link_volume_option_title">Volume de ligação e notificação</string>
+    <string name="ring_notification_volume_option_title">Volume de toque e notificação</string>
 </resources>
