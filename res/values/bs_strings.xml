@@ -447,6 +447,10 @@
     <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
     <string name="screenshot_crop_and_share_summary">Show an editor window after taking a screenshot in order to do some operations like cropping, saving or sharing it</string>
 
+    <!-- Gesture Settings -->
+    <!-- Summary text for double twist for camera mode  [CHAR LIMIT=160]-->
+    <string name="double_twist_for_camera_mode_custom_summary">To switch in and out of selfie mode in Google Camera, double-twist when you’re in the app</string>
+
     <!-- Manage applications: show substratum overlays -->
     <string name="filter_substratum_apps">Substratum overlays</string>
     <string name="menu_show_substratum">Show overlays</string>
