@@ -127,11 +127,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private static final String ADB_TCPIP = "adb_over_network";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String ENABLE_TERMINAL = "enable_terminal";
-    private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String BT_HCI_SNOOP_LOG = "bt_hci_snoop_log";
     private static final String WEBVIEW_PROVIDER_KEY = "select_webview_provider";
     private static final String WEBVIEW_MULTIPROCESS_KEY = "enable_webview_multiprocess";
-    private static final String ENABLE_OEM_UNLOCK = "oem_unlock_enable";
     private static final String HDCP_CHECKING_KEY = "hdcp_checking";
     private static final String HDCP_CHECKING_PROPERTY = "persist.sys.hdcp_checking";
     private static final String LOCAL_BACKUP_PASSWORD = "local_backup_password";
@@ -242,8 +240,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final String SHORTCUT_MANAGER_RESET_KEY = "reset_shortcut_manager_throttling";
 
-    private static final int REQUEST_CODE_ENABLE_OEM_UNLOCK = 0;
-
     private static final int[] MOCK_LOCATION_APP_OPS = new int[] {AppOpsManager.OP_MOCK_LOCATION};
 
     private IWindowManager mWindowManager;
@@ -252,7 +248,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private DevicePolicyManager mDpm;
     private UserManager mUm;
     private WifiManager mWifiManager;
-    private PersistentDataBlockManager mOemUnlockManager;
     private TelephonyManager mTelephonyManager;
 
     private ListPreference mScreenshotType;
@@ -267,9 +262,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private SwitchPreference mAdbOverNetwork;
     private Preference mClearAdbKeys;
     private SwitchPreference mEnableTerminal;
-    private RestrictedSwitchPreference mKeepScreenOn;
     private SwitchPreference mBtHciSnoopLog;
-    private RestrictedSwitchPreference mEnableOemUnlock;
     private SwitchPreference mDebugViewAttributes;
     private SwitchPreference mForceAllowOnExternal;
 
@@ -375,8 +368,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 ServiceManager.getService(Context.BACKUP_SERVICE));
         mWebViewUpdateService  =
             IWebViewUpdateService.Stub.asInterface(ServiceManager.getService("webviewupdate"));
-        mOemUnlockManager = (PersistentDataBlockManager)getActivity()
-                .getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
         mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
         mDpm = (DevicePolicyManager)getActivity().getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -412,13 +403,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mEnableTerminal = null;
         }
 
-        mKeepScreenOn = (RestrictedSwitchPreference) findAndInitSwitchPref(KEEP_SCREEN_ON);
         mBtHciSnoopLog = findAndInitSwitchPref(BT_HCI_SNOOP_LOG);
-        mEnableOemUnlock = (RestrictedSwitchPreference) findAndInitSwitchPref(ENABLE_OEM_UNLOCK);
-        if (!showEnableOemUnlockPreference()) {
-            removePreference(mEnableOemUnlock);
-            mEnableOemUnlock = null;
-        }
 
         mDebugViewAttributes = findAndInitSwitchPref(DEBUG_VIEW_ATTRIBUTES);
         mForceAllowOnExternal = findAndInitSwitchPref(FORCE_ALLOW_ON_EXTERNAL_KEY);
@@ -668,19 +653,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             return;
         }
 
-        // A DeviceAdmin has specified a maximum time until the device
-        // will lock...  in this case we can't allow the user to turn
-        // on "stay awake when plugged in" because that would defeat the
-        // restriction.
-        final EnforcedAdmin admin = RestrictedLockUtils.checkIfMaximumTimeToLockIsSet(
-                getActivity());
-        mKeepScreenOn.setDisabledByAdmin(admin);
-        if (admin == null) {
-            mDisabledPrefs.remove(mKeepScreenOn);
-        } else {
-            mDisabledPrefs.add(mKeepScreenOn);
-        }
-
         final ContentResolver cr = getActivity().getContentResolver();
         mLastEnabledState = Settings.Global.getInt(cr,
                 Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
@@ -753,8 +725,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                     context.getPackageManager().getApplicationEnabledSetting(TERMINAL_APP_PACKAGE)
                             == PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
         }
-        updateSwitchPreference(mKeepScreenOn, Settings.Global.getInt(cr,
-                Settings.Global.STAY_ON_WHILE_PLUGGED_IN, 0) != 0);
         updateSwitchPreference(mBtHciSnoopLog, Settings.Secure.getInt(cr,
                 Settings.Secure.BLUETOOTH_HCI_LOG, 0) != 0);
         updateSwitchPreference(mDebugViewAttributes, Settings.Global.getInt(cr,
@@ -797,7 +767,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateForceResizableOptions();
         updateWebViewMultiprocessOptions();
         updateWebViewProviderOptions();
-        updateOemUnlockOptions();
         if (mColorTemperaturePreference != null) {
             updateColorTemperature();
         }
@@ -1180,32 +1149,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private boolean showVerifierSetting() {
         return Settings.Global.getInt(getActivity().getContentResolver(),
                 Settings.Global.PACKAGE_VERIFIER_SETTING_VISIBLE, 1) > 0;
-    }
-
-    private static boolean showEnableOemUnlockPreference() {
-        return !SystemProperties.get(PERSISTENT_DATA_BLOCK_PROP).equals("");
-    }
-
-    private boolean enableOemUnlockPreference() {
-        return !isBootloaderUnlocked() && isOemUnlockAllowed();
-    }
-
-    private void updateOemUnlockOptions() {
-        if (mEnableOemUnlock != null) {
-            updateSwitchPreference(mEnableOemUnlock, Utils.isOemUnlockEnabled(getActivity()));
-            updateOemUnlockSettingDescription();
-            // Showing mEnableOemUnlock preference as device has persistent data block.
-            mEnableOemUnlock.setDisabledByAdmin(null);
-            mEnableOemUnlock.setEnabled(enableOemUnlockPreference());
-            if (mEnableOemUnlock.isEnabled()) {
-                // Check restriction, disable mEnableOemUnlock and apply policy transparency.
-                mEnableOemUnlock.checkRestrictionAndSetDisabled(UserManager.DISALLOW_FACTORY_RESET);
-            }
-            if (mEnableOemUnlock.isEnabled()) {
-                // Check restriction, disable mEnableOemUnlock and apply policy transparency.
-                mEnableOemUnlock.checkRestrictionAndSetDisabled(UserManager.DISALLOW_OEM_UNLOCK);
-            }
-        }
     }
 
     // Returns the current state of the system property that controls
@@ -1975,36 +1918,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 getActivity().getContentResolver(), Settings.Secure.ANR_SHOW_BACKGROUND, 0) != 0);
     }
 
-    private void confirmEnableOemUnlock() {
-        DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == DialogInterface.BUTTON_POSITIVE) {
-                    Utils.setOemUnlockEnabled(getActivity(), true);
-                }
-            }
-        };
-
-        DialogInterface.OnDismissListener onDismissListener = new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if (getActivity() == null) {
-                    return;
-                }
-                updateAllOptions();
-            }
-        };
-
-        new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.confirm_enable_oem_unlock_title)
-                .setMessage(R.string.confirm_enable_oem_unlock_text)
-                .setPositiveButton(R.string.enable_text, onClickListener)
-                .setNegativeButton(android.R.string.cancel, null)
-                .setOnDismissListener(onDismissListener)
-                .create()
-                .show();
-    }
-
     @Override
     public void onSwitchChanged(Switch switchView, boolean isChecked) {
         if (switchView != mSwitchBar.getSwitch()) {
@@ -2050,14 +1963,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 mMockLocationApp = data.getAction();
                 writeMockLocation();
                 updateMockLocation();
-            }
-        } else if (requestCode == REQUEST_CODE_ENABLE_OEM_UNLOCK) {
-            if (resultCode == Activity.RESULT_OK) {
-                if (mEnableOemUnlock.isChecked()) {
-                    confirmEnableOemUnlock();
-                } else {
-                    Utils.setOemUnlockEnabled(getActivity(), false);
-                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -2129,21 +2034,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             pm.setApplicationEnabledSetting(TERMINAL_APP_PACKAGE,
                     mEnableTerminal.isChecked() ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                             : PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, 0);
-        } else if (preference == mKeepScreenOn) {
-            Settings.Global.putInt(getActivity().getContentResolver(),
-                    Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
-                    mKeepScreenOn.isChecked() ?
-                            (BatteryManager.BATTERY_PLUGGED_AC | BatteryManager.BATTERY_PLUGGED_USB) : 0);
         } else if (preference == mBtHciSnoopLog) {
             writeBtHciSnoopLogOptions();
-        } else if (preference == mEnableOemUnlock && mEnableOemUnlock.isEnabled()) {
-            if (mEnableOemUnlock.isChecked()) {
-                if (!showKeyguardConfirmation(getResources(), REQUEST_CODE_ENABLE_OEM_UNLOCK)) {
-                    confirmEnableOemUnlock();
-                }
-            } else {
-                Utils.setOemUnlockEnabled(getActivity(), false);
-            }
         } else if (preference == mMockLocationAppPref) {
             Intent intent = new Intent(getActivity(), AppPicker.class);
             intent.putExtra(AppPicker.EXTRA_REQUESTIING_PERMISSION,
@@ -2236,11 +2128,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         ((SettingsActivity) getActivity()).startPreferencePanel(
                 BackgroundCheckSummary.class.getName(),
                 null, R.string.background_check_title, null, null, 0);
-    }
-
-    private boolean showKeyguardConfirmation(Resources resources, int requestCode) {
-        return new ChooseLockSettingsHelper(getActivity(), this).launchConfirmationActivity(
-                requestCode, resources.getString(R.string.oem_unlock_enable));
     }
 
     @Override
@@ -2523,19 +2410,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                     sir.xmlResId = R.xml.development_prefs;
                     return Arrays.asList(sir);
                 }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    if (!isShowingDeveloperOptions(context)) {
-                        return null;
-                    }
-
-                    final List<String> keys = new ArrayList<String>();
-                    if (!showEnableOemUnlockPreference()) {
-                        keys.add(ENABLE_OEM_UNLOCK);
-                    }
-                    return keys;
-                }
             };
 
     private void resetShortcutManagerThrottling() {
@@ -2552,25 +2426,6 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         }
     }
 
-    private void updateOemUnlockSettingDescription() {
-        if (mEnableOemUnlock != null) {
-            int oemUnlockSummary = R.string.oem_unlock_enable_summary;
-            if (isBootloaderUnlocked()) {
-                oemUnlockSummary = R.string.oem_unlock_enable_disabled_summary_bootloader_unlocked;
-            } else if (isSimLockedDevice()) {
-                oemUnlockSummary = R.string.oem_unlock_enable_disabled_summary_sim_locked_device;
-            } else if (!isOemUnlockAllowed()) {
-                // If the device isn't SIM-locked but OEM unlock is disabled by the system via the
-                // user restriction, this means either some other carrier restriction is in place or
-                // the device hasn't been able to confirm which restrictions (SIM-lock or otherwise)
-                // apply.
-                oemUnlockSummary =
-                    R.string.oem_unlock_enable_disabled_summary_connectivity_or_locked;
-            }
-            mEnableOemUnlock.setSummary(getString(oemUnlockSummary));
-        }
-    }
-
     /** Returns {@code true} if the device is SIM-locked. Otherwise, returns {@code false}. */
     private boolean isSimLockedDevice() {
         int phoneCount = mTelephonyManager.getPhoneCount();
@@ -2580,28 +2435,5 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             }
         }
         return false;
-    }
-
-    /**
-     * Returns {@code true} if the bootloader has been unlocked. Otherwise, returns {code false}.
-     */
-    private boolean isBootloaderUnlocked() {
-        int flashLockState = PersistentDataBlockManager.FLASH_LOCK_UNKNOWN;
-        if (mOemUnlockManager != null) {
-            flashLockState = mOemUnlockManager.getFlashLockState();
-        }
-
-        return flashLockState == PersistentDataBlockManager.FLASH_LOCK_UNLOCKED;
-    }
-
-    /**
-     * Returns {@code true} if OEM unlock is disallowed by user restriction
-     * {@link UserManager#DISALLOW_FACTORY_RESET} or {@link UserManager#DISALLOW_OEM_UNLOCK}.
-     * Otherwise, returns {@code false}.
-     */
-    private boolean isOemUnlockAllowed() {
-        UserHandle userHandle = UserHandle.of(UserHandle.myUserId());
-        return !(mUm.hasBaseUserRestriction(UserManager.DISALLOW_OEM_UNLOCK, userHandle)
-                || mUm.hasBaseUserRestriction(UserManager.DISALLOW_FACTORY_RESET, userHandle));
     }
 }
