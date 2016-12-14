@@ -439,9 +439,6 @@
     <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
 
-    <string name="volume_dialog_headers_title">Volume dialog headers</string>
-    <string name="volume_dialog_headers_summary">Show stream name headers in volume dialog</string>
-
     <!-- Screenshot delay -->
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_delay_title">Screenshot delay</string>
@@ -449,9 +446,6 @@
 
     <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
     <string name="screenshot_crop_and_share_summary">Show an editor window after taking a screenshot in order to do some operations like cropping, saving or sharing it</string>
-
-    <string name="link_volume_option_title">Link ring and notification volume</string>
-    <string name="ring_notification_volume_option_title">Ring and notification volume</string>
 
     <!-- Manage applications: show substratum overlays -->
     <string name="filter_substratum_apps">Substratum overlays</string>
