@@ -159,6 +159,13 @@
                 android:fragment="com.android.settings.beanstalk.AnimationSettings"
 		android:title="@string/screen_and_animations_title"/>
 
+	<!-- Three finger screenshot -->
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+        	android:key="three_finger_gesture"
+        	android:title="@string/three_finger_gesture"
+        	android:summary="@string/three_finger_gesture_summary"
+        	android:defaultValue="false" />
+
     </PreferenceCategory>
 
      <PreferenceCategory
