@@ -44,19 +44,10 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "AdvancedLockscreen";
 
-    private static final String KEYGUARD_TORCH = "keyguard_toggle_torch";
-
-    private SystemSettingSwitchPreference mLsTorch;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.advanced_lockscreen);
-
-        mLsTorch = (SystemSettingSwitchPreference) findPreference(KEYGUARD_TORCH);
-        if (!Utils.deviceSupportsFlashLight(getActivity())) {
-            getPreferenceScreen().removePreference(mLsTorch);
-        }
     }
 
     @Override
