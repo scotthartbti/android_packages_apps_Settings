@@ -46,7 +46,6 @@ import android.support.v7.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.internal.app.NightDisplayController;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.view.RotationPolicy;
@@ -89,8 +88,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
-    private static final String KEY_NIGHT_DISPLAY = "night_display";
-    private static final String KEY_NIGHT_MODE = "night_mode";
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
@@ -98,7 +95,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private Preference mFontSizePref;
 
     private TimeoutListPreference mScreenTimeoutPreference;
-    private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
@@ -132,10 +128,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScreenTimeoutPreference = (TimeoutListPreference) findPreference(KEY_SCREEN_TIMEOUT);
 
         mFontSizePref = findPreference(KEY_FONT_SIZE);
-
-        if (!NightDisplayController.isAvailable(activity)) {
-            removePreference(KEY_NIGHT_DISPLAY);
-        }
 
         if (displayPrefs != null) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
@@ -260,15 +252,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     displayPrefs.removePreference(vrDisplayPref);
                 }
             }
-        }
-
-        mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
-        if (mNightModePreference != null) {
-            final UiModeManager uiManager = (UiModeManager) getSystemService(
-                    Context.UI_MODE_SERVICE);
-            final int currentNightMode = uiManager.getNightMode();
-            mNightModePreference.setValue(String.valueOf(currentNightMode));
-            mNightModePreference.setOnPreferenceChangeListener(this);
         }
     }
 
@@ -450,16 +433,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(), CAMERA_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
         }
-        if (preference == mNightModePreference) {
-            try {
-                final int value = Integer.parseInt((String) objValue);
-                final UiModeManager uiManager = (UiModeManager) getSystemService(
-                        Context.UI_MODE_SERVICE);
-                uiManager.setNightMode(value);
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "could not persist night mode setting", e);
-            }
-        }
         return true;
     }
 
@@ -547,9 +520,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isAutomaticBrightnessAvailable(context.getResources())) {
                         result.add(KEY_AUTO_BRIGHTNESS);
-                    }
-                    if (!NightDisplayController.isAvailable(context)) {
-                        result.add(KEY_NIGHT_DISPLAY);
                     }
                     if (!isLiftToWakeAvailable(context)) {
                         result.add(KEY_LIFT_TO_WAKE);
