@@ -40,6 +40,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.net.NetworkUtils;
 import android.net.wifi.IWifiManager;
 import android.net.wifi.WifiInfo;
@@ -2268,9 +2269,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         } else if (preference == mSelinux) {
             if (newValue.toString().equals("true")) {
                 CMDProcessor.runSuCommand("setenforce 1");
+                setSelinuxEnabled("true");
                 mSelinux.setSummary(R.string.selinux_enforcing_title);
             } else if (newValue.toString().equals("false")) {
                 CMDProcessor.runSuCommand("setenforce 0");
+                setSelinuxEnabled("false");
                 mSelinux.setSummary(R.string.selinux_permissive_title);
             }
             return true;
@@ -2490,5 +2493,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             }
         }
         return false;
+    }
+
+    private void setSelinuxEnabled(String status) {
+        SharedPreferences.Editor editor = getContext().getSharedPreferences("selinux_pref", Context.MODE_PRIVATE).edit();
+        editor.putString("selinux", status);
+        editor.apply();
     }
 }
