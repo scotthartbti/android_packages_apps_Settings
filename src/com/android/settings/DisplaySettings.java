@@ -49,7 +49,6 @@ import android.util.Log;
 import com.android.internal.app.NightDisplayController;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.internal.util.beanstalk.Helpers;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
 import com.android.settings.dashboard.SummaryLoader;
@@ -95,10 +94,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
-    private static final String KEY_OMNISWITCH = "omniswitch";
-    public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
-
-    private Preference mOmniSwitch;
 
     private Preference mFontSizePref;
 
@@ -123,9 +118,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = activity.getContentResolver();
 
         addPreferencesFromResource(R.xml.display_settings);
-
-	PreferenceScreen prefSet = getPreferenceScreen();
-	PackageManager pm = getPackageManager();
 
         PreferenceCategory displayPrefs = (PreferenceCategory)
                 findPreference(KEY_CATEGORY_DISPLAY);
@@ -269,12 +261,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             }
         }
-
-	mOmniSwitch = (Preference)
-                prefSet.findPreference(KEY_OMNISWITCH);
-        if (!Helpers.isPackageInstalled(OMNISWITCH_PACKAGE_NAME, pm)) {
-            prefSet.removePreference(mOmniSwitch);
-	}
 
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
         if (mNightModePreference != null) {
