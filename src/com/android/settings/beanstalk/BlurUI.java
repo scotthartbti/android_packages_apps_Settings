@@ -25,13 +25,13 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.preference.TwoStatePreference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.TwoStatePreference;
 import android.provider.Settings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -137,14 +137,18 @@ public class BlurUI extends SettingsPreferenceFragment
             return false;
         }
 
+    	@Override
+    	protected int getMetricsCategory() {
+       	    return MetricsEvent.BEANSTALK;
+   	}
+
         @Override
         public void onResume() {
             super.onResume();
         }
 
         @Override
-        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-                                             final Preference preference) {
+        public boolean onPreferenceTreeClick(Preference preference) {
             final ContentResolver resolver = getActivity().getContentResolver();
             if  (preference == mExpand) {
                 boolean enabled = ((SwitchPreference)preference).isChecked();
@@ -164,7 +168,7 @@ public class BlurUI extends SettingsPreferenceFragment
                 toEditBlurUISettings.putString("quick_settings_transluency", sQuickSett);
                 toEditBlurUISettings.commit();
             }
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
+            return super.onPreferenceTreeClick(preference);
         }
 
         public void sharedPreferences() {

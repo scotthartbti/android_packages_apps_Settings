@@ -39,19 +39,19 @@
             android:key="statusbar_blur_scale"
             android:title="@string/blurred_scale"
             android:summary="@string/blurred_scale_summary"
-            android:max="35"
-            aicpextras:min="1"
+            settings:max="35"
+            settings:min="1"
             android:dependency="blurred_status_bar_expanded_enabled_pref"
-            aicpextras:defaultValue="10" />
+            android:defaultValue="10" />
 
       <com.android.settings.beanstalk.CustomSeekBarPreference
             android:key="statusbar_blur_radius"
             android:title="@string/blurred_radius"
             android:summary="@string/blurred_radius_summary"
-            android:max="25"
-            aicpextras:min="1"
+            settings:max="25"
+            settings:min="1"
             android:dependency="blurred_status_bar_expanded_enabled_pref"
-            aicpextras:defaultValue="5" />
+            android:defaultValue="5" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -68,10 +68,10 @@
       <com.android.settings.beanstalk.CustomSeekBarPreference
             android:key="quick_settings_transluency"
             android:title="@string/transluency_level_universal"
-            android:max="100"
-            aicpextras:min="0"
+            settings:max="100"
+            settings:min="0"
             android:dependency="translucent_quick_settings_pref"
-            aicpextras:defaultValue="60" />
+            android:defaultValue="60" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -89,19 +89,19 @@
             android:key="recents_blur_scale"
             android:title="@string/blurred_scale"
             android:summary="@string/blurred_scale_summary"
-            android:max="20"
-            aicpextras:min="1"
+            settings:max="20"
+            settings:min="1"
             android:dependency="blurred_recent_app_enabled_pref"
-            aicpextras:defaultValue="6" />
+            android:defaultValue="6" />
 
       <com.android.settings.beanstalk.CustomSeekBarPreference
             android:key="recents_blur_radius"
             android:title="@string/blurred_radius"
             android:summary="@string/blurred_radius_summary"
-            android:max="25"
-            aicpextras:min="1"
+            settings:max="25"
+            settings:min="1"
             android:dependency="blurred_recent_app_enabled_pref"
-            aicpextras:defaultValue="3" />
+            android:defaultValue="3" />
 
     </PreferenceCategory>
 </PreferenceScreen>
