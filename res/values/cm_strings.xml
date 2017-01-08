@@ -406,13 +406,13 @@
     <string name="heads_up_notifications_enabled_title">Heads-up</string>
     <string name="heads_up_notifications_enabled_summary">Display priority notifications in a small floating window</string>
 
-    <!-- Volume link notification -->
-    <string name="link_volume_option_title">Link ringtone &amp; notification volumes</string>
-
     <!-- Encryption password -->
     <string name="crypt_keeper_change_password_title">Change encryption password</string>
     <string name="crypt_keeper_change_password_summary">Change the password used for device encryption</string>
     <string name="crypt_keeper_choose_your_password_header">Set encryption password</string>
     <string name="crypt_keeper_replace_password_title">Replace encryption password</string>
     <string name="crypt_keeper_replace_password_summary">Remove the separate encryption password</string>
+
+    <!-- Volume link notification -->
+    <string name="volume_link_notification_title">Link ringtone &amp; notification volumes</string>
 </resources>
