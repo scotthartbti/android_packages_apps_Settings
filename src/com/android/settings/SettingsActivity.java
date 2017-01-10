@@ -66,6 +66,7 @@ import com.android.settings.beanstalk.FlingSettings;
 import com.android.settings.beanstalk.NavbarSettings;
 import com.android.settings.beanstalk.SmartbarSettings;
 import com.android.settings.beanstalk.PulseSettings;
+import com.android.settings.beanstalk.AmbientSettings;
 import com.android.settings.applications.AdvancedAppSettings;
 import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.applications.InstalledAppDetails;
@@ -375,6 +376,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             TestingSettings.class.getName(),
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
+            AmbientSettings.class.getName(),
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
