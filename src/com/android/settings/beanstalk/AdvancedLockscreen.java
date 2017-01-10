@@ -66,6 +66,8 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     private ColorPickerPreference mLockscreenClockDateColorPicker;
     private Preference mLockscreenColorsReset;
 
+    static final int DEFAULT = 0xffffffff;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,7 +130,7 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mLockscreenOwnerInfoColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(
