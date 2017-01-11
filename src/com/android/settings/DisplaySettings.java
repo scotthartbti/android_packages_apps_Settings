@@ -62,7 +62,6 @@ import java.util.List;
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
-import static android.provider.Settings.Secure.SRGB_ENABLED;
 import static android.provider.Settings.Secure.WAKE_GESTURE_ENABLED;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
@@ -87,7 +86,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
     private static final String KEY_DOZE = "doze";
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
-    private static final String KEY_SRGB = "srgb";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
@@ -101,7 +99,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
-    private SwitchPreference mSrgbPreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
 
@@ -167,15 +164,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 } else {
                     displayPrefs.removePreference(mTapToWakePreference);
                 }
-            }
-
-            mSrgbPreference = (SwitchPreference) findPreference(KEY_SRGB);
-            if (mSrgbPreference != null) {
-                if (isSrgbAvailable(getResources())) {
-            	    mSrgbPreference.setOnPreferenceChangeListener(this);
-            	} else {
-            	    displayPrefs.removePreference(mSrgbPreference);
-		}
             }
 
             mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
@@ -290,10 +278,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
     }
 
-    private static boolean isSrgbAvailable(Context context) {
-        return !TextUtils.isEmpty(context.getString(com.android.internal.R.string.config_srgb_path));
-    }
-
     private static boolean isAutomaticBrightnessAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
     }
@@ -389,10 +373,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mDozePreference.setChecked(value != 0);
         }
 
-        if (mSrgbPreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), SRGB_ENABLED, 0);
-            mSrgbPreference.setChecked(value != 0);
-        }
         // Update camera gesture #1 if it is available.
         if (mCameraGesturePreference != null) {
             int value = Settings.Secure.getInt(getContentResolver(), CAMERA_GESTURE_DISABLED, 0);
@@ -447,10 +427,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (preference == mTapToWakePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
-        }
-        if (preference == mSrgbPreference) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), SRGB_ENABLED, value ? 1 : 0);
         }
         if (preference == mCameraGesturePreference) {
             boolean value = (Boolean) objValue;
@@ -550,9 +526,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isDozeAvailable(context)) {
                         result.add(KEY_DOZE);
-                    }
-                    if (!isSrgbAvailable(context)) {
-                        result.add(KEY_SRGB);
                     }
                     if (!RotationPolicy.isRotationLockToggleVisible(context)) {
                         result.add(KEY_AUTO_ROTATE);
