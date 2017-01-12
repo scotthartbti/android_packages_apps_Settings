@@ -50,6 +50,12 @@
                 android:targetClass="com.android.settings.SetFullBackupPassword" />
     </PreferenceScreen>
 
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:key="keep_screen_on"
+        android:title="@string/keep_screen_on"
+        android:summary="@string/keep_screen_on_summary"
+        settings:useAdditionalSummary="true" />
+
     <ListPreference
         android:key="hdcp_checking"
         android:title="@string/hdcp_checking_title"
@@ -61,6 +67,12 @@
         android:key="bt_hci_snoop_log"
         android:title="@string/bt_hci_snoop_log"
         android:summary="@string/bt_hci_snoop_log_summary"/>
+
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:key="oem_unlock_enable"
+        android:title="@string/oem_unlock_enable"
+        android:summary="@string/oem_unlock_enable_summary"
+        settings:useAdditionalSummary="true"/>
 
     <PreferenceScreen
         android:key="running_apps"
