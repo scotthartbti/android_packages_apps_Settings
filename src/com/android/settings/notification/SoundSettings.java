@@ -543,7 +543,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             super.onChange(selfChange, uri);
             if (VIBRATE_WHEN_RINGING_URI.equals(uri)) {
                 updateVibrateWhenRinging();
-            } else if (VOLUME_LINK_NOTIFICATION_URI.equals(uri)) {
+            }
+            if (VOLUME_LINK_NOTIFICATION_URI.equals(uri)) {
                 updateNotificationPreferenceState();
             }
         }

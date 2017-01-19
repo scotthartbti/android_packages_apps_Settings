@@ -413,9 +413,6 @@
     <string name="crypt_keeper_replace_password_title">Replace encryption password</string>
     <string name="crypt_keeper_replace_password_summary">Remove the separate encryption password</string>
 
-    <!-- Volume link notification -->
-    <string name="volume_link_notification_title">Link ringtone &amp; notification volumes</string>
-
     <!-- Per-app data restrictions -->
     <string name="data_usage_app_restrict_data_category_title">Cellular data access</string>
     <string name="data_usage_app_restrict_wifi_category_title">Wi\u2011Fi data access</string>
