@@ -30,8 +30,9 @@
             android:title="@string/screen_locking_sounds_title" />
 
     <!-- Charging sounds -->
-    <org.cyanogenmod.internal.cmparts.CMPartsPreference
-            android:key="charging_sounds_settings" />
+    <SwitchPreference
+            android:key="charging_sounds"
+            android:title="@string/charging_sounds_title" />
 
     <!-- Docking sounds -->
     <SwitchPreference
