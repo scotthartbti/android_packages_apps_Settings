@@ -731,4 +731,8 @@
     <string name="battery_stats_reset">Reset stats</string>
     <string name="battery_stats_message">Battery history stats are going to be reset</string>
     <string name="ok_string">Ok</string>
+
+    <string name="hide_lockscreen_bottom_shortcuts_title">Hide bottom shortcuts</string>
+    <string name="hide_lockscreen_bottom_shortcuts_summary_on">Bottom shortcuts hidden on the keyguard</string>
+    <string name="hide_lockscreen_bottom_shortcuts_summary_off">Bottom shortcuts shown on the keyguard</string>
 </resources>
