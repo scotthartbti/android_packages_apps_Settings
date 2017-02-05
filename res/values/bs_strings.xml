@@ -86,11 +86,14 @@
     <string name="device_info_title">Phone info</string>
 
     <!-- Power menu on secure lockscreen -->
-    <string name="lockscreen_enable_power_menu_title">Show power menu on secure lock screen</string>
+    <string name="powermenu_lockscreen_title">Power menu</string>
+    <string name="powermenu_lockscreen_summary_on">Power menu on the lock screen enabled</string>
+    <string name="powermenu_lockscreen_summary_off">Power menu on the lock screen disabled</string>
 
     <!-- Lockscreen tap-to sleep -->
-    <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
-    <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
+    <string name="double_tap_sleep_anywhere_title">Double-tap-to-sleep</string>
+    <string name="double_tap_sleep_anywhere_summary_on">Double tap lockscreen to put the device to sleep enabled</string>
+    <string name="double_tap_sleep_anywhere_summary_off">Double tap lock screen to put the device to sleep disabled</string>
 
     <!-- Advanced lockscreen -->
     <string name="advanced_lockscreen">Advanced lockscreen</string>
@@ -466,7 +469,8 @@
 
     <!-- Disable quick settings on lock screen switch -->
     <string name="lockscreen_qs_disabled_title">Quick settings disabled on lock screen</string>
-    <string name="lockscreen_qs_disabled_summary">Disable expanding quick settings and keyguard shortcuts on secure lock screens</string>
+    <string name="lockscreen_qs_disabled_summary_on">Expanding quick settings and keyguard shortcuts on secure lock screens disabled</string>
+    <string name="lockscreen_qs_disabled_summary_off">Expanding quick settings and keyguard shortcuts on secure lock screens enabled</string>
 
     <!-- setting: show CPU info-->
     <string name="show_cpu_info">Show CPU info</string>
@@ -531,7 +535,7 @@
     <string name="selinux_permissive_toast_title">Selinux set to permissive!</string>
 
     <!-- Lockscreen battery info indicator  -->
-    <string name="lockscreen_battery_info_title">Lockscreen battery info</string>
+    <string name="lockscreen_battery_info_title">Battery info</string>
     <string name="lockscreen_battery_info_summary">Display negotiated charger max current-voltage and battery temperature on lockscreen while charging</string>
 
     <!-- Three-fingers-swipe to screenshot -->
@@ -591,19 +595,19 @@
     <string name="custom_header_browse_summary">Long press on any image to use for static mode</string>
 
     <!-- Lockscreen Colors -->
-    <string name="lockscreen_colors_title">Lockscreen colors</string>
+    <string name="lockscreen_colors_title">Item colors</string>
     <string name="lockscreen_owner_info_color">Owner info</string>
     <string name="lockscreen_alarm_color">Alarm</string>
     <string name="lockscreen_clock_color">Clock</string>
     <string name="lockscreen_clock_date_color">Date</string>
-    <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
+    <string name="lockscreen_colors_reset_title">Reset colors</string>
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
 
     <!-- Hide Lockscreen clock & date -->
-    <string name="hide_lockscreen_items_title">Lockscreen items</string>
-    <string name="hide_lockscreen_clock_title">Show lockscreen clock</string>
-    <string name="hide_lockscreen_date_title">Show lockscreen date</string>
+    <string name="hide_lockscreen_items_title">Items</string>
+    <string name="hide_lockscreen_clock_title">Show clock</string>
+    <string name="hide_lockscreen_date_title">Show date</string>
     <string name="hide_lockscreen_alarm_title">Show alarm text</string>
 
     <!-- Doze pulse options -->

@@ -22,25 +22,22 @@
     <com.android.settings.beanstalk.SystemSettingSwitchPreference
         android:key="double_tap_sleep_anywhere"
         android:title="@string/double_tap_sleep_anywhere_title"
-        android:summary="@string/double_tap_sleep_anywhere_summary"
-        android:defaultValue="false" />
+        android:summaryOn="@string/double_tap_sleep_anywhere_summary_on"
+        android:summaryOff="@string/double_tap_sleep_anywhere_summary_off" />
+
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="lockscreen_enable_power_menu"
+        android:title="@string/powermenu_lockscreen_title"
+        android:summaryOn="@string/powermenu_lockscreen_summary_on"
+        android:summaryOff="@string/powermenu_lockscreen_summary_off"
+        android:defaultValue="true" />
 
     <com.android.settings.beanstalk.SecureSettingSwitchPreference
         android:key="lockscreen_qs_disabled"
         android:title="@string/lockscreen_qs_disabled_title"
-        android:summary="@string/lockscreen_qs_disabled_summary"
-        android:defaultValue="false" />
-
-    <com.android.settings.beanstalk.SystemSettingSwitchPreference
-        android:key="lockscreen_battery_info"
-        android:title="@string/lockscreen_battery_info_title"
-        android:summary="@string/lockscreen_battery_info_summary" 
-        android:defaultValue="false" />
-
-    <com.android.settings.beanstalk.SystemSettingSwitchPreference
-        android:key="lockscreen_enable_power_menu"
-        android:title="@string/lockscreen_enable_power_menu_title"
-        android:defaultValue="true" />
+        android:summaryOn="@string/lockscreen_qs_disabled_summary_on"
+        android:summaryOff="@string/lockscreen_qs_disabled_summary_off"
+	android:defaultValue="false" />
 
     <PreferenceScreen
         android:title="@string/lockscreen_targets_message" >
@@ -98,24 +95,40 @@
 
     </PreferenceCategory>
 
-	<!-- Hide Lockscreen clock & date -->
+    <!-- Lockscreen clock, date, alarm, battery info -->
     <PreferenceCategory
         android:key="hide_lockscreen_items_category"
-        android:title="@string/hide_lockscreen_items_title" />
+        android:title="@string/hide_lockscreen_items_title" >
 
-    <com.android.settings.beanstalk.SystemSettingSwitchPreference
-        android:key="hide_lockscreen_clock"
-        android:title="@string/hide_lockscreen_clock_title"
-        android:defaultValue="true" />
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_alarm"
+            android:title="@string/hide_lockscreen_alarm_title"
+            android:defaultValue="true" />
 
-    <com.android.settings.beanstalk.SystemSettingSwitchPreference
-        android:key="hide_lockscreen_date"
-        android:title="@string/hide_lockscreen_date_title"
-        android:defaultValue="true" />
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_clock"
+            android:title="@string/hide_lockscreen_clock_title"
+            android:defaultValue="true" />
 
-    <com.android.settings.beanstalk.SystemSettingSwitchPreference
-        android:key="hide_lockscreen_alarm"
-        android:title="@string/hide_lockscreen_alarm_title"
-        android:defaultValue="true" />
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+            android:key="lock_screen_hide_ampm"
+            android:title="@string/lock_screen_hide_ampm_title"
+            android:summaryOn="@string/lock_screen_hide_ampm_summary_on"
+            android:summaryOff="@string/lock_screen_hide_ampm_summary_off"
+            android:dependency="hide_lockscreen_clock"
+            android:defaultValue="false" />
+
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_date"
+            android:title="@string/hide_lockscreen_date_title"
+            android:defaultValue="true" />
+
+    	<com.android.settings.beanstalk.SystemSettingSwitchPreference
+            android:key="lockscreen_battery_info"
+            android:title="@string/lockscreen_battery_info_title"
+            android:summary="@string/lockscreen_battery_info_summary" 
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
