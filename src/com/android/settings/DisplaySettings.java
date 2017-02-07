@@ -443,18 +443,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mWakeWhenPluggedOrUnplugged) {
-            CMSettings.Global.putInt(getContentResolver(),
-                    CMSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
-                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
-            return true;
-        }
-
-        return super.onPreferenceTreeClick(preference);
-    }
-
-    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         if (KEY_SCREEN_TIMEOUT.equals(key)) {
@@ -510,9 +498,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mDozePreference) {
-            MetricsLogger.action(getActivity(), MetricsEvent.ACTION_AMBIENT_DISPLAY);
-        }
         return super.onPreferenceTreeClick(preference);
     }
 
