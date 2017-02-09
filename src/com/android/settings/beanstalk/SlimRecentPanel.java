@@ -54,6 +54,7 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
     private static final String TAG = "RecentPanelSettings";
 
     // Preferences
+    private static final String RECENTS_USE_SLIM= "use_slim_recents";
     private static final String RECENTS_MAX_APPS = "recents_max_apps";
     private static final String RECENT_PANEL_LEFTY_MODE =
             "recent_panel_lefty_mode";
@@ -68,6 +69,7 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
     private static final String RECENT_CARD_TEXT_COLOR =
             "recent_card_text_color";
 
+    private SwitchPreference mRecentsUseSlim;
     private CustomSeekBarPreference mMaxApps;
     private SystemSettingSwitchPreference mRecentPanelLeftyMode;
     private CustomSeekBarPreference mRecentPanelScale;
@@ -95,7 +97,13 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mRecentPanelLeftyMode) {
+        ContentResolver resolver = getActivity().getContentResolver();
+	if (preference == mRecentsUseSlim) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(
+                    resolver, Settings.System.USE_SLIM_RECENTS, value ? 1 : 0);
+            return true;
+        } else if (preference == mRecentPanelLeftyMode) {
             Settings.System.putInt(getContext().getContentResolver(),
                     Settings.System.RECENT_PANEL_GRAVITY,
                     ((Boolean) newValue) ? Gravity.LEFT : Gravity.RIGHT);
@@ -191,6 +199,9 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
     }
 
     private void initializeAllPreferences() {
+	mRecentsUseSlim = (SwitchPreference) findPreference(RECENTS_USE_SLIM);
+        mRecentsUseSlim.setOnPreferenceChangeListener(this);
+
         mRecentPanelLeftyMode =
                 (SystemSettingSwitchPreference) findPreference(RECENT_PANEL_LEFTY_MODE);
         mRecentPanelLeftyMode.setOnPreferenceChangeListener(this);
