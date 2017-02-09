@@ -90,12 +90,6 @@
                 android:title="@string/doze_title"
                 android:fragment="com.android.settings.beanstalk.AmbientSettings" />
 
-        <cyanogenmod.preference.CMGlobalSettingSwitchPreference
-                android:key="wake_when_plugged_or_unplugged"
-                android:title="@string/wake_when_plugged_or_unplugged_title"
-                android:summary="@string/wake_when_plugged_or_unplugged_summary"
-                android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
-
         <cyanogenmod.preference.RemotePreference
                 android:key="doze_device_settings"
                 android:title="@string/doze_title"
@@ -103,6 +97,12 @@
                 cm:replacesKey="doze">
             <intent android:action="org.cyanogenmod.settings.device.DOZE_SETTINGS" />
         </cyanogenmod.preference.RemotePreference>
+
+        <cyanogenmod.preference.CMGlobalSettingSwitchPreference
+                android:key="wake_when_plugged_or_unplugged"
+                android:title="@string/wake_when_plugged_or_unplugged_title"
+                android:summary="@string/wake_when_plugged_or_unplugged_summary"
+                android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
 
         <SwitchPreference
                 android:key="tap_to_wake"
