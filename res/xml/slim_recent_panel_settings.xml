@@ -21,7 +21,7 @@
         <com.android.settings.beanstalk.SystemSettingSwitchPreference
             android:key="use_slim_recents"
             android:title="@string/use_slim_recents_title"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <com.android.settings.beanstalk.SystemSettingSwitchPreference
             android:key="show_running_tasks"
