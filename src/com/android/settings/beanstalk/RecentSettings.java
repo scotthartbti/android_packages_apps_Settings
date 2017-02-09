@@ -11,6 +11,7 @@ import android.os.UserHandle;
 import android.content.pm.PackageManager;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
@@ -29,12 +30,18 @@ public class RecentSettings extends SettingsPreferenceFragment implements
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private static final String KEY_OMNISWITCH = "omniswitch";
     public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
+    private static final String RECENTS_USE_SLIM= "use_slim_recents";
+    private static final String SLIM_RECENTS_SETTINGS = "slim_recent_panel";
+    private static final String CATEGORY_SLIM_RECENTS = "slim_recents";
 
     private Preference mOmniSwitch;
 
     private ListPreference mImmersiveRecents;
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
+    private Preference mSlimRecentsSettings;
+    private PreferenceCategory mSlimRecents;
+    private SwitchPreference mRecentsUseSlim;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +75,11 @@ public class RecentSettings extends SettingsPreferenceFragment implements
             prefSet.removePreference(mOmniSwitch);
 	}
 
+	mSlimRecents = (PreferenceCategory) findPreference(CATEGORY_SLIM_RECENTS);
+	mRecentsUseSlim = (SwitchPreference) prefSet.findPreference(RECENTS_USE_SLIM);
+        mRecentsUseSlim.setOnPreferenceChangeListener(this);
+        mSlimRecentsSettings = (Preference) prefSet.findPreference(SLIM_RECENTS_SETTINGS);
+
     }
 
     @Override
@@ -91,12 +103,22 @@ public class RecentSettings extends SettingsPreferenceFragment implements
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
             return true;
+	} else if (preference == mRecentsUseSlim) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(
+                    resolver, Settings.System.USE_SLIM_RECENTS, value ? 1 : 0);
+            return true;
         }
         return false;
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+	if (preference == mSlimRecentsSettings) {
+            Intent intent = new Intent(getActivity(), SlimRecents.class);
+            getActivity().startActivity(intent);
+            return true;
+        }
         return super.onPreferenceTreeClick(preference);
     }
 }
