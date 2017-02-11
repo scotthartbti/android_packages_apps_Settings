@@ -41,6 +41,7 @@ public class RecentSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_STOCK_RECENTS = "stock_recents";
     private static final String CATEGORY_OMNI_RECENTS = "omni_recents";
     private static final String CATEGORY_SLIM_RECENTS = "slim_recents";
+    private static final String PREF_HIDE_APP_FROM_RECENTS = "hide_app_from_recents";
 
     private Preference mOmniSwitchSettings;
     private PreferenceCategory mOmniRecents;
@@ -52,6 +53,7 @@ public class RecentSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
     private boolean mOmniSwitchInitCalled;
+    private Preference mHideAppsFromRecents;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,8 @@ public class RecentSettings extends SettingsPreferenceFragment implements
         mRecentsUseSlim = (SwitchPreference) prefSet.findPreference(RECENTS_USE_SLIM);
         mRecentsUseSlim.setOnPreferenceChangeListener(this);
 	updateRecents();
+
+	mHideAppsFromRecents = prefSet.findPreference(PREF_HIDE_APP_FROM_RECENTS);
 
     }
 
@@ -150,6 +154,9 @@ public class RecentSettings extends SettingsPreferenceFragment implements
 	if (preference == mOmniSwitchSettings) {
             startActivity(INTENT_OMNISWITCH_SETTINGS);
             return true;
+	} else if (preference == mHideAppsFromRecents) {
+                Intent intent = new Intent(getActivity(), HAFRAppListActivity.class);
+                getActivity().startActivity(intent);
 	}
         return super.onPreferenceTreeClick(preference);
     }
