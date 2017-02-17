@@ -27,7 +27,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemProperties;
 import android.os.Vibrator;
+import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.provider.Settings.System;
 import android.support.v7.preference.ListPreference;
@@ -76,8 +78,10 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DOCK_AUDIO_MEDIA = "dock_audio_media";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
     private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
+    private static final String WIRED_RINGTONE_FOCUS_MODE = "wired_ringtone_focus_mode";
 
     private ListPreference mAnnoyingNotifications;
+    private ListPreference mWiredHeadsetRingtoneFocus;
 
     // Boot Sounds needs to be a system property so it can be accessed during boot.
     private static final String KEY_BOOT_SOUNDS = "boot_sounds";
@@ -219,6 +223,13 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         mAnnoyingNotifications.setValue(Integer.toString(notificationThreshold));
         mAnnoyingNotifications.setOnPreferenceChangeListener(this);
 
+	mWiredHeadsetRingtoneFocus = (ListPreference) findPreference(WIRED_RINGTONE_FOCUS_MODE);
+        int mWiredHeadsetRingtoneFocusValue = Settings.Global.getInt(getActivity().getContentResolver(),
+                Settings.Global.WIRED_RINGTONE_FOCUS_MODE, 1);
+        mWiredHeadsetRingtoneFocus.setValue(Integer.toString(mWiredHeadsetRingtoneFocusValue));
+        mWiredHeadsetRingtoneFocus.setSummary(mWiredHeadsetRingtoneFocus.getEntry());
+        mWiredHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
+
         for (SettingPref pref : PREFS) {
             pref.init(this);
         }
@@ -248,11 +259,20 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+	final ContentResolver resolver = getActivity().getContentResolver();
         final String key = preference.getKey();
         if (PREF_LESS_NOTIFICATION_SOUNDS.equals(key)) {
             final int val = Integer.valueOf((String) objValue);
-            System.putInt(getContentResolver(),
+            System.putInt(resolver,
                     System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, val);
+	} else if (preference == mWiredHeadsetRingtoneFocus) {
+            int mWiredHeadsetRingtoneFocusValue = Integer.valueOf((String) objValue);
+            int index = mWiredHeadsetRingtoneFocus.findIndexOfValue((String) objValue);
+            mWiredHeadsetRingtoneFocus.setSummary(
+                    mWiredHeadsetRingtoneFocus.getEntries()[index]);
+            Settings.Global.putInt(resolver, Settings.Global.WIRED_RINGTONE_FOCUS_MODE,
+                    mWiredHeadsetRingtoneFocusValue);
+            return true;
         }
         return true;
     }
