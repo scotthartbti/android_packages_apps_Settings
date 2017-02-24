@@ -54,6 +54,12 @@
         android:title="@string/lockscreen_visualizer_title"
         android:defaultValue="true"/>
 
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="fp_unlock_keystore"
+        android:title="@string/fp_unlock_keystore_title"
+        android:summary="@string/fp_unlock_keystore_summary"
+        android:defaultValue="false" />
+
     <cyanogenmod.preference.CMSecureSettingSwitchPreference
         android:key="lock_screen_weather_enabled"
         android:title="@string/lockscreen_weather_enabled_title"

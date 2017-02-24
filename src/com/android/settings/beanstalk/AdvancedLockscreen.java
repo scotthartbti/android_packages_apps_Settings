@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.hardware.fingerprint.FingerprintManager;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.SystemProperties;
@@ -59,12 +60,15 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_CLOCK_COLOR = "lockscreen_clock_color";
     private static final String LOCKSCREEN_CLOCK_DATE_COLOR = "lockscreen_clock_date_color";
     private static final String LOCKSCREEN_COLORS_RESET = "lockscreen_colors_reset";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
     private ColorPickerPreference mLockscreenOwnerInfoColorPicker;
     private ColorPickerPreference mLockscreenAlarmColorPicker;
     private ColorPickerPreference mLockscreenClockColorPicker;
     private ColorPickerPreference mLockscreenClockDateColorPicker;
     private Preference mLockscreenColorsReset;
+    private SwitchPreference mFpKeystore;
+    private FingerprintManager mFingerprintManager;
 
     static final int DEFAULT = 0xffffffff;
 
@@ -78,6 +82,11 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
 
 	int intColor;
         String hexColor;
+
+	// Fingerprint unlock keystore
+        mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
+        mFpKeystore.setChecked((Settings.System.getInt(resolver,
+        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
 
         mLockscreenOwnerInfoColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_OWNER_INFO_COLOR);
         mLockscreenOwnerInfoColorPicker.setOnPreferenceChangeListener(this);
