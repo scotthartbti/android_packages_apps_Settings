@@ -24,6 +24,11 @@
         android:summary="@string/force_expanded_notifications_summary"
         android:defaultValue="false"/>
 
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="notification_guts_kill_app_button"
+        android:title="@string/notification_guts_kill_app_button_title"
+        android:summary="@string/notification_guts_kill_app_button_summary" />
+
     <com.android.settings.beanstalk.SecureSettingSwitchPreference
         android:key="qs_show_brightness"
         android:title="@string/qs_brightness_slider_title"

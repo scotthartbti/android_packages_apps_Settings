@@ -54,6 +54,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.beanstalk.Utils;
+import com.android.settings.utils.Helpers;
 import com.android.settings.beanstalk.CustomSeekBarPreference;
 
 public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  implements Preference.OnPreferenceChangeListener{
@@ -72,6 +73,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
     private static final String CUSTOM_HEADER_PROVIDER = "custom_header_provider";
     private static final String CUSTOM_HEADER_BROWSE = "custom_header_browse";
+    private static final String NOTIFICATION_GUTS_KILL_APP_BUTTON = "notification_guts_kill_app_button";
 
     private ListPreference mDaylightHeaderPack;
     private CustomSeekBarPreference mHeaderShadow;
@@ -85,6 +87,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private String mDaylightHeaderProvider;
     private PreferenceScreen mHeaderBrowse;
     private SwitchPreference mEasyToggle;
+    private Preference mNotificationKill;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -193,6 +196,9 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
 
         mHeaderBrowse = (PreferenceScreen) findPreference(CUSTOM_HEADER_BROWSE);
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
+
+	mNotificationKill = findPreference(NOTIFICATION_GUTS_KILL_APP_BUTTON);
+        mNotificationKill.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -249,6 +255,11 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.QS_EASY_TOGGLE, checked ? 1:0);
+            return true;
+	} else if (preference == mNotificationKill) {
+            // Setting will only apply to new created notifications.
+            // By restarting SystemUI, we can re-create all notifications
+            Helpers.showSystemUIrestartDialog(getActivity());
             return true;
 	} else if (preference == mDaylightHeaderPack) {
             String value = (String) objValue;
