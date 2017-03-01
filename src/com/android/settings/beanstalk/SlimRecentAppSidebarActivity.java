@@ -19,7 +19,7 @@ package com.android.settings.beanstalk;
 import android.app.Fragment;
 import android.os.Bundle;
 
-import com.android.settings.slim.dslv.ActionListViewSettings;
+import com.android.settings.beanstalk.dslv.ActionListViewSettings;
 
 public class SlimRecentAppSidebarActivity extends SubActivity {
 
