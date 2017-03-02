@@ -333,7 +333,7 @@ public class ActionListViewSettings extends ListFragment implements
             // Icon is present, save it for future use and add the file path to the action.
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 File folder = new File(Environment.getExternalStorageDirectory() + File.separator +
-                        ".aicp" + File.separator + "icons");
+                        ".beanstalk" + File.separator + "icons");
                 folder.mkdirs();
                 String fileName = folder.toString()
                         + File.separator + "shortcut_" + System.currentTimeMillis() + ".png";
