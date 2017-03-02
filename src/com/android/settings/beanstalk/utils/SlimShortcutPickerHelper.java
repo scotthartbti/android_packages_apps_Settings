@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.beanstalk.dslv;
+package com.android.settings.beanstalk.utils;
 
 import android.app.Activity;
 import android.app.Fragment;

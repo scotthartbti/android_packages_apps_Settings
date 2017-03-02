@@ -63,7 +63,7 @@ import com.android.internal.util.aicp.DeviceUtils;
 import com.android.internal.util.aicp.DeviceUtils.FilteredDeviceFeaturesArray;
 
 import com.android.settings.R;
-import com.lordclockan.beanstalk.utils.SlimShortcutPickerHelper;
+import com.android.settings.beanstalk.utils.SlimShortcutPickerHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
