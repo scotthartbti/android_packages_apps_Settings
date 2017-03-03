@@ -152,11 +152,6 @@
 	    android:title="@string/category_interface">
 
 	<PreferenceScreen
-                android:key="app_circle_bar"
-                android:fragment="com.android.settings.beanstalk.AppCircleBar"
-		android:title="@string/app_circle_bar_title"/>
-
-	<PreferenceScreen
                 android:key="nav_blur_ui"
                 android:fragment="com.android.settings.beanstalk.BlurUI"
 		android:title="@string/nav_blur_ui_title"/>
