@@ -21,7 +21,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.preference.DialogPreference;
+import android.support.v7.preference.DialogPreference
+import com.android.settings.CustomDialogPreference;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;

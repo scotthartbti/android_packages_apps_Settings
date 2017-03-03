@@ -132,8 +132,6 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
         if (!lockPatternUtils.isSecure(MY_USER_ID)) {
             mBottomShortcuts.setChecked((Settings.Secure.getInt(resolver,
                 Settings.Secure.HIDE_LOCKSCREEN_SHORTCUTS, 0) == 1));
-        } else {
-            mMiscCategory.removePreference(mBottomShortcuts);
         }
 
 	mLockscreenColorsReset = (Preference) findPreference(LOCKSCREEN_COLORS_RESET);
