@@ -68,6 +68,7 @@
             android:title="@string/recent_panel_scale_title"
             settings:min="60"
             android:max="160"
+	    android:defaultValue="80"
             settings:interval="5"
             settings:units="%"
             android:persistent="false" />
