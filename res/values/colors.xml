@@ -124,7 +124,4 @@
     <!-- Gestures settings -->
     <color name="gestures_setting_background_color">#f5f5f5</color>
 
-    <!-- DSLV colors -->
-    <color name="dslv_icon_dark">#ff009688</color>
-    <color name="dslv_float_cackground_color">#ff616161</color>
 </resources>
