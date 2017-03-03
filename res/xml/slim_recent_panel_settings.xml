@@ -92,13 +92,6 @@
                 android:summary="@string/use_recent_app_sidebar_summary"
                 android:defaultValue="true" />
 
-	<PreferenceScreen
-            android:key="slim_recent_panel"
-            android:title="@string/slim_recents_settings_title"
-            android:summary="@string/slim_recents_settings_summary"
-            android:dependency="use_slim_recents"
-	    android:fragment="com.android.settings.beanstalk.SlimRecentPanel" />
-
             <PreferenceScreen
                     android:key="recent_app_sidebar_content"
                     android:title="@string/recent_app_sidebar_content_title"
