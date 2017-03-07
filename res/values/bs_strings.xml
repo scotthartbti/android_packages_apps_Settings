@@ -736,4 +736,8 @@
     <string name="hide_lockscreen_bottom_shortcuts_title">Hide bottom shortcuts</string>
     <string name="hide_lockscreen_bottom_shortcuts_summary_on">Bottom shortcuts hidden on the keyguard</string>
     <string name="hide_lockscreen_bottom_shortcuts_summary_off">Bottom shortcuts shown on the keyguard</string>
+
+    <!-- Force authorize substratum packages -->
+   <string name="force_authorize_substratum_packages_title">Allow theme apps from unknown sources</string>
+   <string name="force_authorize_substratum_packages_summary">Force authorize every theme app</string>
 </resources>
