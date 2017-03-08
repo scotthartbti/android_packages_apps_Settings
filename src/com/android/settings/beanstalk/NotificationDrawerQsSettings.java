@@ -128,7 +128,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
 
         mQsColumns = (CustomSeekBarPreference) findPreference(PREF_COLUMNS);
         int columnsQs = Settings.System.getInt(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS, 3);
+                Settings.System.QS_LAYOUT_COLUMNS, 5);
         mQsColumns.setValue(columnsQs / 1);
         mQsColumns.setOnPreferenceChangeListener(this);
 
