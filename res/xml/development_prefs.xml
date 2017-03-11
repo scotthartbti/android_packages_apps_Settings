@@ -449,6 +449,12 @@
         android:title="@string/selinux_title"
         android:defaultValue="false" />
 
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="confirm_shutdown_switch"
+        android:title="@string/confirm_shutdown_switch_title"
+        android:summary="@string/confirm_shutdown_switch_desc"
+        android:defaultValue="true" />
+
     <PreferenceCategory
             android:key="screenshot_options"
             android:title="@string/screenshot_options_category" >
