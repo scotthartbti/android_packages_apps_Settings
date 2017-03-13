@@ -75,6 +75,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String CUSTOM_HEADER_BROWSE = "custom_header_browse";
     private static final String NOTIFICATION_GUTS_KILL_APP_BUTTON = "notification_guts_kill_app_button";
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
+    private static final String CATEGORY_WEATHER = "weather_category";
 
     private ListPreference mDaylightHeaderPack;
     private CustomSeekBarPreference mHeaderShadow;
@@ -100,6 +101,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
         
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
+	final PackageManager pm = getActivity().getPackageManager();
 
         int defaultValue;
 
