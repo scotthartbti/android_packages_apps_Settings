@@ -74,6 +74,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String CUSTOM_HEADER_PROVIDER = "custom_header_provider";
     private static final String CUSTOM_HEADER_BROWSE = "custom_header_browse";
     private static final String NOTIFICATION_GUTS_KILL_APP_BUTTON = "notification_guts_kill_app_button";
+    private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
 
     private ListPreference mDaylightHeaderPack;
     private CustomSeekBarPreference mHeaderShadow;
@@ -88,6 +89,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private PreferenceScreen mHeaderBrowse;
     private SwitchPreference mEasyToggle;
     private Preference mNotificationKill;
+    private PreferenceCategory mWeatherCategory;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -199,6 +201,11 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
 
 	mNotificationKill = findPreference(NOTIFICATION_GUTS_KILL_APP_BUTTON);
         mNotificationKill.setOnPreferenceChangeListener(this);
+
+	mWeatherCategory = (PreferenceCategory) prefSet.findPreference(CATEGORY_WEATHER);
+        if (mWeatherCategory != null && (!Helpers.isPackageInstalled(WEATHER_SERVICE_PACKAGE, pm))) {
+            prefSet.removePreference(mWeatherCategory);
+	}
     }
 
     @Override

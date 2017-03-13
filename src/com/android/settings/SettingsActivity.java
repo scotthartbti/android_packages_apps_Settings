@@ -67,7 +67,7 @@ import com.android.settings.beanstalk.NavbarSettings;
 import com.android.settings.beanstalk.SmartbarSettings;
 import com.android.settings.beanstalk.PulseSettings;
 import com.android.settings.beanstalk.AmbientSettings;
-import com.android.settings.beanstalk.OmniJawsSettings;
+import com.android.settings.beanstalk.NotificationDrawerQsSettings;
 import com.android.settings.applications.AdvancedAppSettings;
 import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.applications.InstalledAppDetails;
@@ -389,7 +389,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName(),
             RunningServices.class.getName(),
-	    OmniJawsSettings.class.getName(),
+	    NotificationDrawerQsSettings.class.getName(),
     };
 
 
