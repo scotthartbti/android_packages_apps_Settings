@@ -38,6 +38,7 @@ import android.widget.Toast;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 
 public class AnimationSettings extends SettingsPreferenceFragment
@@ -47,9 +48,13 @@ public class AnimationSettings extends SettingsPreferenceFragment
 
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
+    private static final String TOAST_ICON_COLOR = "toast_icon_color";
+    private static final String TOAST_TEXT_COLOR = "toast_text_color";
 
     private ListPreference mPowerMenuAnimations;
     private ListPreference mToastAnimation;
+    private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mTextColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +80,27 @@ public class AnimationSettings extends SettingsPreferenceFragment
         mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
+
+	int intColor = 0xffffffff;
+        String hexColor = String.format("#%08x", (0xffffffff & 0xffffffff));
+
+        // Toast icon color
+        mIconColor = (ColorPickerPreference) findPreference(TOAST_ICON_COLOR);
+        intColor = Settings.System.getInt(resolver,
+                Settings.System.TOAST_ICON_COLOR, 0xffffffff);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mIconColor.setNewPreviewColor(intColor);
+        mIconColor.setSummary(hexColor);
+        mIconColor.setOnPreferenceChangeListener(this);
+
+        // Toast text color
+        mTextColor = (ColorPickerPreference) findPreference(TOAST_TEXT_COLOR);
+        intColor = Settings.System.getInt(resolver,
+                Settings.System.TOAST_TEXT_COLOR, 0xffffffff);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mTextColor.setNewPreviewColor(intColor);
+        mTextColor.setSummary(hexColor);
+        mTextColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -98,6 +124,24 @@ public class AnimationSettings extends SettingsPreferenceFragment
             mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
             Toast.makeText(getActivity(), "Toast test!!!", Toast.LENGTH_SHORT).show();
             return true;
+	}  else if (preference == mIconColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                   .valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                   Settings.System.TOAST_ICON_COLOR, intHex);
+            Toast.makeText(getActivity(), mToastAnimation.getEntry(),
+                   Toast.LENGTH_SHORT).show();
+        } else if (preference == mTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                  .valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                  Settings.System.TOAST_TEXT_COLOR, intHex);
+            Toast.makeText(getActivity(), mToastAnimation.getEntry(),
+                  Toast.LENGTH_SHORT).show();
         }
         return false;
     }
