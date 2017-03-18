@@ -117,7 +117,7 @@
             <PreferenceScreen
                     android:key="recent_app_sidebar"
                     android:title="@string/recent_app_sidebar_style_title"
-                    android:fragment="com.android.settings.rr.RecentAppSidebar"
+                    android:fragment="com.android.settings.beanstalk.RecentAppSidebar"
                     android:summary="@string/recent_app_sidebar_style_summary"
                     android:dependency="use_recent_app_sidebar" />
 

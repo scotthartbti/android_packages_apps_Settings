@@ -53,7 +53,7 @@ public class RecentAppSidebar extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsEvent.BEANSTALK;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
