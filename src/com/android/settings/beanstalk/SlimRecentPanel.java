@@ -160,11 +160,6 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
         return false;
     }
 
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        return super.onPreferenceTreeClick(preference);
-    }
-
     private boolean screenPinningEnabled() {
         return Settings.System.getInt(getContext().getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) != 0;

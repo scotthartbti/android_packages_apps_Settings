@@ -441,6 +441,7 @@
         <item name="android:lineSpacingMultiplier">1.2</item>
     </style>
 
+    <style name="rr_settings" parent="Theme.SettingsBase"></style>
     <!-- Preference fragment -->
     <style name="PreferenceTheme" parent="Theme.AppCompat">
         <item name="colorPrimary">@*android:color/primary_material_light</item>

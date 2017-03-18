@@ -38,7 +38,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
+import android.widget.Toast;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -363,6 +363,7 @@ public class ActionListViewSettings extends ListFragment implements
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	Context context = getActivity();
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == SlimShortcutPickerHelper.REQUEST_PICK_SHORTCUT
                     || requestCode == SlimShortcutPickerHelper.REQUEST_PICK_APPLICATION
@@ -372,8 +373,8 @@ public class ActionListViewSettings extends ListFragment implements
             } else if (requestCode == REQUEST_PICK_CUSTOM_ICON && mPendingIndex != -1) {
                 if (mImageTmp.length() == 0 || !mImageTmp.exists()) {
                     mPendingIndex = -1;
-                    Snackbar.make(getView(), getString(R.string.shortcut_image_not_valid),
-                            Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(context, getString(R.string.shortcut_image_not_valid),
+                            Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
@@ -434,12 +435,13 @@ public class ActionListViewSettings extends ListFragment implements
     }
 
     private boolean checkForDuplicateMainNavActions(String action) {
+	Context context = getActivity();
         ActionConfig actionConfig;
         for (int i = 0; i < mActionConfigs.size(); i++) {
             actionConfig = mActionConfigsAdapter.getItem(i);
             if (actionConfig.getClickAction().equals(action)) {
-                Snackbar.make(getView(), getString(R.string.shortcut_duplicate_entry),
-                        Snackbar.LENGTH_LONG).show();
+                Toast.makeText(context, getString(R.string.shortcut_duplicate_entry),
+                        Toast.LENGTH_LONG).show();
                 return true;
             }
         }
@@ -470,11 +472,12 @@ public class ActionListViewSettings extends ListFragment implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+	Context context = getActivity();
         switch (item.getItemId()) {
             case MENU_ADD:
                 if (mActionConfigs.size() == mMaxAllowedActions) {
-                    Snackbar.make(getView(), getString(R.string.shortcut_action_max),
-                            Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(context, getString(R.string.shortcut_action_max),
+                            Toast.LENGTH_LONG).show();
                     break;
                 }
                 if (mUseFullAppsOnly) {

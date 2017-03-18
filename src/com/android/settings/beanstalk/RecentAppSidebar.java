@@ -24,6 +24,7 @@ import android.provider.Settings;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
+import com.android.settings.beanstalk.CustomSeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -38,7 +39,7 @@ public class RecentAppSidebar extends SettingsPreferenceFragment
     private static final String APP_SIDEBAR_BG_COLOR = "recent_app_sidebar_bg_color";
     private static final String APP_SIDEBAR_SCALE = "recent_app_sidebar_scale";
 
-    private SeekBarPreference mAppSidebarScale;
+    private CustomSeekBarPreference mAppSidebarScale;
     private ColorPickerPreference mAppSidebarLabelColor;
     private ColorPickerPreference mAppSidebarBgColor;
 
@@ -92,7 +93,7 @@ public class RecentAppSidebar extends SettingsPreferenceFragment
     }
 
     private void initializeAllPreferences() {
-        mAppSidebarScale = (SeekBarPreference) findPreference(APP_SIDEBAR_SCALE);
+        mAppSidebarScale = (CustomSeekBarPreference) findPreference(APP_SIDEBAR_SCALE);
         mAppSidebarScale.setOnPreferenceChangeListener(this);
         mAppSidebarScale.setValue(Settings.System.getInt(getContext().getContentResolver(),
                 Settings.System.RECENT_APP_SIDEBAR_SCALE_FACTOR, 100));
