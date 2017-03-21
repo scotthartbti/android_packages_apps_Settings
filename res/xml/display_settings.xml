@@ -157,6 +157,11 @@
 		android:title="@string/nav_blur_ui_title"/>
 
 	<PreferenceScreen
+                android:key="suspend_actions"
+                android:fragment="com.android.settings.beanstalk.SuspendActions"
+		android:title="@string/screen_state_toggles_title"/>
+
+	<PreferenceScreen
                 android:key="recent_settings"
                 android:title="@string/recent_title"
 		android:fragment="com.android.settings.beanstalk.RecentSettings" />
