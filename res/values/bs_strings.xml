@@ -1032,4 +1032,8 @@
     <string name="screen_state_off_delay_summary">Number of minutes to wait before performing actions after screen off</string>
     <string name="screen_state_on_delay_title">Screen On actions delay</string>
     <string name="screen_state_on_delay_summary">Number of minutes to wait before performing actions after screen on</string>
+
+    <!-- Navigation bar button color -->
+    <string name="navbar_button_tint_title">Navigation button tint</string>
+    <string name="navbar_button_tint_switch_title">Navigation button tinting</string>
 </resources>

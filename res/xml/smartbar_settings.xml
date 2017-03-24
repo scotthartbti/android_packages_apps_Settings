@@ -58,5 +58,14 @@
         settings:units=""
         android:persistent="false" />
 
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="navbar_tint_switch"
+        android:title="@string/navbar_button_tint_switch_title"
+        android:defaultValue="false" />
 
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="navbar_button_color"
+        android:title="@string/navbar_button_tint_title"
+        android:defaultValue="0xffffffff"
+        android:dependency="navbar_tint_switch"/>
 </PreferenceScreen>
