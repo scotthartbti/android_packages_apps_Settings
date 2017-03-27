@@ -361,6 +361,7 @@
     <string name="lockscreen_shortcuts_summary">Change the shortcuts right under the lockscreen clock</string>
     <string name="lockscreen_shorcuts_launch_type_title">Shortcut click type</string>
     <string name="lockscreen_shortcuts_single_tap">Click</string>
+    <string name="lockscreen_shortcuts_longpress">Longpress</string>
     <string name="lockscreen_shortcuts_double_tap">Double tap</string>
     <string name="lockscreen_shorcuts_longpress_title">Long press</string>
     <string name="lockscreen_shorcuts_longpress_summary">Long press to open apps from shortcuts</string>
