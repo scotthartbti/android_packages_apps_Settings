@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2014 Slimroms
- * Copyright (C) 2015-2017 Android Ice Cold Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,9 +35,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.widget.Toast;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -54,6 +51,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.internal.util.aicp.ActionConfig;
 import com.android.internal.util.aicp.ActionConstants;
@@ -62,10 +60,11 @@ import com.android.internal.util.aicp.ImageHelper;
 import com.android.internal.util.aicp.DeviceUtils;
 import com.android.internal.util.aicp.DeviceUtils.FilteredDeviceFeaturesArray;
 
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.beanstalk.dslv.DragSortListView;
 import com.android.settings.beanstalk.dslv.DragSortController;
-import com.android.settings.beanstalk.utils.SlimShortcutPickerHelper;
+import com.android.settings.beanstalk.util.ShortcutPickerHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -74,7 +73,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ActionListViewSettings extends ListFragment implements
-            SlimShortcutPickerHelper.OnPickListener {
+            ShortcutPickerHelper.OnPickListener {
 
     private static final int DLG_SHOW_ACTION_DIALOG   = 0;
     private static final int DLG_SHOW_ICON_PICKER     = 1;
@@ -93,7 +92,6 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int LOCKSCREEN_SHORTCUT   = 4;
     private static final int POWER_MENU_SHORTCUT   = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
-    private static final int RECENT_APP_SIDEBAR    = 7;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
 
@@ -128,7 +126,7 @@ public class ActionListViewSettings extends ListFragment implements
     private String mActionEntriesKey;
 
     private Activity mActivity;
-    private SlimShortcutPickerHelper mPicker;
+    private ShortcutPickerHelper mPicker;
 
     private File mImageTmp;
 
@@ -168,7 +166,7 @@ public class ActionListViewSettings extends ListFragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.action_list_view_main_recents, container, false);
+        return inflater.inflate(R.layout.action_list_view_main, container, false);
     }
 
     @Override
@@ -204,16 +202,9 @@ public class ActionListViewSettings extends ListFragment implements
         mActionDialogValues = finalActionDialogArray.values;
         mActionDialogEntries = finalActionDialogArray.entries;
 
-        mPicker = new SlimShortcutPickerHelper(mActivity, this);
+        mPicker = new ShortcutPickerHelper(mActivity, this);
 
-        File folder = new File(Environment.getExternalStorageDirectory() + File.separator +
-                ".beanstalk" + File.separator + "icons");
-
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
-
-        mImageTmp = new File(folder.toString()
+        mImageTmp = new File(mActivity.getCacheDir()
                 + File.separator + "shortcut.tmp");
 
         DragSortListView listView = (DragSortListView) getListView();
@@ -333,23 +324,18 @@ public class ActionListViewSettings extends ListFragment implements
         }
         if (bmp != null && !mPendingLongpress) {
             // Icon is present, save it for future use and add the file path to the action.
-            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                File folder = new File(Environment.getExternalStorageDirectory() + File.separator +
-                        ".beanstalk" + File.separator + "icons");
-                folder.mkdirs();
-                String fileName = folder.toString()
-                        + File.separator + "shortcut_" + System.currentTimeMillis() + ".png";
-                try {
-                    FileOutputStream out = new FileOutputStream(fileName);
-                    bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
-                    out.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    action = action + "?hasExtraIcon=" + fileName;
-                    File image = new File(fileName);
-                    image.setReadable(true, false);
-                }
+            String fileName = mActivity.getFilesDir()
+                    + File.separator + "shortcut_" + System.currentTimeMillis() + ".png";
+            try {
+                FileOutputStream out = new FileOutputStream(fileName);
+                bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                action = action + "?hasExtraIcon=" + fileName;
+                File image = new File(fileName);
+                image.setReadable(true, false);
             }
         }
         if (mPendingNewAction) {
@@ -363,32 +349,27 @@ public class ActionListViewSettings extends ListFragment implements
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-	Context context = getActivity();
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == SlimShortcutPickerHelper.REQUEST_PICK_SHORTCUT
-                    || requestCode == SlimShortcutPickerHelper.REQUEST_PICK_APPLICATION
-                    || requestCode == SlimShortcutPickerHelper.REQUEST_CREATE_SHORTCUT) {
+            if (requestCode == ShortcutPickerHelper.REQUEST_PICK_SHORTCUT
+                    || requestCode == ShortcutPickerHelper.REQUEST_PICK_APPLICATION
+                    || requestCode == ShortcutPickerHelper.REQUEST_CREATE_SHORTCUT) {
                 mPicker.onActivityResult(requestCode, resultCode, data);
 
             } else if (requestCode == REQUEST_PICK_CUSTOM_ICON && mPendingIndex != -1) {
                 if (mImageTmp.length() == 0 || !mImageTmp.exists()) {
                     mPendingIndex = -1;
-                    Toast.makeText(context, getString(R.string.shortcut_image_not_valid),
+                    Toast.makeText(mActivity,
+                            getResources().getString(R.string.shortcut_image_not_valid),
                             Toast.LENGTH_LONG).show();
                     return;
                 }
-                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                    File folder = new File(Environment.getExternalStorageDirectory() +
-                            File.separator + ".beanstalk" + File.separator + "icons");
-                    folder.mkdirs();
-                    File image = new File(folder.toString() + File.separator
-                            + "shortcut_" + System.currentTimeMillis() + ".png");
-                    String path = image.getAbsolutePath();
-                    mImageTmp.renameTo(image);
-                    image.setReadable(true, false);
-                    updateAction(null, null, path, mPendingIndex, false);
-                    mPendingIndex = -1;
-                }
+                File image = new File(mActivity.getFilesDir() + File.separator
+                        + "shortcut_" + System.currentTimeMillis() + ".png");
+                String path = image.getAbsolutePath();
+                mImageTmp.renameTo(image);
+                image.setReadable(true, false);
+                updateAction(null, null, path, mPendingIndex, false);
+                mPendingIndex = -1;
             }
         } else {
             if (mImageTmp.exists()) {
@@ -435,12 +416,12 @@ public class ActionListViewSettings extends ListFragment implements
     }
 
     private boolean checkForDuplicateMainNavActions(String action) {
-	Context context = getActivity();
         ActionConfig actionConfig;
         for (int i = 0; i < mActionConfigs.size(); i++) {
             actionConfig = mActionConfigsAdapter.getItem(i);
             if (actionConfig.getClickAction().equals(action)) {
-                Toast.makeText(context, getString(R.string.shortcut_duplicate_entry),
+                Toast.makeText(mActivity,
+                        getResources().getString(R.string.shortcut_duplicate_entry),
                         Toast.LENGTH_LONG).show();
                 return true;
             }
@@ -472,11 +453,11 @@ public class ActionListViewSettings extends ListFragment implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-	Context context = getActivity();
         switch (item.getItemId()) {
             case MENU_ADD:
                 if (mActionConfigs.size() == mMaxAllowedActions) {
-                    Toast.makeText(context, getString(R.string.shortcut_action_max),
+                    Toast.makeText(mActivity,
+                            getResources().getString(R.string.shortcut_action_max),
                             Toast.LENGTH_LONG).show();
                     break;
                 }
@@ -536,9 +517,9 @@ public class ActionListViewSettings extends ListFragment implements
 
     private ArrayList<ActionConfig> getConfig() {
         switch (mActionMode) {
-/* Disabled for now till all features are back. Enable it step per step!!!!!!
             case LOCKSCREEN_SHORTCUT:
                 return ActionHelper.getLockscreenShortcutConfig(mActivity);
+/* Disabled for now till all features are back. Enable it step per step!!!!!!
             case NAV_BAR:
                 return ActionHelper.getNavBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -557,19 +538,16 @@ public class ActionListViewSettings extends ListFragment implements
             case SHAKE_EVENTS_DISABLED:
                 return ActionHelper.getDisabledShakeApps(mActivity);
 */
-            case RECENT_APP_SIDEBAR:
-                return ActionHelper.getRecentAppSidebarConfigWithDescription(
-                        mActivity, mActionValuesKey, mActionEntriesKey);
         }
         return null;
     }
 
     private void setConfig(ArrayList<ActionConfig> actionConfigs, boolean reset) {
         switch (mActionMode) {
-/* Disabled for now till all features are back. Enable it step per step!!!!!!
             case LOCKSCREEN_SHORTCUT:
                 ActionHelper.setLockscreenShortcutConfig(mActivity, actionConfigs, reset);
                 break;
+/* Disabled for now till all features are back. Enable it step per step!!!!!!
             case NAV_BAR:
                 ActionHelper.setNavBarConfig(mActivity, actionConfigs, reset);
                 break;
@@ -589,9 +567,6 @@ public class ActionListViewSettings extends ListFragment implements
                 ActionHelper.setDisabledShakeApps(mActivity, actionConfigs, reset);
                 break;
 */
-            case RECENT_APP_SIDEBAR:
-                ActionHelper.setRecentAppSidebarConfig(mActivity, actionConfigs, reset);
-                break;
         }
     }
 
@@ -603,7 +578,7 @@ public class ActionListViewSettings extends ListFragment implements
     private class ActionConfigsAdapter extends ArrayAdapter<ActionConfig> {
 
         public ActionConfigsAdapter(Context context, List<ActionConfig> clickActionDescriptions) {
-            super(context, R.layout.action_list_view_item_recents,
+            super(context, R.layout.action_list_view_item,
                     R.id.click_action_description, clickActionDescriptions);
         }
 
@@ -707,7 +682,7 @@ public class ActionListViewSettings extends ListFragment implements
                     .setTitle(R.string.shortcut_action_reset)
                     .setMessage(R.string.reset_message)
                     .setNegativeButton(R.string.cancel, null)
-                    .setPositiveButton(R.string.ok,
+                    .setPositiveButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // first delete custom icons in case they exist
@@ -757,7 +732,6 @@ public class ActionListViewSettings extends ListFragment implements
                         case NAV_RING:
                         case PIE:
                         case PIE_SECOND:
-                        case RECENT_APP_SIDEBAR:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;
@@ -774,9 +748,9 @@ public class ActionListViewSettings extends ListFragment implements
                                 : R.string.shortcut_action_help_delete_last_entry, actionMode);
                     }
                     return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.help)
+                    .setTitle(R.string.help_label)
                     .setMessage(finalHelpMessage)
-                    .setNegativeButton(R.string.ok,
+                    .setNegativeButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -787,7 +761,7 @@ public class ActionListViewSettings extends ListFragment implements
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.shortcut_action_warning)
                     .setMessage(R.string.shortcut_action_warning_message)
-                    .setNegativeButton(R.string.ok,
+                    .setNegativeButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -871,7 +845,6 @@ public class ActionListViewSettings extends ListFragment implements
                                     getOwner().mPendingIndex = -1;
                                     break;
                                 case 1: // System defaults
-                                /*
                                     ListView list = new ListView(getActivity());
                                     list.setAdapter(new IconAdapter());
                                     final Dialog holoDialog = new Dialog(getActivity());
@@ -893,7 +866,6 @@ public class ActionListViewSettings extends ListFragment implements
                                     holoDialog.show();
                                     break;
                                 case 2: // Custom user icon
-                                    */
                                     Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
                                     intent.setType("image/*");
                                     intent.putExtra("crop", "true");
