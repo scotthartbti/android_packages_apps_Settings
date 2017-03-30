@@ -69,7 +69,6 @@ import com.android.settings.beanstalk.SmartbarSettings;
 import com.android.settings.beanstalk.PulseSettings;
 import com.android.settings.beanstalk.AmbientSettings;
 import com.android.settings.beanstalk.NotificationDrawerQsSettings;
-import com.android.settings.beanstalk.LockscreenShortcutFragment;
 import com.android.settings.applications.AdvancedAppSettings;
 import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.applications.InstalledAppDetails;
@@ -394,7 +393,6 @@ public class SettingsActivity extends SettingsDrawerActivity
             AutomaticStorageManagerSettings.class.getName(),
             RunningServices.class.getName(),
 	    NotificationDrawerQsSettings.class.getName(),
-            com.android.settings.beanstalk.LockscreenShortcutFragment.class.getName(),
     };
 
 

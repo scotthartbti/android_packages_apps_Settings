@@ -319,6 +319,7 @@
     <string name="summary_navbar">Smartbar/fling and pulse</string>
 
     <!-- Slim DSLV -->
+    <string name="shortcut_action_none">None</string>
     <string name="shortcut_action_longpress">Long press:</string>
     <string name="shortcut_action_select_action_longpress">Choose longpress action:</string>
     <string name="shortcut_action_select_action">Choose action:</string>
@@ -361,7 +362,6 @@
     <string name="lockscreen_shorcuts_launch_type_title">Shortcut click type</string>
     <string name="lockscreen_shortcuts_single_tap">Click</string>
     <string name="lockscreen_shortcuts_double_tap">Double tap</string>
-    <string name="lockscreen_shortcuts_longpress">Longpress</string>
     <string name="lockscreen_shorcuts_longpress_title">Long press</string>
     <string name="lockscreen_shorcuts_longpress_summary">Long press to open apps from shortcuts</string>
 

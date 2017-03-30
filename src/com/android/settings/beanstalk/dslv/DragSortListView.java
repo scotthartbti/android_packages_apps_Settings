@@ -444,77 +444,77 @@ public class DragSortListView extends ListView {
 
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs,
-                    R.styleable.DragSortListView, 0, 0);
+                    R.styleable.DragSortListViewRecents, 0, 0);
 
             mItemHeightCollapsed = Math.max(1, a.getDimensionPixelSize(
-                    R.styleable.DragSortListView_collapsedHeight, 1));
+                    R.styleable.DragSortListViewRecents_collapsedHeight, 1));
 
             mTrackDragSort = a.getBoolean(
-                    R.styleable.DragSortListView_trackDragSort, false);
+                    R.styleable.DragSortListViewRecents_trackDragSort, false);
 
             if (mTrackDragSort) {
                 mDragSortTracker = new DragSortTracker();
             }
 
             // alpha between 0 and 255, 0=transparent, 255=opaque
-            mFloatAlpha = a.getFloat(R.styleable.DragSortListView_floatAlpha, mFloatAlpha);
+            mFloatAlpha = a.getFloat(R.styleable.DragSortListViewRecents_floatAlpha, mFloatAlpha);
             mCurrFloatAlpha = mFloatAlpha;
 
-            mDragEnabled = a.getBoolean(R.styleable.DragSortListView_dragEnabled, mDragEnabled);
+            mDragEnabled = a.getBoolean(R.styleable.DragSortListViewRecents_dragEnabled, mDragEnabled);
 
             mSlideRegionFrac = Math.max(0.0f,
                     Math.min(1.0f, 1.0f - a.getFloat(
-                            R.styleable.DragSortListView_slideShuffleSpeed,
+                            R.styleable.DragSortListViewRecents_slideShuffleSpeed,
                             0.75f)));
 
             mAnimate = mSlideRegionFrac > 0.0f;
 
             float frac = a.getFloat(
-                    R.styleable.DragSortListView_dragScrollStart,
+                    R.styleable.DragSortListViewRecents_dragScrollStart,
                     mDragUpScrollStartFrac);
 
             setDragScrollStart(frac);
 
             mMaxScrollSpeed = a.getFloat(
-                    R.styleable.DragSortListView_maxDragScrollSpeed,
+                    R.styleable.DragSortListViewRecents_maxDragScrollSpeed,
                     mMaxScrollSpeed);
 
             removeAnimDuration = a.getInt(
-                    R.styleable.DragSortListView_removeAnimationDuration,
+                    R.styleable.DragSortListViewRecents_removeAnimationDuration,
                     removeAnimDuration);
 
             dropAnimDuration = a.getInt(
-                    R.styleable.DragSortListView_dropAnimationDuration,
+                    R.styleable.DragSortListViewRecents_dropAnimationDuration,
                     dropAnimDuration);
 
             boolean useDefault = a.getBoolean(
-                    R.styleable.DragSortListView_useDefaultController,
+                    R.styleable.DragSortListViewRecents_useDefaultController,
                     true);
 
             if (useDefault) {
                 boolean removeEnabled = a.getBoolean(
-                        R.styleable.DragSortListView_removeEnabled,
+                        R.styleable.DragSortListViewRecents_removeEnabled,
                         false);
                 int removeMode = a.getInt(
-                        R.styleable.DragSortListView_removeMode,
+                        R.styleable.DragSortListViewRecents_removeMode1,
                         DragSortController.FLING_REMOVE);
                 boolean sortEnabled = a.getBoolean(
-                        R.styleable.DragSortListView_sortEnabled,
+                        R.styleable.DragSortListViewRecents_sortEnabled,
                         true);
                 int dragInitMode = a.getInt(
-                        R.styleable.DragSortListView_dragStartMode,
+                        R.styleable.DragSortListViewRecents_dragStartMode1,
                         DragSortController.ON_DOWN);
                 int dragHandleId = a.getResourceId(
-                        R.styleable.DragSortListView_dragHandleId,
+                        R.styleable.DragSortListViewRecents_dragHandleId,
                         0);
                 int flingHandleId = a.getResourceId(
-                        R.styleable.DragSortListView_flingHandleId,
+                        R.styleable.DragSortListViewRecents_flingHandleId,
                         0);
                 int clickRemoveId = a.getResourceId(
-                        R.styleable.DragSortListView_clickRemoveId,
+                        R.styleable.DragSortListViewRecents_clickRemoveId,
                         0);
                 int bgColor = a.getColor(
-                        R.styleable.DragSortListView_floatBackgroundColor,
+                        R.styleable.DragSortListViewRecents_floatBackgroundColor,
                         Color.BLACK);
 
                 DragSortController controller = new DragSortController(
