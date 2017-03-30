@@ -20,7 +20,6 @@
     <string name="mod_version">BeanStalk version</string>
     <string name="mod_version_default">Unknown</string>
 
-    <string name="Misc">Miscellaneous</string>
     <!-- Changelog -->
     <string name="changelog_beanstalk_title">BeanStalk changelog</string>
     <string name="changelog_beanstalk_error">Unable to load BeanStalk changelog</string>
@@ -1045,7 +1044,4 @@
     <string name="no_iconpacks_summary">No icon packs installed</string>
     <string name="dialog_pick_iconpack_title">Pick icon pack</string>
     <string name="default_iconpack_title">Default icons</string>
-
-    <!-- Show camera intent on secure lock screen -->
-    <string name="show_camera_intent_title">Show camera shortcut on secure lock screen</string>
 </resources>

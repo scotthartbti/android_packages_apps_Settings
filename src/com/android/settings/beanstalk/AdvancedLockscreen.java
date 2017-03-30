@@ -34,7 +34,6 @@ import com.android.internal.widget.LockPatternUtils;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.preference.PreferenceCategory;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.format.DateFormat;
@@ -64,7 +63,6 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_COLORS_RESET = "lockscreen_colors_reset";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String PREF_HIDE_BOTTOM_SHORTCUTS = "hide_lockscreen_shortcuts";
-    private static final String PREF_SHOW_CAMERA_INTENT = "show_camera_intent";
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -74,8 +72,6 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     private ColorPickerPreference mLockscreenClockDateColorPicker;
     private Preference mLockscreenColorsReset;
     private SwitchPreference mBottomShortcuts;
-    private SwitchPreference mShowCameraIntent;
-    private PreferenceCategory mMiscCategory;
     private SwitchPreference mFpKeystore;
     private FingerprintManager mFingerprintManager;
 
@@ -89,19 +85,13 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
 	PreferenceScreen prefSet = getPreferenceScreen();
 	ContentResolver resolver = getActivity().getContentResolver();
 
-	mMiscCategory = (PreferenceCategory) prefSet.findPreference("lockscreen_misc_category");
-
 	int intColor;
         String hexColor;
 
 	// Fingerprint unlock keystore
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        if (!mFingerprintManager.isHardwareDetected()){
-            mMiscCategory.removePreference(mFpKeystore);
-        } else {
-            mFpKeystore.setChecked((Settings.System.getInt(resolver,
-                Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-	}
+        mFpKeystore.setChecked((Settings.System.getInt(resolver,
+        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
 
         mLockscreenOwnerInfoColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_OWNER_INFO_COLOR);
         mLockscreenOwnerInfoColorPicker.setOnPreferenceChangeListener(this);
@@ -139,15 +129,9 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
 
         mBottomShortcuts = (SwitchPreference) findPreference(PREF_HIDE_BOTTOM_SHORTCUTS);
-	mShowCameraIntent = (SwitchPreference) findPreference(PREF_SHOW_CAMERA_INTENT);
         if (!lockPatternUtils.isSecure(MY_USER_ID)) {
             mBottomShortcuts.setChecked((Settings.Secure.getInt(resolver,
                 Settings.Secure.HIDE_LOCKSCREEN_SHORTCUTS, 0) == 1));
-            mMiscCategory.removePreference(mShowCameraIntent);
-        } else {
-             mMiscCategory.removePreference(mBottomShortcuts);
-             mBottomShortcuts.setChecked((Settings.Secure.getInt(resolver,
-                    Settings.Secure.SHOW_CAMERA_INTENT, 0) == 1));
         }
 
 	mLockscreenColorsReset = (Preference) findPreference(LOCKSCREEN_COLORS_RESET);
