@@ -62,6 +62,7 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_CLOCK_DATE_COLOR = "lockscreen_clock_date_color";
     private static final String LOCKSCREEN_COLORS_RESET = "lockscreen_colors_reset";
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+    private static final String PREF_SHOW_CAMERA_INTENT = "show_camera_intent";
     private static final String PREF_HIDE_BOTTOM_SHORTCUTS = "hide_lockscreen_shortcuts";
 
     private static final int MY_USER_ID = UserHandle.myUserId();
@@ -73,6 +74,7 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
     private Preference mLockscreenColorsReset;
     private SwitchPreference mBottomShortcuts;
     private SwitchPreference mFpKeystore;
+    private SwitchPreference mShowCameraIntent;
     private FingerprintManager mFingerprintManager;
 
     static final int DEFAULT = 0xffffffff;
@@ -133,6 +135,10 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
             mBottomShortcuts.setChecked((Settings.Secure.getInt(resolver,
                 Settings.Secure.HIDE_LOCKSCREEN_SHORTCUTS, 0) == 1));
         }
+
+	mShowCameraIntent = (SwitchPreference) findPreference(PREF_SHOW_CAMERA_INTENT);
+	mBottomShortcuts.setChecked((Settings.Secure.getInt(resolver,
+                    Settings.Secure.SHOW_CAMERA_INTENT, 0) == 1));
 
 	mLockscreenColorsReset = (Preference) findPreference(LOCKSCREEN_COLORS_RESET);
     }
