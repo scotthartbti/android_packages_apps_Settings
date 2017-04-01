@@ -86,6 +86,6 @@
     <color name="rr_accent">@color/theme_accent</color>
 
     <!-- DSLV colors -->
-    <color name="dslv_icon_dark">#ff009688</color>
+    <color name="dslv_icon_dark">#80000000</color>
     <color name="dslv_float_cackground_color">#ffe1e1e0</color>
 </resources>
