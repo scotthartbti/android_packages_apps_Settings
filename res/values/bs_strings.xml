@@ -712,6 +712,8 @@
     <string name="smartbar_config_backup_error_toast">Error saving Smartbar profile</string>
     <string name="smartbar_config_restore_error_toast">Error restoring Smartbar profile</string>
     <string name="navbar_buttons_alpha_title">Button transparency</string>
+    <string name="smartbar_doubletap_sleep_title">Double tap to sleep</string>
+    <string name="smartbar_doubletap_sleep_summary">Double tap on navbar empty areas to switch off the screen</string>
     <string name="one_handed_mode_title">One handed mode</string>
     <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
 
@@ -1053,4 +1055,17 @@
 
     <!-- Show camera intent on secure lock screen -->
     <string name="show_camera_intent_title">Show camera shortcut on secure lock screen</string>
+
+    <!-- Pixel Animation Duration -->
+    <string name="pixel_anim_title">Pixel navbar animation duration</string>
+    <string name="pixel_anim_summary">Customize various durations of pixel animation on navbar</string>
+    <string name="pixel_anim_warning">Customize various durations of pixel animation on navbar. WARNING! Changing default values can cause performance drop in animation.Proceed at your own risk</string>
+    <string name="pixel_anim_x_title">Horizontal duration</string>
+    <string name="pixel_anim_y_title">Vertical duration</string>
+    <string name="collapse_anim_duration_ry_title">Collapse duration</string>
+    <string name="collapse_anim_duration_bg_title">Collapse background</string>
+    <string name="retract_anim_duration_title">Retract duration</string>
+    <string name="diamond_anim_duration_title">Diamond duration</string>
+    <string name="dots_anim_duration_title">Dots duration</string>
+    <string name="home_resize_anim_duration_title">Home button resize duration</string>
 </resources>
