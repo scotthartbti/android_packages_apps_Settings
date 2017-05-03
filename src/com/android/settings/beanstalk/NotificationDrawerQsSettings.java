@@ -76,6 +76,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String NOTIFICATION_GUTS_KILL_APP_BUTTON = "notification_guts_kill_app_button";
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
     private static final String CATEGORY_WEATHER = "weather_category";
+    private static final String PREF_BRIGHTNESS_ICON_POSITION = "brightness_icon_position";
 
     private ListPreference mDaylightHeaderPack;
     private CustomSeekBarPreference mHeaderShadow;
@@ -91,6 +92,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private SwitchPreference mEasyToggle;
     private Preference mNotificationKill;
     private PreferenceCategory mWeatherCategory;
+    private SwitchPreference mBrightnessIconPosition;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -208,6 +210,9 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
         if (mWeatherCategory != null && (!Helpers.isPackageInstalled(WEATHER_SERVICE_PACKAGE, pm))) {
             prefSet.removePreference(mWeatherCategory);
 	}
+
+	mBrightnessIconPosition = (SwitchPreference) findPreference(PREF_BRIGHTNESS_ICON_POSITION);
+        mBrightnessIconPosition.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -244,6 +249,9 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
             Settings.System.putIntForUser(getContentResolver(), Settings.System.ANIM_TILE_INTERPOLATOR,
                     tileAnimationInterpolator, UserHandle.USER_CURRENT);
             updateTileAnimationInterpolatorSummary(tileAnimationInterpolator);
+            return true;
+	} else if (preference == mBrightnessIconPosition) {
+            Helpers.showSystemUIrestartDialog(getActivity());
             return true;
         } else if (preference == mQsColumns) {
             int qsColumns = (Integer) objValue;

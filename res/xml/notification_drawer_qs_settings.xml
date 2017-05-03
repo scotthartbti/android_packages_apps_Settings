@@ -43,6 +43,14 @@
         android:dependency="qs_show_brightness"
 	android:defaultValue="true"/>
 
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="brightness_icon_position"
+        android:title="@string/brightness_icon_position_title"
+        android:summaryOn="@string/brightness_icon_position_on_summary"
+        android:summaryOff="@string/brightness_icon_position_off_summary"
+        android:dependency="brightness_icon"
+        android:defaultValue="true"/>
+
     <PreferenceCategory
          android:title="@string/header_tweaks">
 
