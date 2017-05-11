@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.content.pm.UserInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -92,8 +93,12 @@ public class AdvancedLockscreen extends SettingsPreferenceFragment implements
 
 	// Fingerprint unlock keystore
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        mFpKeystore.setChecked((Settings.System.getInt(resolver,
-        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+	if (Build.BOARD.contains("marlin") || Build.BOARD.contains("sailfish")) {
+            prefSet.removePreference(mFpKeystore);
+        } else {
+            mFpKeystore.setChecked((Settings.System.getInt(resolver,
+            Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+        }
 
         mLockscreenOwnerInfoColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_OWNER_INFO_COLOR);
         mLockscreenOwnerInfoColorPicker.setOnPreferenceChangeListener(this);
