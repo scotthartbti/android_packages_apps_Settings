@@ -69,6 +69,7 @@ import com.android.settings.beanstalk.SmartbarSettings;
 import com.android.settings.beanstalk.PulseSettings;
 import com.android.settings.beanstalk.AmbientSettings;
 import com.android.settings.beanstalk.NotificationDrawerQsSettings;
+import com.android.settings.beanstalk.WeatherSettings;
 import com.android.settings.aicp.LockscreenShortcutFragment;
 import com.android.settings.applications.AdvancedAppSettings;
 import com.android.settings.applications.DrawOverlayDetails;
@@ -269,6 +270,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.SoundSettingsActivity.class.getName(),
             Settings.DisplaySettingsActivity.class.getName(),
             Settings.NotificationSettingsActivity.class.getName(),
+            Settings.WeatherSettingsActivity.class.getName(),
             Settings.StorageSettingsActivity.class.getName(),
             Settings.ManageApplicationsActivity.class.getName(),
             Settings.PowerUsageSummaryActivity.class.getName(),
@@ -326,6 +328,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             TextToSpeechSettings.class.getName(),
             StorageSettings.class.getName(),
     	    NotificationDrawerQsSettings.class.getName(),
+    	    WeatherSettings.class.getName(),
             PrivateVolumeForget.class.getName(),
             PrivateVolumeSettings.class.getName(),
             PublicVolumeSettings.class.getName(),

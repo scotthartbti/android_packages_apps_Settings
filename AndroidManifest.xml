@@ -1980,6 +1980,32 @@
                 android:value="com.android.settings.beanstalk.NotificationDrawerQsSettings" />
         </activity>
 
+	<activity android:name="Settings$WeatherSettingsActivity"
+                android:label="@string/weather_title"
+                android:icon="@drawable/ic_weather"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.INTERNAL_STORAGE_SETTINGS" />
+                <action android:name="android.settings.MEMORY_CARD_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+            <intent-filter android:priority="4">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.personal" />
+            <meta-data android:name="com.android.settings.title"
+                android:resource="@string/weather_title" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.beanstalk.WeatherSettings" />
+        </activity>
+
         <activity android:name="Settings$PrivateVolumeSettingsActivity"
                 android:label="@string/storage_settings_title"
                 android:taskAffinity="com.android.settings"
