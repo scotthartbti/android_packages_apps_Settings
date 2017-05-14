@@ -1123,6 +1123,9 @@
     <string name="weather_windspeed_metric_units">Windspeed (metric) display units</string>
     <string name="weather_windspeed_metric_units_summaryOn">Windspeed is displayed in meters/second (m/s)</string>
     <string name="weather_windspeed_metric_units_summaryOff">Windspeed is displayed in km/hours (km/h)</string>
+    <string name="weather_winddirection_display_title">Wind direction display</string>
+    <string name="weather_winddirection_display_summaryOn">Wind direction is displayed using pinwheel directions</string>
+    <string name="weather_winddirection_display_summaryOff">Wind direction is displayed using angular directions</string>
 
     <!-- QS footer warnings -->
     <string name="qs_footer_warnings_title">QS footer warnings</string>
