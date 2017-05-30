@@ -134,6 +134,12 @@
         android:title="@string/qs_tiles_category">
 
     <com.android.settings.beanstalk.SystemSettingSwitchPreference
+        android:key="quick_pulldown_fp"
+        android:title="@string/quick_pulldown_fp_title"
+        android:summary="@string/quick_pulldown_fp_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.beanstalk.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
         android:title="@string/qs_tile_title_visibility_title"
         android:summaryOn="@string/qs_tile_title_visibility_summary_on"
