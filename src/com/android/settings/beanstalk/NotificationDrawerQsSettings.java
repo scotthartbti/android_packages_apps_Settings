@@ -35,7 +35,6 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.util.Log;
-import android.hardware.fingerprint.FingerprintManager;
 import android.view.WindowManagerGlobal;
 import android.view.IWindowManager;
 import java.util.regex.Matcher;
@@ -78,7 +77,6 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
     private static final String CATEGORY_WEATHER = "weather_category";
     private static final String PREF_BRIGHTNESS_ICON_POSITION = "brightness_icon_position";
-    private static final String FP_SWIPE_QUICK_PULLDOWN = "quick_pulldown_fp";
 
     private ListPreference mDaylightHeaderPack;
     private CustomSeekBarPreference mHeaderShadow;
@@ -95,8 +93,6 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private Preference mNotificationKill;
     private PreferenceCategory mWeatherCategory;
     private SwitchPreference mBrightnessIconPosition;
-    private SwitchPreference mFingerprintSwipe;
-    private FingerprintManager mFingerprintManager;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -214,13 +210,6 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
         if (mWeatherCategory != null && (!Helpers.isPackageInstalled(WEATHER_SERVICE_PACKAGE, pm))) {
             prefSet.removePreference(mWeatherCategory);
 	}
-
-	// Fingerprint swipe for quick pulldown
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-        mFingerprintSwipe = (SwitchPreference) findPreference(FP_SWIPE_QUICK_PULLDOWN);
-        if (!mFingerprintManager.isHardwareDetected()) {
-            prefSet.removePreference(mFingerprintSwipe);
-        }
 
 	mBrightnessIconPosition = (SwitchPreference) findPreference(PREF_BRIGHTNESS_ICON_POSITION);
         mBrightnessIconPosition.setOnPreferenceChangeListener(this);
