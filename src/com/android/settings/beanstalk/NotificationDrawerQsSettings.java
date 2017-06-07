@@ -65,6 +65,7 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private static final String PREF_COLUMNS = "qs_layout_columns";
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
+    private static final String BATTERY_TILE_STYLE = "battery_tile_style";
 
     private static final String CUSTOM_HEADER_IMAGE = "status_bar_custom_header";
     private static final String PREF_QS_EASY_TOGGLE = "qs_easy_toggle";
@@ -93,6 +94,8 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
     private Preference mNotificationKill;
     private PreferenceCategory mWeatherCategory;
     private SwitchPreference mBrightnessIconPosition;
+    private ListPreference mBatteryTileStyle;
+    private int mBatteryTileStyleValue;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 
@@ -213,6 +216,13 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
 
 	mBrightnessIconPosition = (SwitchPreference) findPreference(PREF_BRIGHTNESS_ICON_POSITION);
         mBrightnessIconPosition.setOnPreferenceChangeListener(this);
+
+	mBatteryTileStyle = (ListPreference) findPreference(BATTERY_TILE_STYLE);
+        mBatteryTileStyleValue = Settings.Secure.getInt(resolver,
+                Settings.Secure.BATTERY_TILE_STYLE, 0);
+        mBatteryTileStyle.setValue(Integer.toString(mBatteryTileStyleValue));
+        mBatteryTileStyle.setSummary(mBatteryTileStyle.getEntry());
+        mBatteryTileStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -272,6 +282,14 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment  im
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.QS_EASY_TOGGLE, checked ? 1:0);
+            return true;
+	}  else if (preference == mBatteryTileStyle) {
+            mBatteryTileStyleValue = Integer.valueOf((String) objValue);
+            index = mBatteryTileStyle.findIndexOfValue((String) objValue);
+            mBatteryTileStyle.setSummary(
+                    mBatteryTileStyle.getEntries()[index]);
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.BATTERY_TILE_STYLE, mBatteryTileStyleValue);
             return true;
 	} else if (preference == mNotificationKill) {
             // Setting will only apply to new created notifications.

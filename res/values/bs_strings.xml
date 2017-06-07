@@ -1139,4 +1139,14 @@
     <!-- Fingerprint Quick Pulldown -->
     <string name="quick_pulldown_fp_title">Fingerprint quick pulldown</string>
     <string name="quick_pulldown_fp_summary">Enable expanding the Quick Settings with only one swipe on the fingerprint sensor</string>
+
+    <!-- Battery tile style-->
+    <string name="battery_tile_style_title">Battery tile style</string>
+
+    <!-- Battery strings -->
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_solid">Solid</string>
+    <string name="status_bar_battery_style_aicp">Tha Battery</string>
 </resources>
