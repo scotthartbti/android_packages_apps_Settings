@@ -1060,6 +1060,7 @@
     <string name="no_iconpacks_summary">No icon packs installed</string>
     <string name="dialog_pick_iconpack_title">Pick icon pack</string>
     <string name="default_iconpack_title">Default icons</string>
+    <string name="slim_recents_corner_radius_title">Card corner radius</string>
 
     <!-- Show camera intent on secure lock screen -->
     <string name="show_camera_intent_title">Show camera shortcut on secure lock screen</string>

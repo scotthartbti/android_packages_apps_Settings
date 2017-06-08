@@ -104,6 +104,16 @@
             defaultColor="#00ffffff"
             alphaSliderEnabled="true" />
 
+        <com.android.settings.beanstalk.CustomSeekBarPreference
+            android:key="slim_recents_corner_radius"
+            android:title="@string/slim_recents_corner_radius_title"
+            settings:min="0"
+            settings:max="20"
+            android:defaultValue="5"
+            settings:interval="1"
+            settings:units="dp"
+            android:persistent="false" />
+
         <Preference
             android:key="slim_icon_pack"
             android:title="@string/slim_icon_pack_title"

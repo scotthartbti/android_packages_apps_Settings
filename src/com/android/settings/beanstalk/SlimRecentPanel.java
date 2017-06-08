@@ -83,6 +83,8 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
             "recent_panel_lefty_mode";
     private static final String RECENT_PANEL_SCALE =
             "recent_panel_scale";
+    private static final String RECENTS_CORNER_RADIUS =
+            "slim_recents_corner_radius";
     private static final String RECENT_PANEL_EXPANDED_MODE =
             "recent_panel_expanded_mode";
     private static final String RECENT_PANEL_BG_COLOR =
@@ -108,6 +110,7 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
     private CustomSeekBarPreference mMaxApps;
     private SystemSettingSwitchPreference mRecentPanelLeftyMode;
     private CustomSeekBarPreference mRecentPanelScale;
+    private CustomSeekBarPreference mRecentsCornerRadius;
     private ListPreference mRecentPanelExpandedMode;
     private ColorPickerPreference mRecentPanelBgColor;
     private ColorPickerPreference mRecentCardBgColor;
@@ -204,9 +207,14 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
                     intHex);
             return true;
         } else if (preference == mMaxApps) {
-          Settings.System.putInt(getContext().getContentResolver(),
-              Settings.System.RECENTS_MAX_APPS, Integer.valueOf(String.valueOf(newValue)));
-          return true;
+            Settings.System.putInt(getContext().getContentResolver(),
+                Settings.System.RECENTS_MAX_APPS, Integer.valueOf(String.valueOf(newValue)));
+            return true;
+        } else if (preference == mRecentsCornerRadius) {
+            Settings.System.putInt(getContext().getContentResolver(),
+                Settings.System.SLIM_RECENTS_CORNER_RADIUS,
+                        Integer.valueOf(String.valueOf(newValue)));
+            return true;
         }
         return false;
     }
@@ -231,6 +239,10 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
                 Settings.System.RECENTS_MAX_APPS, ActivityManager.getMaxRecentTasksStatic(),
                 UserHandle.USER_CURRENT));
 
+        mRecentsCornerRadius.setValue(Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.SLIM_RECENTS_CORNER_RADIUS, 5,
+                UserHandle.USER_CURRENT));
+
         final int recentScale = Settings.System.getInt(getContext().getContentResolver(),
                 Settings.System.RECENT_PANEL_SCALE_FACTOR, 100);
         mRecentPanelScale.setValue(recentScale);
@@ -247,6 +259,9 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
 
         mMaxApps = (CustomSeekBarPreference) findPreference(RECENTS_MAX_APPS);
         mMaxApps.setOnPreferenceChangeListener(this);
+
+        mRecentsCornerRadius = (CustomSeekBarPreference) findPreference(RECENTS_CORNER_RADIUS);
+        mRecentsCornerRadius.setOnPreferenceChangeListener(this);
 
         // Recent panel background color
         mRecentPanelBgColor =
