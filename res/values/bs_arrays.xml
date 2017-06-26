@@ -861,14 +861,26 @@
         <item>@string/status_bar_battery_style_circle</item>
         <item>@string/status_bar_battery_style_solid</item>
         <item>@string/status_bar_battery_style_aicp</item>
-   </string-array>
+    </string-array>
 
-   <string-array name="battery_tile_style_values" translatable="false">
+    <string-array name="battery_tile_style_values" translatable="false">
        <item>0</item>
        <item>5</item>
        <item>2</item>
        <item>7</item>
        <item>8</item>
-   </string-array>
+    </string-array>
 
+    <!-- Fingerprint swipe gestures on incoming call  -->
+    <string-array name="fp_swipe_call_actions_entries">
+        <item>@string/fp_swipe_call_actions_disabled</item>
+        <item>@string/fp_swipe_call_actions_updown_answer_call</item>
+        <item>@string/fp_swipe_call_actions_up_answer_down_silence</item>
+    </string-array>
+
+    <string-array name="fp_swipe_call_actions_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
